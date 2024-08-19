@@ -14,6 +14,7 @@ def merge_ground_truth_to_data(
 This function filters the ground truth data to include only entries that match the specified content contributor. It then merges this filtered ground truth data with the weighted embeddings dataframe based on the URL.
 
 !!! NOTE "Ground Truth Data"
+
     The ground truth cluster information is derived from the reference Excel file provided by the HH team. Please note that this data serves as a reference from past manual audits and should not be considered as the definitive ground truth.
 
 Parameters
