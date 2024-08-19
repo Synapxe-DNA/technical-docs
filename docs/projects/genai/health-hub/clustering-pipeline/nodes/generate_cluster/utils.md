@@ -13,7 +13,7 @@ The create_graph_nodes function is designed to create nodes in a Neo4j graph dat
 def create_graph_nodes(tx, doc)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 : **`doc`** (`Dict[str, Any]`): A dictionary containing the article's data and vector representations. The dictionary must include the following keys:
@@ -31,7 +31,7 @@ def create_graph_nodes(tx, doc)
     - `vector_keywords`: The vector representation of the article keywords.
     - `ground_truth_cluster`: The ground truth cluster label of the article.
 
-#### Returns
+**Returns**
 
 : The function does not return any values. It performs an operation on the Neo4j database, creating a node with the provided attributes for each article.
 
@@ -43,12 +43,12 @@ The calculate_similarity function uses Neo4j GDS to compute cosine similarity be
 def calculate_similarity(tx, vector_name)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 : **`vector_name`** (`str`): Column name of vector to calculate cosine similarity.
 
-#### Returns
+**Returns**
 
 The function returns a dictionary in the following structure:
 
@@ -63,11 +63,11 @@ The function returns a dictionary in the following structure:
 
 This function fetches the ground truth for each article and return a dictionary of article id and the ground truth label. To be used within `combine_similarities` function.
 
-#### Parameters
+**Parameters**
 
 : **`session`** (`neo4j.Session`): A Neo4j session object used to execute queries within a transaction.
 
-#### Returns
+**Returns**
 
 : **`ground_truth`** (`Dict[int, int]`): A dictionary containing the article's id as the key and ground truth as the value.
 
@@ -88,7 +88,7 @@ def combine_similarities(
 ):
 ```
 
-#### Parameters
+**Parameters**
 
 : **`session`** (`neo4j.Session`): A Neo4j session object used to execute queries within a transaction.
 : **`weight_title`** (`int`): The weight assigned to title similarity for weighted similarity. To be retrieved from `parameters_clustering.yml`
@@ -98,7 +98,7 @@ def combine_similarities(
 : **`weight_combined`** (`Literal[0,1]`): A flag indicating whether weighted embeddings will be used. Set to `1` to use weighted embedding, and `0` to disable their use. When set to `1` ensure all other related weights are set to `0`. To be retrieved from `parameters_clustering.yml`
 : **`weight_kws`** (`int`): The weight assigned to the keywords similarity score. To be retrieved from `parameters_clustering.yml`.
 
-#### Returns
+**Returns**
 
 : **`combined_similarities_df`** (`pd.DataFrame`):
 A DataFrame containing combined similarity scores for each pair of articles. Each row represents a pair of articles with the following columns:
@@ -123,11 +123,11 @@ Note: ground truth cluster information is gathered from the reference excel file
 def median_threshold(combined_similarities_df)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`combined_similarities_df`** (`pd.DataFrame`): A DataFrame output from combine_similarities function, containing similarity scores between pairs of articles
 
-#### Returns
+**Returns**
 
 : **`threshold`** (`float`): Median of the weighted similarity scores for pairs of articles that share the same ground truth cluster.
 
@@ -139,13 +139,13 @@ The `create_sim_edges` function creates edges between nodes in a Neo4j graph dat
 def create_sim_edges(tx, similarities, threshold)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 : **`similarities`** (`pd.DataFrame`): A dataframe output from `combine_similarities` function, containing similarity scores between pairs of articles.
 : **`threshold`** (`float`): A value used as a cut-off point. Only pairs of nodes with a weighted similarity above this threshold will have edges created between them. This value can be pre-defined in `parameters_clustering.yml` or using the output threshold value from `median_threshold` function.
 
-#### Returns
+**Returns**
 
 : The function does not return any values. It performs operations within the Neo4j database to create edges based on the provided similarity scores and threshold.
 
@@ -157,11 +157,11 @@ This function checks if a graph projection named `articleGraph` exists within th
 def drop_graph_projection(tx)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : The function does not return any values. It performs operations within the Neo4j database to drop the `articleGraph` graph projection if exists
 
@@ -173,11 +173,11 @@ The `create_graph_proj` function creates a graph projection named `articleGraph`
 def create_graph_proj(tx)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : The function does not return any values. It performs an operation within the Neo4j database to create a graph project for subsequent graph data science operations.
 
@@ -189,11 +189,11 @@ The `detect_community` function performs community detection on a projected grap
 def detect_community(tx)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : The function does not return any values. It performs an operation within the Neo4j database to execute the Louvain community detection algorithm and write the detected community information back to the nodes in the graph.
 
@@ -201,11 +201,11 @@ def detect_community(tx)
 
 The `return_pred_cluster` function retrieves the predicted cluster assignments for articles from a Neo4j graph database. It queries the graph to get details of each article, including its ID, title, URL, body content, and the detected community (i.e. cluster label) to which it belongs. The results are ordered by the community and returned as a Pandas DataFrame.
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : **`df`** (`pd.DataFrame`): A DataFrame consisting of the following columns:
 
@@ -223,12 +223,12 @@ The `get_cluster_size` function analyzes the sizes of clusters predicted by the 
 def get_cluster_size(pred_cluster, column_name="cluster")
 ```
 
-#### Parameters
+**Parameters**
 
 : **`pred_cluster`** (`pd.DataFrame`): A DataFrame of predicted cluster with a cluster column with column name defined in `column_name` parameter.
 : **`column_name`** (`str`): Column name of the cluster label.
 
-#### Returns
+**Returns**
 
 : **`cluster_size`** (`pd.DataFrame`): DataFrame containing the size of each cluster in bins of size 5.
 
@@ -240,11 +240,11 @@ This `get_clustered_nodes` function retrieves information about each pair of nod
 def get_clustered_nodes(tx)
 ```
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : **`df`** (`pd.DataFrame`): A DataFrame consisting of the following columns:
 
@@ -262,11 +262,11 @@ def get_clustered_nodes(tx)
 
 The `get_unclustered_nodes` function retrieves details about nodes in a Neo4j graph database that do not have any relationships with other nodes. It executes a Cypher query to match nodes that are isolated.
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : **`df`** (`pd.DataFrame`): A DataFrame consisting of the following columns:
 
@@ -278,11 +278,11 @@ The `get_unclustered_nodes` function retrieves details about nodes in a Neo4j gr
 
 The `count_articles` function retrieves the count of articles grouped by their community cluster assignment from a Neo4j graph database. It executes a Cypher query to match nodes with the Article label, aggregate them by their cluster, and count the number of articles in each cluster.
 
-#### Parameters
+**Parameters**
 
 : **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
-#### Returns
+**Returns**
 
 : **`df`** (`pd.DataFrame`): A DataFrame consisting of the following columns:
 

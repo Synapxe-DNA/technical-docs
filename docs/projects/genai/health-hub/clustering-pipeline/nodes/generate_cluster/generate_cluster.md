@@ -27,7 +27,7 @@ The `generate_cluster` node orchestrates the process of clustering articles usin
 4. **Cluster Results:** Compiles clustering results, including generated cluster keywords and counting articles in each cluster.
 5. **Output Files for Visualisation:** Returns list of clustered and unclustered nodes for visualisation in `cluster_viz` node.
 
-#### Parameters
+**Parameters**
 
 : **`neo4j_config`** (`Dict[str, str]`): Configuration to connect to Neo4j database. Derived from values specified in `parameters_clustering.yml`.
 : **`merged_df_with_groundtruth`** (`pd.DataFrame`): The DataFrame output from `merge_ground_truth_data` node.
@@ -39,7 +39,7 @@ The `generate_cluster` node orchestrates the process of clustering articles usin
 : **`weight_combined`** (`float`): Weightage of article keywords similarity score to use to compute weighted similarity. Derived from values specified in `parameters_clustering.yml`.
 : **`set_threshold`** (`Union[None, float]`): Threshold for clustering. Set as "" if not pre-defining threshold.
 
-#### Returns
+**Returns**
 
 ##### For analysis
 
@@ -52,6 +52,6 @@ The `generate_cluster` node orchestrates the process of clustering articles usin
 : **`first_level_clustered_nodes`** (`pd.DataFrame`): A DataFrame with information about each pair of nodes and their edge connections.
 : **`first_level_unclustered_nodes`** (`pd.DataFrame`): A DataFrame with information about each single node.
 
-#### Raises
+**Raises**
 
 : **`Neo4jError`**: If an error occurs with Neo4j database operations.
