@@ -25,7 +25,7 @@ The `generate_cluster` node orchestrates the process of clustering articles usin
 2. **Threshold Setting:** Determines a threshold value for edge creation based on similarity scores. A pre-defined threshold value may also be used.
 3. **Graph Projection and Community Detection:** Projects the graph and detects communities within the graph.
 4. **Cluster Results:** Compiles clustering results, including generated cluster keywords and counting articles in each cluster.
-5. **Output Files for Visualisation:** Returns list of clustered and unclustered nodes for visualisation in `cluster_viz` node.
+5. **Output Files for Visualisation:** Generates the initial files for visualisation, including lists of clustered and unclustered nodes. These files form the basis for visulisation in the `cluster_viz` nodes and will be updated in the `update_edges_dataframe` node to incorporate the most recent edge data.
 
 Parameters
 
