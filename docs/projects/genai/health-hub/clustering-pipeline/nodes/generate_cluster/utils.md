@@ -1,8 +1,8 @@
 ---
 updated: 19 August 2024
 authors:
-    - Ho Si Xian
-    - Joycelyn Woo
+  - Ho Si Xian
+  - Joycelyn Woo
 ---
 
 ### Create Graph Nodes
@@ -15,8 +15,8 @@ def create_graph_nodes(tx, doc)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
-: **`doc`** (`Dict[str, Any]`):  A dictionary containing the article's data and vector representations. The dictionary must include the following keys:
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
+: **`doc`** (`Dict[str, Any]`): A dictionary containing the article's data and vector representations. The dictionary must include the following keys:
 
     - `id`: The unique identifier for the article.
     - `title`: The title of the article.
@@ -45,7 +45,7 @@ def calculate_similarity(tx, vector_name)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 : **`vector_name`** (`str`): Column name of vector to calculate cosine similarity.
 
 #### Returns
@@ -141,7 +141,7 @@ def create_sim_edges(tx, similarities, threshold)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 : **`similarities`** (`pd.DataFrame`): A dataframe output from `combine_similarities` function, containing similarity scores between pairs of articles.
 : **`threshold`** (`float`): A value used as a cut-off point. Only pairs of nodes with a weighted similarity above this threshold will have edges created between them. This value can be pre-defined in `parameters_clustering.yml` or using the output threshold value from `median_threshold` function.
 
@@ -159,7 +159,7 @@ def drop_graph_projection(tx)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -175,7 +175,7 @@ def create_graph_proj(tx)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -191,7 +191,7 @@ def detect_community(tx)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -203,7 +203,7 @@ The `return_pred_cluster` function retrieves the predicted cluster assignments f
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -242,7 +242,7 @@ def get_clustered_nodes(tx)
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -264,7 +264,7 @@ The `get_unclustered_nodes` function retrieves details about nodes in a Neo4j gr
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
@@ -280,11 +280,11 @@ The `count_articles` function retrieves the count of articles grouped by their c
 
 #### Parameters
 
-: **`tx`** (`neo4j.Transaction`):  A Neo4j transaction object used to execute the Cypher query.
+: **`tx`** (`neo4j.Transaction`): A Neo4j transaction object used to execute the Cypher query.
 
 #### Returns
 
-: **`df`** (`pd.DataFrame`):  A DataFrame consisting of the following columns:
+: **`df`** (`pd.DataFrame`): A DataFrame consisting of the following columns:
 
     - `cluster`: The community cluster
     - `article_count`: The number of articles in each community cluster
