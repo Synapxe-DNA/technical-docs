@@ -10,7 +10,7 @@ authors:
 The create_graph_nodes function is designed to create nodes in a Neo4j graph database. Specifically, it inserts nodes representing articles with various attributes such as title, URL, content, meta description, and multiple vector representations.
 
 ```python
-def create_graph_nodes(tx, doc)
+def create_graph_nodes(tx, doc):
 ```
 
 Parameters
@@ -40,7 +40,7 @@ Returns
 The calculate_similarity function uses Neo4j GDS to compute cosine similarity between 2 articles.
 
 ```python
-def calculate_similarity(tx, vector_name)
+def calculate_similarity(tx, vector_name):
 ```
 
 Parameters
@@ -120,7 +120,7 @@ The `median_threshold` function calculates the median of the weighted similarity
 Note: ground truth cluster information is gathered from the reference excel file provided by HH team.
 
 ```python
-def median_threshold(combined_similarities_df)
+def median_threshold(combined_similarities_df):
 ```
 
 Parameters
@@ -136,7 +136,7 @@ Returns
 The `create_sim_edges` function creates edges between nodes in a Neo4j graph database based on their similarity scores. It iterates through a DataFrame of similarity scores and creates an edge between nodes if their weighted similarity exceeds a given threshold. This helps in forming connections between articles that are considered similar according to the specified criteria.
 
 ```python
-def create_sim_edges(tx, similarities, threshold)
+def create_sim_edges(tx, similarities, threshold):
 ```
 
 Parameters
@@ -154,7 +154,7 @@ Returns
 This function checks if a graph projection named `articleGraph` exists within the Neo4j database. If the projection exists, the function proceeds to drop (delete) it.
 
 ```python
-def drop_graph_projection(tx)
+def drop_graph_projection(tx):
 ```
 
 Parameters
@@ -170,7 +170,7 @@ Returns
 The `create_graph_proj` function creates a graph projection named `articleGraph` in Neo4j using the Graph Data Science (GDS) library. This projection is used to facilitate graph algorithms and analysis by defining the nodes and relationships that should be included in the projected graph. In this case, it projects all nodes of type `Article` and their `SIMILAR` relationship defined as `similarity`.
 
 ```python
-def create_graph_proj(tx)
+def create_graph_proj(tx):
 ```
 
 Parameters
@@ -186,7 +186,7 @@ Returns
 The `detect_community` function performs community detection on a projected graph in Neo4j using the Louvain algorithm from the Graph Data Science (GDS) library. This algorithm is used to identify clusters or communities within the graph. The results of the community detection are written back to the nodes with a property called community.
 
 ```python
-def detect_community(tx)
+def detect_community(tx):
 ```
 
 Parameters
@@ -220,7 +220,7 @@ Returns
 The `get_cluster_size` function analyzes the sizes of clusters predicted by the clustering algorithm. It groups the articles by their cluster assignment, calculates the size of each cluster, and then categorizes these sizes into bins of size 5 for easier interpretation. The function returns a DataFrame summarizing the number of clusters within each size range, including a count of single unclustered articles.
 
 ```python
-def get_cluster_size(pred_cluster, column_name="cluster")
+def get_cluster_size(pred_cluster, column_name="cluster"):
 ```
 
 Parameters
@@ -237,7 +237,7 @@ Returns
 This `get_clustered_nodes` function retrieves information about each pair of nodes and their connections within a Neo4j graph database. It executes a Cypher query to match nodes and their relationships, returning details about the nodes, their similarities and cluster information.
 
 ```python
-def get_clustered_nodes(tx)
+def get_clustered_nodes(tx):
 ```
 
 Parameters

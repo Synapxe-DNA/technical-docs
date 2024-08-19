@@ -178,6 +178,10 @@ nav:
                       - Node 3:
                           - projects/genai/health-hub/clustering-pipeline/nodes/generate_subcluster/generate_subcluster.md
                           - projects/genai/health-hub/clustering-pipeline/nodes/generate_subcluster/utils.md
+                      - Node 4:
+                          - projects/genai/health-hub/clustering-pipeline/nodes/update_edges_dataframe/update_edges_dataframe.md
+                      - Node 5:
+                          - projects/genai/health-hub/clustering-pipeline/nodes/cluster_viz/cluster_visualization.md
                       - projects/genai/health-hub/clustering-pipeline/parameters_clustering.md
 
               - Webapp:
