@@ -7,7 +7,7 @@ authors:
 
 ## parameters_clustering.yml
 
-This document describes the configuration parameters used in the `parameters_clustering.yml` file for the `clustering` Kedro pipeline.
+This document describes the configuration parameters used in the `parameters_clustering.yml` file for `clustering` Kedro pipeline.
 
 ### Neo4j Configuration
 

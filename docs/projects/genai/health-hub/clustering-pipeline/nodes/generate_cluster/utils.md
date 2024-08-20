@@ -274,7 +274,7 @@ Returns
 
 ### Count Articles
 
-The `count_articles` function retrieves the count of articles grouped by their community assignment from a Neo4j graph database. It executes a Cypher query to match nodes with the Article label, aggregate them by their cluster, and count the number of articles in each cluster. The results are ordered by community.
+The `count_articles` function retrieves the count of articles grouped by their community assignment from a Neo4j graph database. It executes a Cypher query to match nodes with the article label, aggregate them by their cluster, and count the number of articles in each cluster. The results are ordered by community.
 
 Parameters
 
