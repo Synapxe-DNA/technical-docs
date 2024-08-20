@@ -1,6 +1,6 @@
 ---
 updated: 12 August 2024
-authors: 
+authors:
   - Ho Si Xian
   - Joycelyn Woo
 ---
@@ -35,7 +35,7 @@ content_contributor: Health Promotion Board
 This section defines the weightage for different aspects of similarity. To ensure proper weighted similarity, the total sum of all weights must equal `1`.
 
 !!! NOTE "NOTE"
-    The current clustering pipeline uses weighted embeddings instead of weighted similarity with `weight_combined` can be set to `1`, and all others set to `0`.
+The current clustering pipeline uses weighted embeddings instead of weighted similarity with `weight_combined` can be set to `1`, and all others set to `0`.
 
 ```yaml
 sim_weightage:
