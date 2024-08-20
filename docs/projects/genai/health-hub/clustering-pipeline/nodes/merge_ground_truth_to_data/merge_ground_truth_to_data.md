@@ -1,7 +1,13 @@
 ---
-updated: 12 August 2024
+updated: 20 August 2024
 authors: Ho Si Xian
 ---
+
+This function filters the ground truth data to include only entries that match the specified content contributor. It then merges this filtered ground truth data with the weighted embeddings dataframe based on the URL.
+
+!!! NOTE "Ground Truth Data"
+
+    The ground truth cluster information is derived from the reference Excel file provided by the HH team. Please note that this data serves as a reference from past manual audits and should not be considered as the definitive ground truth.
 
 ```python
 def merge_ground_truth_to_data(
@@ -10,12 +16,6 @@ def merge_ground_truth_to_data(
     weighted_embeddings: pd.DataFrame,
 ) -> pd.DataFrame:
 ```
-
-This function filters the ground truth data to include only entries that match the specified content contributor. It then merges this filtered ground truth data with the weighted embeddings dataframe based on the URL.
-
-!!! NOTE "Ground Truth Data"
-
-    The ground truth cluster information is derived from the reference Excel file provided by the HH team. Please note that this data serves as a reference from past manual audits and should not be considered as the definitive ground truth.
 
 Parameters
 
