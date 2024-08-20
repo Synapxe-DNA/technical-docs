@@ -1,16 +1,25 @@
 ---
-updated: 12 August 2024
+updated: 20 August 2024
 authors:
   - Ho Si Xian
-  - Joycelyn Woo
 ---
 
 # Introduction
 
-The clustering pipeline contains 5 nodes:
+Our primary goal is to reduce the workload associated with the manual review process by presenting groups of similar articles. This enables easier annotation, helping to determine which articles should be removed, harmonized, or optimized. This work lays the foundation for future content optimization and harmonization.
 
-1. `merge_ground_truth_to_data`: To merge reference excel from HH team into the processed dataset
-2. `generate_clusters`: To generate first-level clusters using Louvain algorithm
-3. `generate_subclusters`: To generate subclusters for those with cluster size > 10 using BERTopic
-4. `update_edges_dataframe`: To update first-level edge dataframe output from `generate_clusters` node
-5. `cluster_viz`: To visualise the clusters using pyvis
+### Workflow
+
+![](./img/workflow_1.png)
+The initial layer of our clustering approach employs graph-based methods to form preliminary groupings of related articles. This is achieved by leveraging the similarities in various article features, such as content body, article titles, and meta descriptions provided in the dataset.
+
+![](./img/workflow_2.png)
+Following this, the second layer utilizes BERTopic to further refine these clusters, generating keywords that represent each cluster's content. This additional step is necessary as the first level of clustering still produces clusters with sizes ranging from 11 to 70, which are too large and not optimal for user review. By performing the second level of clustering, we aim to create more specific and smaller cluster.
+
+### Exploration
+
+Various techniques were evaluated in the first level of clustering. The experimentation focused on different embedding techniques, multi-feature clustering methodologies, and feature selection to determine the most effective approach for clustering related articles.
+
+The image below summarizes the key findings and decisions made during this experimentation process:
+![](./img/exploration.png)
+Based on these findings, the selected approach for the first level of clustering is the `nomic-embed-text-v1.5 model`, utilizing weighted embeddings with a weighting scheme of 0.7 for content body and 0.3 for title. This method has been shown to generate more accurate and manageable clusters for user review.
