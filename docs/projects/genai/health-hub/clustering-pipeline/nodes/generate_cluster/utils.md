@@ -52,12 +52,12 @@ Returns
 
 : The function returns a dictionary in the following structure:
 
-    ```python
-    {(node_1_id, node_2_id): similarity_score}
-    ```
+```python
+{(node_1_id, node_2_id): similarity_score}
+```
 
-    - **Keys**: A tuple containing article ID for the first node (`node_1_id (int)`) and article ID for the second node (`node_2_id (int)`).
-    - **Values**: Cosine similarity score between the `vector_name` of `node_1_id` and `node_2_id`.
+- **Keys**: A tuple containing article ID for the first node (`node_1_id (int)`) and article ID for the second node (`node_2_id (int)`).
+- **Values**: Cosine similarity score between the `vector_name` of `node_1_id` and `node_2_id`.
 
 ### Fetch Ground Truth
 
