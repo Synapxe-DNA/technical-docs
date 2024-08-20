@@ -1,8 +1,10 @@
 ---
-updated: 19 August 2024
+updated: 20 August 2024
 authors:
   - Ho Si Xian
 ---
+
+This function updates the edges DataFrame (`first_level_clustered_nodes`) with new cluster assignments (`final_predicted_cluster`) and keywords from the updated prediction clusters after subclustering. It also identifies nodes that remain unclustered (single article clusters) and prepares a DataFrame for these unclustered nodes with relevant columns.
 
 ```python
 def update_edges_dataframe(
@@ -10,8 +12,6 @@ def update_edges_dataframe(
     final_predicted_cluster: pd.DataFrame
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
 ```
-
-This function updates the edges DataFrame (`first_level_clustered_nodes`) with new cluster assignments (`final_predicted_cluster`) and keywords from the updated prediction clusters. It also identifies nodes that remain unclustered (single article clusters) and prepares a DataFrame for these unclustered nodes with relevant columns.
 
 Parameters
 : **`first_level_clustered_nodes`** (`pd.DataFrame`): A DataFrame with information about each pair of nodes and their edge connections. Output from `generate_cluster` function.

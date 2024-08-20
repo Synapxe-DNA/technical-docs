@@ -1,9 +1,11 @@
 ---
-updated: 19 August 2024
+updated: 20 August 2024
 authors:
   - Ho Si Xian
   - Joycelyn Woo
 ---
+
+The `cluster_viz` node generates an interactive visualization of clustered and unclustered nodes in a network graph using the Pyvis library. The function creates a visual representation where nodes represent articles, and edges represent similarity score between the nodes. Details such as predicted cluster label and cluster keywords are included in the graph.
 
 ```python
 def cluster_viz(
@@ -11,8 +13,6 @@ def cluster_viz(
     final_unclustered_nodes: pd.DataFrame
 ):
 ```
-
-The cluster_viz node generates an interactive visualization of clustered and unclustered nodes in a network graph using the Pyvis library. The function creates a visual representation where nodes represent articles, and edges represent similarity score between the nodes. Details such as predicted cluster label and cluster keywords are included in the graph.
 
 Parameters
 : **`final_unclustered_node`** (`pd.DataFrame`): A DataFrame containing the nodes that remained unclustered, with columns:
@@ -34,7 +34,7 @@ Parameters
     - `node_2_cluster_kws` (`List`): The top 5 keywords representing `node_2_pred_cluster_new` cluster
 
 Returns
-: The function saves the interactive network graph as an HTML file at `data/07_model_output/neo4j_cluster_viz.html` and does not return any value.This file visualizes:
+: The function saves the interactive network graph as an HTML file at `data/07_model_output/neo4j_cluster_viz.html` and does not return any value. This file visualizes:
 
     - Nodes and edges from the clustered nodes with attributes like predicted clusters, keywords, and edge weights.
-    - Single nodes from the unclustered node
+    - Single nodes from the unclustered node.

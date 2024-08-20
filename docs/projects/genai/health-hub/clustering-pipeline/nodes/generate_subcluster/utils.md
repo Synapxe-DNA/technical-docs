@@ -1,7 +1,8 @@
 ---
-updated: 19 August 2024
+updated: 20 August 2024
 authors:
   - Ho Si Xian
+  - Joycelyn Woo
 ---
 
 ### Get Embeddings
@@ -15,36 +16,36 @@ def get_embeddings(cluster_df, umap_parameters):
 Parameters
 : **`cluster_df`** `(pd.DataFrame)`: A DataFrame containing the clustered data with the following relevant columns:
 
-    - `extracted_content_body_embeddings` (List[np.ndarray]): Precomputed embeddings of the body content.
-    - `title` (str): Titles of the documents or articles.
-    - `body_content` (str): The text content of the documents or articles.
-    - `id` (int): Unique identifier for each document or article.
+    - `id` (`int`): Unique identifier for the article.
+    - `title` (`str`): Title of the article.
+    - `body_content` (`str`): The body content of the article.
+    - `extracted_content_body_embeddings` (`List[np.ndarray]`): Precomputed embeddings of the body content.
 
-: **`umap_parameters`** `(Dict[str, int])`: A dictionary of parameters for configuring the UMAP model. Expected keys:
+: **`umap_parameters`** (`Dict[str, int]`): A dictionary of parameters for configuring the UMAP model. Expected keys:
 
     - `n_neighbors`: The size of the local neighborhood used for manifold approximation.
     - `n_components`: The dimension of the space to which the embeddings will be reduced.
 
 Returns
-: **`embeddings`** `(np.ndarray)`: The original embeddings extracted from `extracted_content_body_embeddings`.
-: **`doc_titles`** `(List[str])`: A list of titles corresponding to the documents. Extracted from `title` column of `cluster_df`.
-: **`docs`** `(List[str])`: A list of document body content. Extracted from `body_content` column of `cluster_df`.
-: **`ids`** `(List[int])`: A list of document or article IDs. Extracted from `id` column of `cluster_df`.
-: **`umap_embeddings`** `(np.ndarray)`: The embeddings after dimensionality reduction using UMAP.
+: **`embeddings`** (`np.ndarray`): The original embeddings extracted from `extracted_content_body_embeddings`.
+: **`doc_titles`** (`List[str]`): A list of titles. Extracted from `title` column of `cluster_df`.
+: **`docs`** (`List[str]`): A list of article body content. Extracted from `body_content` column of `cluster_df`.
+: **`ids`** (`List[int]`): A list of article IDs. Extracted from `id` column of `cluster_df`.
+: **`umap_embeddings`** (`np.ndarray`): The embeddings after dimensionality reduction using UMAP.
 
 ### Generate Cluster Keywords
 
 The `generate_cluster_keywords` function extracts key terms for each cluster from a set of documents using Class-based Term Frequency-Inverse Document Frequency (Class-based TF-IDF). It processes the body content of articles assigned to each cluster, performs lemmatization, and applies Class-based TF-IDF to identify the most significant words for each cluster. The function returns a dictionary where each key is a cluster identifier and the associated value is a list of the top five keywords for that cluster.
 
 ```python
-def generate_cluster_keywords(pred_cluster):
+def (pred_cluster):
 ```
 
 Parameters
-: **`pred_cluster`** (`pd.DataFrame`): A DataFrame output from with the following columns:
+: **`pred_cluster`** (`pd.DataFrame`): A DataFrame with the following columns:
 
-    - `body_content` (`str`): The text data from which keywords will be extracted.
-    - `new_cluster` (`int`): The second level predicted cluster assignment for each `body_content`.
+    - `body_content` (`str`): The article body content from which keywords will be extracted
+    - `new_cluster` (`int`): The cluster assignment for each `body_content`
 
 Returns
 : **`cluster_keywords_dict`** (`Dict[int,list]`):
@@ -54,7 +55,7 @@ Returns
 
 ### Hyperparameter Tuning
 
-The `hyperparameter_tuning` function iterates over various combination of HDBSCAN hyperparameters to identify the optimal set that yields the highest clustering quality, as measured by DBCV scores. The parameters being tuned include minimum cluster size, minimum samples, cluster selection method and the distance metric.
+The `hyperparameter_tuning` function iterates over various combination of HDBSCAN hyperparameters to identify the optimal set that yields the highest clustering quality, as measured by DBCV scores. The parameters being tuned include minimum cluster size (`min_cluster_size`), minimum samples (`min_samples`) and the distance metric (`metric`).
 
 ```python
 def hyperparameter_tuning(embeddings):
@@ -62,23 +63,23 @@ def hyperparameter_tuning(embeddings):
 
 Parameters
 
-: **`embeddings`** `(np.ndarray)`: A numpy array of embeddings representing the data points to be used. This can be original `embeddings` or `umap_embeddings` obtained from `get_embeddings` function.
+: **`embeddings`** (`np.ndarray`): A numpy array of embeddings representing the data points to be used. This can be original `embeddings` or `umap_embeddings` obtained from `get_embeddings` function.
 
 Returns
 
-: **`best_parameters`** `(Dict[str, Union[int,str]])`: A dictionary containing the optimal set of HDBSCAN hyperparameters. Expected keys:
+: **`best_parameters`** (`Dict[str, Union[int,str]]`): A dictionary containing the optimal set of HDBSCAN hyperparameters. Expected keys:
 
     - `min_cluster_size` (`int`): The optimal minimum cluster size, selected from the range `[2,3,4,5,6]`
     - `min_samples` (`int`): The optimal minimum number of samples, selected from the range `[1,2,3,4,5,6,7]`
     - `cluster_selection_method` (`str`): The optimal method for selecting clusters, with `"leaf"` being used in this tuning process (though `"eom"` can also be included as an option).
-    - `metric` (`str`): Th`e optimal distance metric, selected from `["euclidean", "manhattan"]`.
+    - `metric` (`str`): The optimal distance metric, selected from `["euclidean", "manhattan"]`.
 
 ### Topic Modelling
 
-The `topic_modelling` function constructs and configures a BERTopic model to perform topic modeling on text data. It utilizes HDBSCAN for clustering reduced embeddings and allows for optional fine-tuning of topic representations. The function performs the following steps:
+The `topic_modelling` function constructs and configures a BERTopic model to perform topic modeling on textual data. It utilises HDBSCAN for clustering reduced embeddings and allows for optional fine-tuning of topic representations. The function performs the following steps:
 
-1. **Cluster Reduced Embeddings:** Uses HDBSCAN to cluster the reduced embeddings based on the provided hyperparameters.
-2. **Tokenize Topics:** Uses `CountVectorizer` to tokenize the text data, excluding common English stop words.
+1. **Cluster Reduced Embeddings:** Uses HDBSCAN to cluster the reduced embeddings based on the specified hyperparameters.
+2. **Tokenize Topics:** Uses `CountVectorizer` to tokenise the text data, excluding common English stop words.
 3. **Create Topic Representation:** Applies the `ClassTfidfTransformer` to extract topic words from the tokenized data.
 4. **Optional Fine-Tuning:** Optionally fine-tunes the topic representations using `MaximalMarginalRelevance` to enhance diversity.
 5. **Return BERTopic Model:** Returns the fully configured BERTopic model ready for use in topic modeling.
@@ -112,7 +113,7 @@ def create_topic_assigner(start_counter)
 Parameters
 
 : **`start_counter`** (`int`):
-The initial value for the topic counter, typically set as the max value of the clustered data points. This counter will be incremented each time a new topic is assigned.
+The initial value for the topic counter, typically set as the max value +1 of the clustered data points. This counter will be incremented each time a new topic is assigned.
 
 Returns
 
@@ -121,7 +122,7 @@ A function that takes an input value `x` and assigns a new topic number if `x` e
 
 ### Process Cluster
 
-The `process_cluster` function processes a DataFrame of clustered data to extract embeddings, perform hyperparameter tuning, and apply topic modeling. It assigns topics to each document, extracts relevant keywords, and ensures that unclustered data points are assigned unique topic numbers. The function involves the following steps:
+The `process_cluster` function processes a DataFrame of clustered data to extract embeddings (`get_embeddings` function), perform hyperparameter tuning (`hyperparameter_tuning` function), configure BERTopic model (`topic_modelling` function) and apply topic modeling. It assigns topics to each document, extracts relevant keywords, and ensures that unclustered data points are assigned unique topic numbers. The function involves the following steps:
 
 1. **Extract embeddings**: Extracts both the original and UMAP-reduced embeddings from the input DataFrame, using `get_embeddings` function.
 2. **Hyperparameters Tuning**: Tunes HDBSCAN hyperparameters using the UMAP-reduced embeddings, using `hyperparameter_tuning` function.
@@ -138,10 +139,10 @@ def process_cluster(cluster_df, umap_parameters):
 Parameters
 : **`cluster_df`** `(pd.DataFrame)`: A DataFrame containing the clustered data with the following relevant columns:
 
-    - `extracted_content_body_embeddings` (List[np.ndarray]): Precomputed embeddings of the body content.
-    - `title` (str): Titles of the documents or articles.
-    - `body_content` (str): The text content of the documents or articles.
-    - `id` (int): Unique identifier for each document or article.
+    - `id` (`int`): Unique identifier for the article.
+    - `title` (`str`): Title of the article.
+    - `body_content` (`str`): The body content of the article.
+    - `extracted_content_body_embeddings` (`List[np.ndarray]`): Precomputed embeddings of the body content.
 
 : **`umap_parameters`** `(Dict[str, int])`: A dictionary of parameters for configuring the UMAP model. Expected keys:
 
