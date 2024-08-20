@@ -117,7 +117,7 @@ A DataFrame containing combined similarity scores for each pair of articles. Eac
 
 The `median_threshold` function calculates the median of the weighted similarity scores for pairs of articles that share the same ground truth cluster. This median value may be used as a threshold for clustering.
 
-*Note: ground truth cluster information is gathered from the reference excel file provided by HH team.*
+Note: ground truth cluster information is gathered from the reference excel file provided by HH team.
 
 ```python
 def median_threshold(combined_similarities_df):
