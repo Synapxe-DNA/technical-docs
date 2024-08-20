@@ -76,7 +76,6 @@ Returns
 The `combine_similarities` function combines similarity scores from various feature vectors (such as title, category name, description, body content, combined vectors, and keywords) into a single weighted similarity score for each pair of nodes (articles) in a Neo4j database. This combined similarity score is then used for further analysis or clustering.
 
 ```python
-
 def combine_similarities(
     session,
     weight_title,
