@@ -43,14 +43,17 @@ In the weighted similarity approach, cosine similarity scores are first calculat
 
 Quantitative analysis reviewed that
 
-1. For `nomic-embed-text-v1.5` model, the weighted embeddings method produced
-   1. more clusters
-   2. clusters with less inter-connected edges (i.e. have more distinctly separated clusters)
-   3. high proportion of small-sized clusters (88.9% of clusters are of group size 2-10)
-2. For `all-MiniLM-L6-v2` model, the weighted similarity method produced
-   1. more clusters
-   2. clusters with less inter-connected edges (i.e. have more distinctly separated clusters)
-   3. high proportion of small-sized clusters (85.7% of clusters are of group size 2-10)
+- For `nomic-embed-text-v1.5` model, the weighted embeddings method produced
+
+      - more clusters
+      - clusters with less inter-connected edges (i.e. have more distinctly separated clusters)
+      - high proportion of small-sized clusters (88.9% of clusters are of group size 2-10)
+
+- For `all-MiniLM-L6-v2` model, the weighted similarity method produced
+
+      - more clusters
+      - clusters with less inter-connected edges (i.e. have more distinctly separated clusters)
+      - high proportion of small-sized clusters (85.7% of clusters are of group size 2-10)
 
 ### Qualitative analysis
 

@@ -42,14 +42,14 @@ For `nomic-embed-text-v1.5`, the largest cluster that remained after subclusteri
 
 - **nomic-embed-text-v1.5**: Out of 45 subgroups, 9 were noted to have issues such as:
 
-  - Articles with a different focus compared to the rest within the subgroup
-  - Differing article contexts within the subgroup
-  - No clear thematic distinction between the different subgroups
+      - Articles with a different focus compared to the rest within the subgroup
+      - Differing article contexts within the subgroup
+      - No clear thematic distinction between the different subgroups
 
 - **all-MiniLM-L6-v2**: Out of 36 subgroups, 13 were noted to have issues such as:
 
-  - No clear thematic distribution between different subgroups
-  - Subgroups were too broad, targeting different audiences
+      - No clear thematic distribution between different subgroups
+      - Subgroups were too broad, targeting different audiences
 
 ### Conclusion
 
