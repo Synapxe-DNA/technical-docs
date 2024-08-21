@@ -169,7 +169,14 @@ nav:
                   - projects/genai/health-hub/data-pipeline/introduction.md
               - Clustering Pipeline:
                   - projects/genai/health-hub/clustering-pipeline/introduction.md
+                  - Experimentations:
+                      - projects/genai/health-hub/clustering-pipeline/experimentations/embedding_techniques/embedding_techniques.md
+                      - projects/genai/health-hub/clustering-pipeline/experimentations/multi_feature/multi_feature_clustering_methodology.md
+                      - projects/genai/health-hub/clustering-pipeline/experimentations/feature_selection/feature_selection.md
+                      - projects/genai/health-hub/clustering-pipeline/experimentations/subclustering/subclustering.md
+
                   - Nodes:
+                      - projects/genai/health-hub/clustering-pipeline/nodes/introduction.md
                       - Node 1:
                           - projects/genai/health-hub/clustering-pipeline/nodes/merge_ground_truth_to_data/merge_ground_truth_to_data.md
                       - Node 2:
