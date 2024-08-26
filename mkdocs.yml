@@ -203,6 +203,7 @@ nav:
 
               - Article Rewriting:
                   - projects/genai/health-hub/article-rewriting/Introduction.md
+                  - projects/genai/health-hub/article-rewriting/LangChain.md
                   - projects/genai/health-hub/article-rewriting/LangGraph.md
                   - projects/genai/health-hub/article-rewriting/LLM_Observability.md
                   - Optimisation Checks:
