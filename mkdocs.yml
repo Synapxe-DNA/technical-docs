@@ -205,7 +205,8 @@ nav:
                   - projects/genai/health-hub/article-rewriting/Introduction.md
                   - projects/genai/health-hub/article-rewriting/LangGraph.md
                   - projects/genai/health-hub/article-rewriting/LLM_Observability.md
-                  - projects/genai/health-hub/article-rewriting/Optimisation_Checks.md
+                  - Optimisation Checks:
+                    - projects/genai/health-hub/article-rewriting/optimisation-checks/Introduction.md
 
               - Webapp:
                   - projects/genai/health-hub/webapp/introduction.md
@@ -256,6 +257,7 @@ nav:
                   - Misc:
                       - projects/genai/health-hub/webapp/misc/populator.md
                       - projects/genai/health-hub/webapp/misc/mocker.md
+
           - Conversational Assistant:
               - Webapp:
                   - Frontend:
@@ -270,6 +272,7 @@ nav:
                   - Backend:
                       - API:
                           - projects/genai/conversational-assistant/webapp/backend/api/endpoints.md
+
           - Example Project:
               - Section One:
                   - projects/genai/example-project/section-one/index.md
