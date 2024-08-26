@@ -4,7 +4,7 @@ authors:
   - Issac J
 ---
 
-# LLM Observability
+# LLM Observability (Arize Phoenix)
 
 ## Introduction
 
@@ -15,7 +15,7 @@ We mainly use Phoneix to trace the execution of the LangGraph workflows. Refer t
 
 LLM tracing records the paths taken by requests as they propagate through multiple steps or components of an LLM application. Tracing is a helpful tool for understanding how your LLM application works. Phoenix offers comprehensive tracing capabilities that are not tied to any specific LLM vendor or framework.
 
-![Tracing Overview](./img/phoenix-trace-overview.png)
+![Tracing Overview](./img/phoenix_trace.png)
 
 Phoenix captures the following traces from the LangGraph execution -
 
