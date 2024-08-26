@@ -201,11 +201,11 @@ nav:
                           - projects/genai/health-hub/clustering-pipeline/nodes/cluster_viz/cluster_visualization.md
                       - projects/genai/health-hub/clustering-pipeline/parameters_clustering.md
 
-              - Article Harmonisation:
-                  - projects/genai/health-hub/article-harmonisation/Introduction.md
-                  - projects/genai/health-hub/article-harmonisation/LangGraph.md
-                  - projects/genai/health-hub/article-harmonisation/LLM_Observability.md
-                  - projects/genai/health-hub/article-harmonisation/Optimisation_Checks.md
+              - Article Rewriting:
+                  - projects/genai/health-hub/article-rewriting/Introduction.md
+                  - projects/genai/health-hub/article-rewriting/LangGraph.md
+                  - projects/genai/health-hub/article-rewriting/LLM_Observability.md
+                  - projects/genai/health-hub/article-rewriting/Optimisation_Checks.md
 
               - Webapp:
                   - projects/genai/health-hub/webapp/introduction.md
