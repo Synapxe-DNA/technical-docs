@@ -23,5 +23,11 @@ Then, these evaluations are later shared to the users for approval/refinement. F
 
 ### Harmonisation Workflow
 
+## Project Setup
 
+### Setting up for Optimisation Checks
 
+1. Go to the [Step 1 Harmonisation and Optimisation Checks](https://drive.google.com/drive/folders/1ywUNxLDkNLVaYlawjZrz8CX_fKbf5joz) subdirectory within [User Annotation](https://drive.google.com/drive/folders/1kuTAWvOvBRAVP0wmJIjIXdTP9X77j3lI) directory.
+2. Fetch the `ids_for_optimisation.csv` file and add it into the `data` subdirectory in the `article-harmonisation` project.
+3. Migrate the `merged_data.parquet` from the Kedro Pipeline stored in `content-optimization/data/03_primary` directory.
+4. Refer to the `README.md` in `article-harmonisation` to run the project.
