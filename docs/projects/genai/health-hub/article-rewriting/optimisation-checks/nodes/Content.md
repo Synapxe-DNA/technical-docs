@@ -45,7 +45,7 @@ We first plotted a box plot to obtain the distribution of the article word count
 
 The Writing Style (structure) evaluation assesses the content structure across 5 key dimensions - Opening, Content Structure, Writing Style, Closing and Overall Effectiveness.
 
-```markdown
+```text
 1. Opening
 
    - Evaluates the clarity and effectiveness of the introduction
