@@ -18,7 +18,7 @@ The length of the article meta description must be within 70 and 160 characters.
 
 The meta description evaluation assesses the relevance of the meta description with respect to its content. It performs the following steps -
 
-```
+```markdown
 1. Identify the Meta Description
 
     - What is the meta description of the article?

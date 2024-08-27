@@ -18,7 +18,7 @@ The length of the article title must not exceed 70 characters. This is a require
 
 The title evaluation assesses the relevance of the title with respect to its content. It performs the following steps -
 
-```
+```markdown
 1. Identify the Title
 
    - What is the title of the article?
