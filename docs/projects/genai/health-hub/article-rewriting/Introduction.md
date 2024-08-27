@@ -5,7 +5,7 @@ authors:
   - Jin Chou
 ---
 
-# Introduction
+<h1><p style="text-align: center;">Introduction to article rewriting</p></h1>
 
 Our primary objective is to reduce the workload in the manual review process. It aims to identify and optimise the articles across four different areas, namely:
 
@@ -22,7 +22,9 @@ There are two workflows, namely: Article Optimisation and Article Harmonisation
 
 ![Optimisation Checks & Rewriting Workflow](./img/article_optimisation_flow.jpg)
 
-Article optimisation refers to the process of optimising individual articles.
+<p style="text-align: center; font-size: 10px;"><i>Article Optimisation Workflow diagram</i></p>
+
+**Article optimisation** refers to the process of optimising individual articles.
 
 The first step of article optimisation would be to evaluate the quality of the article based on its content, title and meta description. The article will be evaluated using Rules, Statistics and Large Language Models (LLMs). The output will then be stored on the User Annotation Excel File.
 
@@ -50,7 +52,9 @@ After the article optimisation process has been completed, the optimised output 
 
 ![Harmonisation Checks & Rewriting Workflow](./img/article_harmonisation_flow.jpg)
 
-Article harmonisation refers to the process of harmonising (combining) a group of articles. Articles in the same cluster can be marked for harmonisation, which will lead them to undergo the article harmonisation process. Article harmonisation will optimise all 4 article categories: article content, writing, title and meta description.
+<p style="text-align: center; font-size: 10px;"><i>Article Harmonisation Workflow diagram</i></p>
+
+**Article harmonisation** refers to the process of harmonising (combining) a group of articles. Articles in the same cluster can be marked for harmonisation, which will lead them to undergo the article harmonisation process. Article harmonisation will optimise all 4 article categories: article content, writing, title and meta description.
 
 The article harmonisation process is largely similar to that of article optimisation, with several exceptions. As such, the description for the article harmonisation process will take reference to the article optimisation process above. 
 
