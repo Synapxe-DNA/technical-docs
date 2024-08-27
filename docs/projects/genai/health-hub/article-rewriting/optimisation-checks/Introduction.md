@@ -49,3 +49,11 @@ The Summarisation component is only triggered when the Decision component output
 ### [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
 
 There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
+
+### Implementing new Agents
+
+1. Add in the new agent roles at `agents/enums.py`
+2. Implement your new prompt at `agents/prompts.py`
+3. Implement the new evaluation chain at `agents/models.py`
+4. Define your new state schema at `states/definitions.py`
+5. Integrate the new evaluations and their corresponding states into the LangGraph workflow at `checks.py`
