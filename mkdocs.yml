@@ -207,6 +207,31 @@ nav:
                   - projects/genai/health-hub/article-rewriting/LLM_Observability.md
                   - Optimisation Checks:
                     - projects/genai/health-hub/article-rewriting/optimisation-checks/Introduction.md
+                  - Article Optimisation:
+                    - Intro to Article Optimisation : projects/genai/health-hub/article-rewriting/article-harmonisation/article_optimisation_intro.md
+                    - Article Optimisation Flow:
+                        - Step 1. Article Content Preprocessing: projects/genai/health-hub/article-rewriting/article-harmonisation/article_content_preprocessing.md
+                        - Step 2. Researcher Node: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/researcher_node.md
+                        - Step 3. Content Guidelines Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/content_guidelines_optimisation.md
+                        - Step 4. Writing Optimisation: 
+                                - Writing Guidelines Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/writing_guidelines_optimisation.md
+                                - Readability Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/readability_optimisation.md
+                                - Personality Evaluation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/personality_evaluation.md 
+                        - Step 5. Title Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/title_optimisation.md
+                        - Step 6. Meta Desc Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/meta_desc_optimisation.md
+                  - Article Harmonisation:
+                    - Intro to Article Harmonisation Intro: projects/genai/health-hub/article-rewriting/article-harmonisation/article_harmonisation_intro.md
+                    - Article Harmonisation Flow:
+                        - Step 1. Article Content Preprocessing: projects/genai/health-hub/article-rewriting/article-harmonisation/article_content_preprocessing.md
+                        - Step 2. Researcher Node: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/researcher_node.md
+                        - Step 3. Compiler Node: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/compiler_node.md
+                        - Step 4. Content Guidelines Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/content_guidelines_harmonisation.md
+                        - Step 5. Writing Optimisation: 
+                                - Writing Guidelines Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/writing_guidelines_optimisation.md
+                                - Readability Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/readability_optimisation.md
+                                - Personality Evaluation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/personality_evaluation.md                      
+                        - Step 6. Title Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/title_optimisation.md
+                        - Step 7. Meta Desc Optimisation: projects/genai/health-hub/article-rewriting/article-harmonisation/article-rewriting-nodes/meta_desc_optimisation.md
 
               - Webapp:
                   - projects/genai/health-hub/webapp/introduction.md
