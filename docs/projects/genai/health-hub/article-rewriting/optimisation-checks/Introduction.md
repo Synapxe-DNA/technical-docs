@@ -4,9 +4,7 @@ authors:
   - Issac J
 ---
 
-# Optimisation Checks
-
-## Introduction
+# Introduction
 
 The `Article Optimisation Checks` workflow focuses on evaluating articles based on their content, title and meta description. We utilise a diverse set of Rule-based, Statistical-based and LLM-based evaluations.
 
