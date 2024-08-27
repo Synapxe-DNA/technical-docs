@@ -6,7 +6,7 @@ authors:
 
 # Content Evaluation
 
-## Content Flags
+## Content Flags (Rule-based)
 
 ### Readability
 
@@ -17,14 +17,13 @@ To assess the readability score of the article, we utilised a similar scoring me
     H = Math.round(4.71 * **average word length** + 0.5 * **average sentence length** - 21.43)
 
 However, we had to amend the function slightly due to the presence of URL links and the breaking up of sentence during parsing. We used `Math.ceil()` instead to resolve these issues.
-If the Hemmingway score is at least 10, it is considered `hard` to read. These articles are then passed to an LLM to explain why the article is `hard` to read.  
+If the Hemmingway score is at least 10, it is considered `hard` to read. These articles are then passed to an LLM to explain why the article is `hard` to read.
 
 For a better understanding of the scoring function, refer to `utils/evaluations.py`.
 
-
 ### Insufficient Content
 
-To assess whether the article has sufficient content, we used word as a proxy indicator. Our focus is on these five content categories (`"cost-and-financing"`,`"live-healthy-articles"`, `"diseases-and-conditions"`, `"medical-care-and-facilities"`, `"support-group-and-others"`). 
+To assess whether the article has sufficient content, we used word as a proxy indicator. Our focus is on these five content categories (`"cost-and-financing"`,`"live-healthy-articles"`, `"diseases-and-conditions"`, `"medical-care-and-facilities"`, `"support-group-and-others"`).
 
 We first plotted a box plot to obtain the distribution of the article word counts across these content categories from all content providers. From there, we decided that the lower quartile (i.e. 25th percentile) can serve a good threshold to flag insufficient content.
 
@@ -36,7 +35,7 @@ We first plotted a box plot to obtain the distribution of the article word count
     - "medical-care-and-facilities": 202
     - "support-group-and-others": 213
 
-## Content Judge
+## Content Judge (LLM-based)
 
 ### Writing Style
 
@@ -46,26 +45,30 @@ We first plotted a box plot to obtain the distribution of the article word count
 
 The Writing Style (structure) evaluation assesses the content structure across 5 key dimensions - Opening, Content Structure, Writing Style, Closing and Overall Effectiveness.
 
-* Opening
-    - Evaluates the clarity and effectiveness of the introduction
+```
+1. Opening
+   - Evaluates the clarity and effectiveness of the introduction
 
-* Content Structure
-    - Evaluates the organisation of the content
-    - Evaluates whether the paragraphs are succinct and easy to read
+2. Content Structure
 
-* Writing Style
-    - Evaluates whether the tone is conversational
-    - Evaluates whether complicated terms were used for its intended audience
-    - Evaluates whether the content is relatable
+   - Evaluates the organisation of the content
+   - Evaluates whether the paragraphs are succinct and easy to read
 
-* Closing
-    - Evaluates whether the next steps are clearly outlined
-    - Evaluates whether the message is clearly reinforced
+3. Writing Style
 
-* Overall Effectiveness
-    - Evaluates whether the article insights are actionable
-    - Evaluates whether the main content fulfils the promise made in the introduction
+   - Evaluates whether the tone is conversational
+   - Evaluates whether complicated terms were used for its intended audience
+   - Evaluates whether the content is relatable
 
+4. Closing
 
-Refer to `structure_evaluation_prompt` function in `agents/prompts.py` to understand the exact criteria used to evaluate the article content.
+   - Evaluates whether the next steps are clearly outlined
+   - Evaluates whether the message is clearly reinforced
 
+5. Overall Effectiveness
+
+   - Evaluates whether the article insights are actionable
+   - Evaluates whether the main content fulfills the promise made in the introduction
+```
+
+Refer to the `structure_evaluation_prompt` function in `agents/prompts.py` to understand the exact criteria used to evaluate the article content.
