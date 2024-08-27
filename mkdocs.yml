@@ -208,7 +208,10 @@ nav:
                   - projects/genai/health-hub/article-rewriting/LLM_Observability.md
                   - Optimisation Checks:
                       - projects/genai/health-hub/article-rewriting/optimisation-checks/Introduction.md
-
+                      - Evaluations:
+                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Content.md
+                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Title.md
+                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Meta_Description.md
               - Webapp:
                   - projects/genai/health-hub/webapp/introduction.md
                   - Frontend:
