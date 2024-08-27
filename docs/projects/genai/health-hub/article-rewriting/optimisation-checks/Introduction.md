@@ -17,14 +17,14 @@ The workflow is executed concurrently where the rule-based and statistical-based
 
 Rule-based Checks have clearly defined thresholds that they must be kept within (e.g. Title Length must be within 70 characters). These checks are typically stored in the `flag` parameter within the LangGraph Schema.
 
-### Statistical-based
+### Statistical-based Checks
 
 Statistical-based Checks have thresholds that are defined either by an equation (e.g. Hemmingway Score) or by exploring the distribution of the article's properties (e.g. Word Count).
 
 When the thresholds are very explicit (e.g. Below the 25th percentile of the Word Count Distribution), these checks are only stored in the `flag` parameter within the LangGraph Schema.
 However, the thresholds are not explainable (e.g. Readability), the article is submitted to an explainer that explains the evaluation. This is stored in the `judge` parameter of the LangGraph Schema.
 
-### LLM-based
+### LLM-based Checks
 
 LLM-based Checks are composed of 3 key components - **Evaluation**, **Decision** and **Summarisation**. This is to ensure that the LLM focuses on one key objective at a time, thus lowering the likelihood of hallucinations.
 
