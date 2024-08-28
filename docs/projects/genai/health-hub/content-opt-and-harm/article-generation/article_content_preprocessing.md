@@ -25,4 +25,3 @@ Some articles contain a list-like structure, where there is a clear hierachy bet
 For this explanation and for the rest of this page, we will be referring to the h2 headers as a "parent" to the h3 headers and the h3 headers as a "child" to the h2 headers.
 
 This relationship between a parent and child header is not captured effectively in the `extracted_content_body` when extracting it from the  `merged_data.parquet` file. Hence, a pre-processing step is added to better accentuate these relations between headers.
-
