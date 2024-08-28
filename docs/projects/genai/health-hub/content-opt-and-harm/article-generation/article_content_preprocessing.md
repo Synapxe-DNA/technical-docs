@@ -3,6 +3,7 @@ updated: 27 August 2024
 authors:
   - Jin Chou
 ---
+
 <center><h2><p>Article Content Preprocessing</p></h2></center>
 
 # 1. Introduction
@@ -25,20 +26,21 @@ Some articles contain a list-like structure, where there is a clear hierachy bet
 
 For this explanation and for the rest of this page, we will be referring to the h2 headers as a "parent" to the h3 headers and the h3 headers as a "child" to the h2 headers.
 
-This relationship between a parent and child header is not captured effectively in the `extracted_content_body` when extracting it from the  `merged_data.parquet` file. Hence, a pre-processing step is added to better accentuate these relations between headers.
+This relationship between a parent and child header is not captured effectively in the `extracted_content_body` when extracting it from the `merged_data.parquet` file. Hence, a pre-processing step is added to better accentuate these relations between headers.
 
 ## 3. Explanation of Article Content Preprocessing Output
 
 This step starts by extracting the article headers and its content body from `merged_data.parquet`.
 
 It will extract the html tag of the header from `extracted_headers` and determine which header category the header to. The header categories are listed in the table below.
+
 <center>
 
 | html tag | header category |
-| ----------- | ----------- |
-| h1 | Main Header |
-| h2 | Sub Header|
-| h3 - h6 | Sub Section|
+| -------- | --------------- |
+| h1       | Main Header     |
+| h2       | Sub Header      |
+| h3 - h6  | Sub Section     |
 
 </center>
 
