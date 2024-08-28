@@ -141,7 +141,7 @@ to set up.
 #### with GitHub Actions
 
 Using [GitHub Actions](https://github.com/features/actions), we can automate the deployment of our
-documentation. At the root of the repository, create a new GitHub Actions workflow, e.g. `.github/workflows/ci.yml`, and 
+documentation. At the root of the repository, create a new GitHub Actions workflow, e.g. `.github/workflows/ci.yml`, and
 copy and paste the following contents at this
 [link](https://squidfunk.github.io/mkdocs-material/publishing-your-site/#:~:text=name%3A%20ci,gh%2Ddeploy%20%2D%2Dforce).
 
@@ -154,4 +154,4 @@ ensure that the
 for the GitHub Page is set to `gh-pages`.
 
 The documentation should shortly appear at
-[synapxe-dna.github.io/technical-docs/](https://wilsven.github.io/technical-docs/).
+[synapxe-dna.github.io/technical-docs/](https://synapxe-dna.github.io/technical-docs/).
