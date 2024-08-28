@@ -179,15 +179,17 @@ nav:
       - Generative AI:
           - Content Optimization:
               - Data & Clustering Pipeline:
-                  - Data Processing: projects/genai/health-hub/data-pipeline/data-processing.md
+                  - Data Processing:
+                      - projects/genai/health-hub/data-pipeline/data-processing.md
+                      - projects/genai/health-hub/data-pipeline/excluded-articles.md
                   - Feature Engineering: projects/genai/health-hub/data-pipeline/feature-engineering.md
                   - Clustering:
                       - projects/genai/health-hub/data-pipeline/clustering/index.md
                       - Experiments:
-                          - projects/genai/health-hub/data-pipeline/clustering/experiments/embedding-techniques/embedding-techniques.md
-                          - projects/genai/health-hub/data-pipeline/clustering/experiments/multi-feature/multi-feature-clustering-methodology.md
-                          - projects/genai/health-hub/data-pipeline/clustering/experiments/feature-selection/feature-selection.md
-                          - projects/genai/health-hub/data-pipeline/clustering/experiments/subclustering/subclustering.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/embedding-techniques.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/multi-feature-clustering-methodology.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/feature-selection.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/subclustering.md
                       - Nodes:
                           - projects/genai/health-hub/data-pipeline/clustering/nodes/index.md
                           - projects/genai/health-hub/data-pipeline/clustering/nodes/merge-ground-truth-to-data.md
