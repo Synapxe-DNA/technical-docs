@@ -4,7 +4,7 @@ authors:
   - Jin Chou
 ---
 
-<center><h2><p>Article Content Preprocessing</p></h2></center>
+# Article Content Preprocessing
 
 ## 1. Introduction
 
