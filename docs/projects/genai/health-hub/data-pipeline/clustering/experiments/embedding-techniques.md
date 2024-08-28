@@ -26,8 +26,7 @@ Mean pooling computes the average value for each dimension of the embeddings acr
 ### Pooling Strategy: Evaluation Methodology
 
 In the ablation study, mean and max pooling strategies were evaluated using 3 Sentence Bert models (`all-MiniLM-L6-v2`, `all-mpnet-base-v2`, `msmarco-bert-base-dot-v5`) on a subset of the reference excel file provided by HH team (20 articles). 20 x 20 confusion matrices (heatmaps) were generated and evaluated. The figure below shows an example output using `msmarco-bert-base-dot-v5` embeddings with mean pooling. The colour-coded text on each axis signifies that article titles of the same colour belong to a single group of similar articles. Ideally, confusion matrixes should form along the diagonal axis in lighter colours (signifying high correlation), while the areas away from the diagonal line should be as dark as possible (signifying low correlation).
-
-![Figure 1. Confusion matrix / heat map generated from Dot Product Similarity between documents on `msmarco-bert-base-dot-v5` embeddings with mean pooling.](../images/heatmap.png)
+![Figure 1. Confusion matrix / heat map generated from Dot Product Similarity between documents on `msmarco-bert-base-dot-v5` embeddings with mean pooling.](images/heatmap.png)
 
 Confusion Matrix / Heat Map generated from Dot Product Similarity between documents on `msmarco-bert-base-dot-v5` embeddings with mean pooling.
 
