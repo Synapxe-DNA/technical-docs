@@ -29,17 +29,20 @@ However, the thresholds are not explainable (e.g. Readability), the article is s
 LLM-based Checks are composed of 3 key components - **Evaluation**, **Decision** and **Summarisation**. This is to ensure that the LLM focuses on one key objective at a time, thus lowering the likelihood of hallucinations.
 
 ```mermaid
+
     flowchart TD
     article_inputs[<b>Article Inputs<b>] --> evaluation(Evaluation)
     evaluation --> decision(Decision)
     decision --> |False| _end[End]
     decision --> |True| summarisation[Summarisation]
     summarisation --> _end
+
     style article_inputs fill:#db8e02, color:#02075D, rx:20,ry:20
     style evaluation fill:#F16E80,color:#fff
     style decision fill:#2D9BF0,color:#fff
     style _end fill: color:#5A5A5A, rx:30, ry:30
     style summarisation fill:#BE88C6, color:#fff, rx:10, ry:10
+
 ```
 
 #### Evaluation
@@ -56,9 +59,9 @@ The Summarisation component is only triggered when the Decision component output
 
 ## Notes
 
-### [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
+### [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)
 
-There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
+There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
 
 ### Implementing new Agents
 
