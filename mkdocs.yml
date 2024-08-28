@@ -176,6 +176,12 @@ nav:
               - Data Pipeline:
                   - projects/genai/health-hub/data-pipeline/index.md
                   - projects/genai/health-hub/data-pipeline/introduction.md
+                  - Nodes:
+                      - projects/genai/health-hub/data-pipeline/nodes/standardize_columns.md
+                      - projects/genai/health-hub/data-pipeline/nodes/add_data.md
+                      - projects/genai/health-hub/data-pipeline/nodes/extract_data.md
+                      - projects/genai/health-hub/data-pipeline/nodes/map_data.md
+                      - projects/genai/health-hub/data-pipeline/nodes/merge_data.md
 
               - Clustering Pipeline:
                   - projects/genai/health-hub/clustering-pipeline/introduction.md
