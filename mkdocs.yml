@@ -170,53 +170,78 @@ nav:
       - Hooks:
           - home/hooks/authors.md
           - home/hooks/doculabels.md
-
   - Projects:
-      - GenAI:
-          - Health Hub:
-              - Data Pipeline:
-                  - projects/genai/health-hub/data-pipeline/index.md
-                  - projects/genai/health-hub/data-pipeline/introduction.md
+      - Computer Vision:
+          - Waymo:
+              - Data Processing:
+                  - projects/computervision/waymo/data-processing/index.md
+                  - projects/computervision/waymo/data-processing/introduction.md
+      - Generative AI:
+          - Content Optimization:
+              - Data & Clustering Pipeline:
+                  - Data Processing: projects/genai/health-hub/data-pipeline/data-processing.md
+                  - Feature Engineering: projects/genai/health-hub/data-pipeline/feature-engineering.md
+                  - Clustering:
+                      - projects/genai/health-hub/data-pipeline/clustering/index.md
+                      - Experiments:
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/embedding-techniques/embedding-techniques.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/multi-feature/multi-feature-clustering-methodology.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/feature-selection/feature-selection.md
+                          - projects/genai/health-hub/data-pipeline/clustering/experiments/subclustering/subclustering.md
+                      - Nodes:
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/index.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/merge-ground-truth-to-data.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/generate-cluster.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/generate-subcluster.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/update-edges-dataframe.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/cluster-visualization.md
+                          - Utilities:
+                              - projects/genai/health-hub/data-pipeline/clustering/nodes/utilities/utils_clusters.md
+                              - projects/genai/health-hub/data-pipeline/clustering/nodes/utilities/utils_subclusters.md
+                          - projects/genai/health-hub/data-pipeline/clustering/nodes/parameters-clustering.md
+              - Optimization & Generation:
+                  - projects/genai/health-hub/content-opt-and-harm/index.md
+                  - projects/genai/health-hub/content-opt-and-harm/langchain.md
+                  - projects/genai/health-hub/content-opt-and-harm/langgraph.md
+                  - projects/genai/health-hub/content-opt-and-harm/llm-observability.md
+                  - Article Optimization Check:
+                      - projects/genai/health-hub/content-opt-and-harm/article-opt-check/index.md
+                      - projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/content.md
+                      - projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/meta-description.md
+                      - projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/title.md
+                  - Article Generation:
+                      - projects/genai/health-hub/content-opt-and-harm/article-generation/index.md
+                      - Article Optimisation:
+                          - Intro to Article Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article_optimisation_intro.md
+                          - Article Optimisation Flow:
+                              - Step 1. Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
+                              - Step 2. Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
+                              - Step 3. Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_optimisation.md
+                              - Step 4. Writing Optimisation:
+                                  - Writing Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation.md
+                                  - Readability Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation.md
+                                  - Personality Evaluation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation.md
+                              - Step 5. Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
+                              - Step 6. Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
+                      - Article Harmonisation:
+                          - Intro to Article Harmonisation Intro: projects/genai/health-hub/content-opt-and-harm/article-generation/article_harmonisation_intro.md
+                          - Article Harmonisation Flow:
+                              - Step 1. Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
+                              - Step 2. Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
+                              - Step 3. Compiler Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/compiler_node.md
+                              - Step 4. Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_harmonisation.md
+                              - Step 5. Writing Optimisation:
+                                  - Writing Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation.md
+                                  - Readability Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation.md
+                                  - Personality Evaluation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation.md
+                              - Step 6. Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
+                              - Step 7. Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
 
-              - Clustering Pipeline:
-                  - projects/genai/health-hub/clustering-pipeline/introduction.md
-                  - Experimentations:
-                      - projects/genai/health-hub/clustering-pipeline/experimentations/embedding_techniques/embedding_techniques.md
-                      - projects/genai/health-hub/clustering-pipeline/experimentations/multi_feature/multi_feature_clustering_methodology.md
-                      - projects/genai/health-hub/clustering-pipeline/experimentations/feature_selection/feature_selection.md
-                      - projects/genai/health-hub/clustering-pipeline/experimentations/subclustering/subclustering.md
-                  - Nodes:
-                      - projects/genai/health-hub/clustering-pipeline/nodes/introduction.md
-                      - Node 1:
-                          - projects/genai/health-hub/clustering-pipeline/nodes/merge_ground_truth_to_data/merge_ground_truth_to_data.md
-                      - Node 2:
-                          - projects/genai/health-hub/clustering-pipeline/nodes/generate_cluster/generate_cluster.md
-                          - projects/genai/health-hub/clustering-pipeline/nodes/generate_cluster/utils.md
-                      - Node 3:
-                          - projects/genai/health-hub/clustering-pipeline/nodes/generate_subcluster/generate_subcluster.md
-                          - projects/genai/health-hub/clustering-pipeline/nodes/generate_subcluster/utils.md
-                      - Node 4:
-                          - projects/genai/health-hub/clustering-pipeline/nodes/update_edges_dataframe/update_edges_dataframe.md
-                      - Node 5:
-                          - projects/genai/health-hub/clustering-pipeline/nodes/cluster_viz/cluster_visualization.md
-                      - projects/genai/health-hub/clustering-pipeline/parameters_clustering.md
-
-              - Article Rewriting:
-                  - projects/genai/health-hub/article-rewriting/Introduction.md
-                  - projects/genai/health-hub/article-rewriting/LangChain.md
-                  - projects/genai/health-hub/article-rewriting/LangGraph.md
-                  - projects/genai/health-hub/article-rewriting/LLM_Observability.md
-                  - Optimisation Checks:
-                      - projects/genai/health-hub/article-rewriting/optimisation-checks/Introduction.md
-                      - Evaluations:
-                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Content.md
-                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Title.md
-                          - projects/genai/health-hub/article-rewriting/optimisation-checks/nodes/Meta_Description.md
-              - Webapp:
-                  - projects/genai/health-hub/webapp/introduction.md
+              - Webapp (Deprecated):
+                  - projects/genai/health-hub/webapp/index.md
                   - Frontend:
-                      - projects/genai/health-hub/webapp/frontend/introduction.md
-                      - projects/genai/health-hub/webapp/frontend/frontend_activity_diagram.md
+                      - projects/genai/health-hub/webapp/frontend/index.md
+                      - projects/genai/health-hub/webapp/frontend/frontend-activity-diagram.md
                       - Services:
                           - projects/genai/health-hub/webapp/frontend/services/cluster.md
                           - projects/genai/health-hub/webapp/frontend/services/job.md
@@ -230,34 +255,34 @@ nav:
                           - projects/genai/health-hub/webapp/frontend/types/sorter.md
                           - projects/genai/health-hub/webapp/frontend/types/groups.md
                       - Utilities:
-                          - projects/genai/health-hub/webapp/frontend/utilities/group_manager.md
+                          - projects/genai/health-hub/webapp/frontend/utilities/group-manager.md
                   - Backend:
-                      - projects/genai/health-hub/webapp/backend/introduction.md
-                      - projects/genai/health-hub/webapp/system_architecture.md
+                      - projects/genai/health-hub/webapp/backend/index.md
+                      - projects/genai/health-hub/webapp/system-architecture.md
                       - Types:
                           - projects/genai/health-hub/webapp/backend/types/overview.md
                           - Articles:
                               - projects/genai/health-hub/webapp/backend/types/articles/article.md
-                              - projects/genai/health-hub/webapp/backend/types/articles/article_meta.md
-                              - projects/genai/health-hub/webapp/backend/types/articles/article_status.md
-                              - projects/genai/health-hub/webapp/backend/types/articles/generated_article.md
+                              - projects/genai/health-hub/webapp/backend/types/articles/article-meta.md
+                              - projects/genai/health-hub/webapp/backend/types/articles/article-status.md
+                              - projects/genai/health-hub/webapp/backend/types/articles/generated-article.md
                           - Relations:
                               - projects/genai/health-hub/webapp/backend/types/relations/group.md
                               - projects/genai/health-hub/webapp/backend/types/relations/edge.md
                           - Jobs:
                               - projects/genai/health-hub/webapp/backend/types/jobs/job.md
-                              - projects/genai/health-hub/webapp/backend/types/jobs/job_combine.md
-                              - projects/genai/health-hub/webapp/backend/types/jobs/job_ignore.md
-                              - projects/genai/health-hub/webapp/backend/types/jobs/job_optimise.md
-                              - projects/genai/health-hub/webapp/backend/types/jobs/job_remove.md
+                              - projects/genai/health-hub/webapp/backend/types/jobs/job-combine.md
+                              - projects/genai/health-hub/webapp/backend/types/jobs/job-ignore.md
+                              - projects/genai/health-hub/webapp/backend/types/jobs/job-optimise.md
+                              - projects/genai/health-hub/webapp/backend/types/jobs/job-remove.md
                       - API:
                           - projects/genai/health-hub/webapp/backend/api/endpoints.md
                       - Database:
-                          - projects/genai/health-hub/webapp/backend/db/db_connector.md
+                          - projects/genai/health-hub/webapp/backend/db/db-connector.md
                           - Mongo:
-                              - projects/genai/health-hub/webapp/backend/db/mongo/er_diagram.md
-                              - projects/genai/health-hub/webapp/backend/db/mongo/mongo_connector.md
-                              - projects/genai/health-hub/webapp/backend/db/mongo/beanie_documents.md
+                              - projects/genai/health-hub/webapp/backend/db/mongo/er-diagram.md
+                              - projects/genai/health-hub/webapp/backend/db/mongo/mongo-connector.md
+                              - projects/genai/health-hub/webapp/backend/db/mongo/beanie-documents.md
                   - Misc:
                       - projects/genai/health-hub/webapp/misc/populator.md
                       - projects/genai/health-hub/webapp/misc/mocker.md
@@ -265,7 +290,7 @@ nav:
           - Conversational Assistant:
               - Webapp:
                   - Frontend:
-                      - projects/genai/conversational-assistant/webapp/frontend/introduction.md
+                      - projects/genai/conversational-assistant/webapp/frontend/index.md
                       - Services:
                           - projects/genai/conversational-assistant/webapp/frontend/services/voice-activity-detection.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/chat-message.md
@@ -276,14 +301,5 @@ nav:
                   - Backend:
                       - API:
                           - projects/genai/conversational-assistant/webapp/backend/api/endpoints.md
-
-          - Example Project:
-              - Section One:
-                  - projects/genai/example-project/section-one/index.md
-                  - projects/genai/example-project/section-one/introduction.md
-                  - projects/genai/example-project/section-one/tfidf_max_features_384_cosine_emd.ipynb
-              - Section Two:
-                  - projects/genai/example-project/section-two/index.md
-                  - projects/genai/example-project/section-two/introduction.md
   - Articles:
       - blog/index.md
