@@ -72,6 +72,6 @@ The Writing Style (structure) evaluation assesses the content structure across 5
    - Evaluates whether the main content fulfills the promise made in the introduction
 ```
 
-As the Writing Style Evaluation is an LLM-based check, we follow the same structure (`Evaluation -> Decision -> Summarisation`) as mentioned [here](../index.md#llm-based-checks). 
+As the Writing Style Evaluation is an LLM-based check, we follow the same structure (`Evaluation -> Decision -> Summarisation`) as mentioned [here](../index.md#llm-based-checks).
 
 Refer to the `structure_evaluation_prompt` function in [`agents/prompts.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/agents/prompts.py) to understand the exact criteria used to evaluate the article content.

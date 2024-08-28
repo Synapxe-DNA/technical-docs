@@ -28,13 +28,15 @@ Then, these evaluations are later shared to the users for approval/refinement. F
 ### Setting up for Optimisation Checks
 
 1. Run the Data Processing Pipeline via Kedro. Refer to the [`README.md`](https://github.com/Synapxe-DNA/healthhub-content-optimization/tree/main/content-optimization) in `content-optimization` for more information.
-    ```bash
-    # From the ROOT directory of the healthhub-content-optimization repository
-    cd content-optimization
-    # Run the Kedro pipeline
-    kedro run --pipeline=data_processing
-    ```
-2. Fetch the `merged_data.parquet` file from the [`content-optimization/data/03_primary`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/data/03_primary) directory 
+
+   ```bash
+   # From the ROOT directory of the healthhub-content-optimization repository
+   cd content-optimization
+   # Run the Kedro pipeline
+   kedro run --pipeline=data_processing
+   ```
+
+2. Fetch the `merged_data.parquet` file from the [`content-optimization/data/03_primary`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/data/03_primary) directory
 3. Generate the `ids_for_optimisaton.csv` files by referring to the [`exclude_articles.ipynb`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/notebooks/exclude_articles.ipynb) notebook.
 4. Add these 2 files into the [`data`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/data) subdirectory in the `article-harmonisation` project.
 5. Run the [`checks.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/checks.py) Python file to execute the Optimisation Checks workflow.
