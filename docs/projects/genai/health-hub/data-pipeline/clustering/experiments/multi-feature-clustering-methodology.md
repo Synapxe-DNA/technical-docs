@@ -25,13 +25,13 @@ Both methods leverage the benefits of using multiple features while controlling 
 
 ### Weighted Embeddings Approach
 
-![Multi-feature clustering weighted embedding approach](./images/weighted_embedding_approach.png)
+![Multi-feature clustering weighted embedding approach](../images/weighted_embedding_approach.png)
 
 In the weighted embeddings approach, each feature of the articles, such as article body content and article title, is first embedded into vectors using an embedding model. These feature-specific embeddings are then combined by applying predefined weights to each feature’s embedding, reflecting their relative importance or relevance to the clustering task. This weighted combination results in a single, unified embedding for each article. Subsequently, the similarity scores between these unified embeddings are computed, and clustering is performed using community detection techniques.
 
 ### Weighted Similarity Approach
 
-![Multi-feature clustering weighted embedding approach](./images/weighted_sim_approach.png)
+![Multi-feature clustering weighted embedding approach](../images/weighted_sim_approach.png)
 
 In the weighted similarity approach, cosine similarity scores are first calculated within each feature embeddings. Each article’s similarity score is then adjusted by applying predefined weights that reflect the importance of the corresponding feature. Community detection is then applied to this weighted similarity matrix to identify clusters.
 
@@ -39,7 +39,7 @@ In the weighted similarity approach, cosine similarity scores are first calculat
 
 ### Quantitative analysis
 
-![Multi-feature clustering evaluation](./images/evaluation.png)
+![Multi-feature clustering evaluation](../images/evaluation.png)
 
 Quantitative analysis reviewed that
 

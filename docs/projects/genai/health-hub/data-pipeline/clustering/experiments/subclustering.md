@@ -10,7 +10,7 @@ The initial clustering process identified over 60 groups, with 10 to 11 of these
 
 ### Methodology
 
-![Subclustering methodology](./images/method.png)
+![Subclustering methodology](../images/method.png)
 
 The second level of clustering involves the following steps:
 
@@ -53,7 +53,7 @@ For `nomic-embed-text-v1.5`, the largest cluster that remained after subclusteri
 
 ### Conclusion
 
-![Subclustering summary table](./images/summary_table.png)
+![Subclustering summary table](../images/summary_table.png)
 
 Before the implementation of the second layer of topic modeling, when examining clusters with a size of 5 or less, the `nomic-embed-text-v1.5` model produced a higher absolute number of quality groups compared to the `all-MiniLM-L6-v2` model. Additionally, the `nomic-embed-text-v1.5` model also produced a higher percentage of good groups in comparison to the `all-MiniLM-L6-v2` model.
 

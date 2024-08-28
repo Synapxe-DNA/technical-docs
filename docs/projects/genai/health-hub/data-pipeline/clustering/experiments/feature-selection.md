@@ -12,7 +12,7 @@ Combining multiple features for clustering provides a richer and more comprehens
 
 To assess the impact of individual features on clustering performance, clustering was conducted separately on each feature.
 
-![Importance of each feature](./images/importance_feature_result.png)
+![Importance of each feature](../images/importance_feature_result.png)
 
 The results indicate that article body content and title are the most effective features for clustering similar articles. Both features generated more distinct and meaningful clusters, highlighting their importance in capturing the essence of the articles. In contrast, meta description and keywords produced fewer clusters, suggesting that embeddings derived from these features were less effective in distinguishing between articles.
 
@@ -22,11 +22,11 @@ Titles and body content serve complementary roles. Titles often summarise or hig
 
 ### Evaluation
 
-![Evaluation result](./images/content_title_meta_result.png)
+![Evaluation result](../images/content_title_meta_result.png)
 
 First, we looked at the cluster size breakdown for each model. For both models, combination of content body with title produces higher number of smaller clusters of size ≤ 5.
 
-![Qualitative result](./images/qualitative_result.png)
+![Qualitative result](../images/qualitative_result.png)
 
 Next, we evaluated each smaller-sized cluster (those that contains ≤ 5 articles) qualitatively. For both models, combination of content body with title gives:
 
