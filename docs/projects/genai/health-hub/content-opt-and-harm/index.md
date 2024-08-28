@@ -27,7 +27,7 @@ Then, these evaluations are later shared to the users for approval/refinement. F
 
 ### Setting up for Optimisation Checks
 
-1. Run the Data Processing Pipeline via Kedro.
+1. Run the Data Processing Pipeline via Kedro. Refer to the [`README.md`](https://github.com/Synapxe-DNA/healthhub-content-optimization/tree/main/content-optimization) in `content-optimization` for more information.
     ```bash
     # From the ROOT directory of the healthhub-content-optimization repository
     cd content-optimization

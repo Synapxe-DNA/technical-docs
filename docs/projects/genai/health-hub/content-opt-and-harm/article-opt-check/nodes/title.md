@@ -44,4 +44,6 @@ The title evaluation assesses the relevance of the title with respect to its con
    - Any discrepancies
 ```
 
-Refer to the `title_evaluation_prompt` function in `agents/prompts.py` to understand the exact criteria used to evaluate the article content.
+As the Title Evaluation is an LLM-based check, we follow the same structure (`Evaluation -> Decision -> Summarisation`) as mentioned [here](../index.md#llm-based-checks). 
+
+Refer to the `title_evaluation_prompt` function in [`agents/prompts.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/agents/prompts.py) to understand the exact criteria used to evaluate the article title.
