@@ -61,7 +61,7 @@ After processing the header type and checking for any parents, the rest of the c
 
 Continuing from the example above, this is will be the output after the preprocessing step:
 
-``` python
+```python
 """h2 Sub Header: 2 bodyweight exercises to help you achieve your weight goal
 
 h3 Sub Section: 1. Pushups
