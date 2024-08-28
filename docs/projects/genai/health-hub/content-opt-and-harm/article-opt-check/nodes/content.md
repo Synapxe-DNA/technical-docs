@@ -19,7 +19,7 @@ To assess the readability score of the article, we utilised a similar scoring me
 However, we had to amend the function slightly due to the presence of URL links and the breaking up of sentence during parsing. We used `Math.ceil()` instead to resolve these issues.
 If the Hemmingway score is at least 10, it is considered `hard` to read. These articles are then passed to an LLM to explain why the article is `hard` to read.
 
-For a better understanding of the scoring function, refer to `utils/evaluations.py`.
+For a better understanding of the scoring function, refer to [`utils/evaluations.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/utils/evaluations.py).
 
 ### Insufficient Content
 
