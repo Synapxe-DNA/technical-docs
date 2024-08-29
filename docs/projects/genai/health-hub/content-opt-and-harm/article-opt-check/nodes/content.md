@@ -19,7 +19,7 @@ To assess the readability score of the article, we utilised a similar scoring me
 However, we had to amend the function slightly due to the presence of URL links and the breaking up of sentence during parsing. We used `Math.ceil()` instead to resolve these issues.
 If the Hemmingway score is at least 10, it is considered `hard` to read. These articles are then passed to an LLM to explain why the article is `hard` to read.
 
-For a better understanding of the scoring function, refer to `utils/evaluations.py`.
+For a better understanding of the scoring function, refer to [`utils/evaluations.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/utils/evaluations.py).
 
 ### Insufficient Content
 
@@ -72,4 +72,6 @@ The Writing Style (structure) evaluation assesses the content structure across 5
    - Evaluates whether the main content fulfills the promise made in the introduction
 ```
 
-Refer to the `structure_evaluation_prompt` function in `agents/prompts.py` to understand the exact criteria used to evaluate the article content.
+As the Writing Style Evaluation is an LLM-based check, we follow the same structure (`Evaluation -> Decision -> Summarisation`) as mentioned [here](../index.md#llm-based-checks).
+
+Refer to the `structure_evaluation_prompt` function in [`agents/prompts.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/agents/prompts.py) to understand the exact criteria used to evaluate the article content.

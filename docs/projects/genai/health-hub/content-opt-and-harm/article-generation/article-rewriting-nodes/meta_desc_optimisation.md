@@ -43,7 +43,8 @@ The second step instructs the LLM agent to check that the optimised meta descrip
 Finally, the actual length of each meta description is calculated after meta description optimisation through a rule-based function. If any meta description exceeds the character limit, the state graph will be redirected back for another round of meta description optimisation to produce shorter meta descriptions. In subsequent rewrites, all meta descriptions will be rewritten. If all optimised meta descriptions meet the length requirements, the graph state will be directed to other optimisation nodes.
 
 !!! Note
-Further development can be done to improve the effeciveness of this feedback loop by adding additional fields for feedback on shortening the meta descriptions, as well as reducing the meta description length limit in the prompts with each subsequent rewrite. The rule-based function could also be configured to only rewrite lengthy meta descriptions while retaining shorter ones.
+
+    Further development can be done to improve the effeciveness of this feedback loop by adding additional fields for feedback on shortening the meta descriptions, as well as reducing the meta description length limit in the prompts with each subsequent rewrite. The rule-based function could also be configured to only rewrite lengthy meta descriptions while retaining shorter ones.
 
 ## 4. Sample of the Meta Description Optimisation Node output
 
@@ -68,7 +69,8 @@ An example of the output from each step of meta description optimisation is show
 In the optimised meta description output from step 1, the first meta description exceeded the character limit of 130 characters stated in the prompt. In the subsequent step of meta description optimisation, the first meta description was shortened to just 117 characters. The other 2 titles were shortened as well, even though they do not exceed the character limit.
 
 !!! Note
-Further testing could be done with varying limits for number of characters to achieve a better balance between meta description quality and meta description lengths.
+
+    Further testing could be done with varying limits for number of characters to achieve a better balance between meta description quality and meta description lengths.
 
 ## 5. Additional Resources for the Meta Description Optimisation Node
 
