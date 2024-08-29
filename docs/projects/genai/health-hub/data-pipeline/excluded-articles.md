@@ -24,7 +24,7 @@ The table below reflects the data count for each remove types for HPB articles:
 |TOTAL|76|
 
 ### Excluded content
-The [`excluded_content_tab`](https://drive.google.com/file/d/1w6SEhDrzj0WKibvcXpTZgBqNchZmXcsh/view?usp=drive_link) file contains articles that should be placed in the 'excluded articles' tab of user annotation Excel sheet. This file is generated using the `content-optimization/notebooks/exclude_articles.ipynb` notebook.
+The [`excluded_content_tab`](in Google Drive under `LLM Exploration/Health Hub/User Annotation/Step 1 Harmonisation and Optimisation Checks`) file contains articles that should be placed in the 'excluded articles' tab of user annotation Excel sheet. This file is generated using the `content-optimization/notebooks/exclude_articles.ipynb` notebook.
 
 Articles flagged for duplicated URLs or content will be excluded from this tab, as they are considered backend data issues. Specifically, this includes one article (Article ID: 1445972) marked for removal due to "duplicated content," two articles (Article IDs: 1444417, 1445629) flagged for "duplicated URLs," and one article (Article ID: 1445829) identified as a "recipe." The last article was flagged as a recipe first due to the ordering of flags in the data processing pipeline, even though it also had duplicated content.
 
@@ -43,10 +43,10 @@ The HH team conducted two rounds of annotation to assess the quality of the clus
 - Articles labelled as "Individual" under the "Action" tab, and those with remarks in "algorithm remarks" column, were shifted to "User Annotation (To Optimise)" tab. This includes:
 
     - 66 articles labelled as "Individual" by HH team
-    - 212 articles under [`final_pred_cluster`](https://docs.google.com/spreadsheets/d/1cWzkJL2DWCKGqCAhkFsQtxBbK8PpGmdD/edit?usp=drive_link&ouid=105194105490476117590&rtpof=true&sd=true) from the first iteration.
+    - 212 articles under [`final_pred_cluster`](in Google Drive under `LLM Exploration/Health Hub/Clustering/Final Clustering Result` folder) from the first iteration.
 
 #### Output
-  - The result of this annotation round was saved as [`user_annotation_25jul.xlsx`](https://docs.google.com/spreadsheets/d/1W5GuJ2beB7rICJyIOuEyCNmCTaVhC8I7/edit?usp=drive_link&ouid=105194105490476117590&rtpof=true&sd=true)
+  - The result of this annotation round was saved as [`user_annotation_25jul.xlsx`](in Google Drive under `LLM Exploration/Health Hub/User Annotation` folder) 
 
 ### Second Round of Annotation
 #### Annotation Process
@@ -55,4 +55,4 @@ The HH team conducted two rounds of annotation to assess the quality of the clus
 - Articles marked with comments containing "exclude" under the "user_annotation [HH's team's comments]" were removed from optimisation
 
 #### Output
-- The result of this annotation was saved as [`Stage 1 user annotation for HPB_HHcomments_20Aug24.xlsx`](https://docs.google.com/spreadsheets/d/1Fg4-32XxxQJm9Qjz0QMS27bXkXpU-eaS/edit?gid=1112381174#gid=1112381174)
+- The result of this annotation was saved as [`Stage 1 user annotation for HPB_HHcomments_20Aug24.xlsx`](in Google Drive under `LLM Exploration/Health Hub/User Annotation/Step 1 Harmonisation and Optimisation Checks` folder) 
