@@ -6,6 +6,8 @@ authors:
 
 # @label(func) `extract_data`
 
+## Overview
+
 The `extract_data` node helps to extract data from the updated dataframes and stores it in parquet files and text files.
 
 This function takes in a dictionary of dataframes, where each dataframe is associated with a filename. It then extracted various data by performing the following steps:
@@ -26,7 +28,8 @@ def extract_data(
 ) -> tuple[dict[str, pd.DataFrame], dict[str, str]]:
 ```
 
-Parameters
+## Parameters
+
 : **`all_contents_added`** (`dict[str, Callable[[], Any]]`):
 A dictionary where keys are content categories and values are functions that return dataframes of the updated content.
 Refer to the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml) for more information.
@@ -43,12 +46,14 @@ This uses the `whitelist` parameter from [`parameters_data_processing.yml`](http
 A dictionary containing the article IDs and the reason to remove it.
 This uses the `blacklist` parameter from [`parameters_data_processing.yml`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/parameters_data_processing.yml).
 
-Returns
+## Returns
+
 : **`all_contents_extracted`**:
 Returns a set of parquet files corresponding to the content categories. These files are saved at `data/02_intermediate/all_contents_extracted`. Refer to the `all_contents_extracted` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
 
 : **`all_extracted_text`**:
 Returns a set of `.txt` files corresponding to the content categories. These files are saved at `data/02_intermediate/all_extracted_text`. Refer to the `all_extracted_text` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
 
-Note
+## Note
+
 : Some articles will be flagged for removal after extraction. Refer to the `flag_articles_to_remove_after_extraction` function in [`utils.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/src/content_optimization/pipelines/data_processing/utils.py) for more information.

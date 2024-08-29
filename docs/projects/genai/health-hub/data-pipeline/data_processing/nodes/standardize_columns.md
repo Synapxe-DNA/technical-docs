@@ -6,6 +6,8 @@ authors:
 
 # @label(func) `standardize_columns`
 
+## Overview
+
 The `standardize_columns` node helps to standardise the columns across multiple Excel files from [`GenAI - Full Content Export.zip`](https://drive.google.com/file/d/1auKR6zHlxFz7fmkci2BUimYEjW4lotlU/view).
 
 This function takes in a dictionary of dataframes, where each dataframe is associated with a filename. It then standardizes the columns of each dataframe by performing the following steps:
@@ -27,7 +29,8 @@ def standardize_columns(
 ) -> dict[str, pd.DataFrame]:
 ```
 
-Parameters
+## Parameters
+
 : **`all_contents`** (`dict[str, Callable[[], Any]]`):
 A dictionary containing the raw `partitions.PartitionedDataset`where the keys are the filenames and the values loads the raw excel data as `pandas.DataFrame`.
 Refer to the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml) for more information.
@@ -44,10 +47,12 @@ This uses the `columns_to_keep` parameter from [`parameters_data_processing.yml`
 A list of default column names to rename the columns of the dataframes to. These are the column names of the standardized dataframes. All downstream applications will use these columns for further processing.
 This uses the `default_columns` parameter from [`parameters_data_processing.yml`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/parameters_data_processing.yml).
 
-Returns
+## Returns
+
 : **`all_contents_standardized`**:
 Returns a set of parquet files corresponding to the content categories. These files are saved at `data/02_intermediate/all_contents_standardized`.
 Refer to the `all_contents_standardized` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml).
 
-Note
+## Note
+
 : Ensure that the order of the `columns_to_keep` matches the `default_columns` as we do not validate the mappings.

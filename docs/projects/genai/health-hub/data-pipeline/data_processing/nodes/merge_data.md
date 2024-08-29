@@ -6,6 +6,8 @@ authors:
 
 # @label(func) `merge_data`
 
+## Overview
+
 The `merge_data` node helps to merge the data from multiple partitioned dataframes.
 
 This function takes in a dictionary of dataframes, where each dataframe is associated with a filename. It then concatenates all the dataframes into a single one,
@@ -17,12 +19,14 @@ def merge_data(
 ) -> pd.DataFrame:
 ```
 
-Parameters
+## Parameters
+
 : **`all_contents_mapped`** (`dict[str, Callable[[], Any]]`):
 A dictionary where keys are content categories and values are functions that return dataframes with the mappings.
 Refer to the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml) for more information.
 
-Returns
+## Returns
+
 : **`merged_data`**:
 Returns a parquet file (versioned based on the time of execution). The file is saved at `data/03_primary/merged_data.parquet`. A new file is generated each time the `data_processing` pipeline is executed.
 Refer to the `merged_data` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
