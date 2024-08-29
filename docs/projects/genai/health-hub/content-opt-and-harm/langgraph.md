@@ -29,7 +29,7 @@ There are 3 key functions that we have created to run the LangGraph application.
 2. `draw_graph`: Python function to generate a visual representation of the Compiled LangGraph object, displaying the possible paths of the workflow
 3. `execute_graph`: Python function to execute the LangGraph Application with the provided input and CompiledGraph object.
 
-### Notes
+## Notes
 
 ### [Branching](https://langchain-ai.github.io/langgraph/how-tos/branching/)
 
