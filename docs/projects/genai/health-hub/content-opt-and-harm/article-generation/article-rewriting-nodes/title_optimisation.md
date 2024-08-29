@@ -45,7 +45,8 @@ The second step instructs the LLM agent to check that the optimised titles have 
 Finally, the actual length of each title is calculated after title optimisation through a rule-based function. If any title exceeds the character limit, the state graph will be redirected back for another round of title optimisation to produce shorter titles. In subsequent rewrites, all titles will be rewritten. If all optimised titles meet the length requirements, the graph state will be directed to other optimisation nodes.
 
 !!! Note
-  Further development can be done to improve the effeciveness of this feedback loop by adding additional fields for feedback on shortening the titles, as well as reducing the title length limit in the prompts with each subsequent rewrite. The rule-based function could also be configured to only rewrite lengthy titles while retaining shorter ones.
+
+    Further development can be done to improve the effeciveness of this feedback loop by adding additional fields for feedback on shortening the titles, as well as reducing the title length limit in the prompts with each subsequent rewrite. The rule-based function could also be configured to only rewrite lengthy titles while retaining shorter ones.
 
 ## 4. Sample of the Title Optimisation Node output
 

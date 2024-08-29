@@ -41,7 +41,8 @@ The final output should consist of an article following this structure.
 After the article content undergoes content optimisation, the graph state will be updated with the optimised content.
 
 !!! Note
-This task will be broken up into multiple steps in future developments to better capture key information in the researcher keypoints.
+
+    This task will be broken up into multiple steps in future developments to better capture key information in the researcher keypoints.
 
 ## 4. Additional Resources for the Content Guidelines Optimisation Node
 
