@@ -11,7 +11,7 @@ authors:
 The content guidelines optimisation node is used to rewrite and restructure the given article keypoints to fit the criterias of the guidelines given in the Health Hub (HH) content playbook. These guidelines include a certain structure that the article should follow, as well as certain personality writing guides.
 
 !!! Note
-The details here only apply to Article Optimisation. Kindly refer to [Content Guidelines Optimisation Node (Article Harmonisation)](/content_guidelines_harmonisation.md) for details on Content Guidelines Optimisation in Article Harmonisation
+  The details here only apply to Article Optimisation. Kindly refer to [Content Guidelines Optimisation Node (Article Harmonisation)](/content_guidelines_harmonisation.md) for details on Content Guidelines Optimisation in Article Harmonisation
 
 ## 2. Rationale for Content Guidelines Optimisation Node
 

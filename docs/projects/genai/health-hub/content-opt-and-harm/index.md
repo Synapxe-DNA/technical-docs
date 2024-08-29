@@ -17,7 +17,7 @@ Our primary objective is to reduce the workload in the manual review process. It
 
 ### Optimisation Workflow
 
-![Optimisation Checks & Rewriting Workflow](./images/checks_rewriting_workflow.jpg)
+![Optimisation Checks & Rewriting Workflow](./images/article_optimisation_flow.jpg)
 For individual articles, the initial steps of the Article Rewriting Workflow is to evaluate the quality of the article based on its content, title and meta description. We utilise both Rules, Statistics and Large Language Models (LLMs) to perform these evaluations.
 Then, these evaluations are later shared to the users for approval/refinement. Finally, the selected articles (together with their evaluations) are passed down to the `Article Optimisation Flow` to refine and optimise the articles.
 
