@@ -1,9 +1,8 @@
-
-# Data Processing 
+# Data Processing
 
 ## Introduction
 
-Our primary goal is to merge the articles across different content categories. This is to facilitate the use of this dataset for downstream applications e.g. Clustering or Retrieval Augmented Generation (RAG). 
+Our primary goal is to merge the articles across different content categories. This is to facilitate the use of this dataset for downstream applications e.g. Clustering or Retrieval Augmented Generation (RAG).
 
 In this pipeline, we focus on the following:
 
@@ -36,7 +35,7 @@ When adding new kedro nodes, it is important to understand the key processes tha
 
 ### [`Data Catalog`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
 
-The Data Catalog is one of the most important files in the Kedro Pipeline. It indicates where your files are located in the project. Kedro handles the loading and saving of data on your behalf. You do not need to specify it in your nodes. 
+The Data Catalog is one of the most important files in the Kedro Pipeline. It indicates where your files are located in the project. Kedro handles the loading and saving of data on your behalf. You do not need to specify it in your nodes.
 
 Here is an example of how to define it:
 
@@ -91,6 +90,11 @@ columns_to_keep:
     - "% of Total Views"
     - Cumulative % of Total Views
 ```
+
+!!! WARNING
+
+    Do not mess the order of the columns in the `parameters_data_processing.yml` file. If you really need to amend it, ensure that the `columns_to_keep` have the same order as `default_columns` (i.e. `columns_to_keep -> default_columns`).
+    This is needed because we do not perform any validation in the code to check if the mapping is correctly. This mapping is implicitly defined via this configuration file.
 
 After defining your data variables and the parameters required for your function, we can proceed to the writing our function.
 
