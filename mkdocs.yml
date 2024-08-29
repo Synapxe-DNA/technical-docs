@@ -219,32 +219,31 @@ nav:
                       - projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/meta-description.md
                       - projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/title.md
                   - Article Generation:
-                      - projects/genai/health-hub/content-opt-and-harm/article-generation/index.md
+                      - Article Harmonisation:
+                          - Intro to Article Harmonisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article_harmonisation_intro.md
+                          - Article Harmonisation Flow:
+                              - Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
+                              - Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
+                              - Compiler Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/compiler_node.md
+                              - Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_harmonisation.md
+                              - Writing Optimisation:
+                                  - Writing Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation.md
+                                  - Readability Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation.md
+                                  - Personality Evaluation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation.md
+                              - Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
+                              - Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
                       - Article Optimisation:
                           - Intro to Article Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article_optimisation_intro.md
                           - Article Optimisation Flow:
-                              - Step 1. Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
-                              - Step 2. Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
-                              - Step 3. Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_optimisation.md
-                              - Step 4. Writing Optimisation:
+                              - Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
+                              - Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
+                              - Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_optimisation.md
+                              - Writing Optimisation:
                                   - Writing Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation.md
                                   - Readability Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation.md
                                   - Personality Evaluation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation.md
-                              - Step 5. Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
-                              - Step 6. Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
-                      - Article Harmonisation:
-                          - Intro to Article Harmonisation Intro: projects/genai/health-hub/content-opt-and-harm/article-generation/article_harmonisation_intro.md
-                          - Article Harmonisation Flow:
-                              - Step 1. Article Content Preprocessing: projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing.md
-                              - Step 2. Researcher Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node.md
-                              - Step 3. Compiler Node: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/compiler_node.md
-                              - Step 4. Content Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_harmonisation.md
-                              - Step 5. Writing Optimisation:
-                                  - Writing Guidelines Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation.md
-                                  - Readability Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation.md
-                                  - Personality Evaluation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation.md
-                              - Step 6. Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
-                              - Step 7. Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
+                              - Title Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation.md
+                              - Meta Desc Optimisation: projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation.md
 
               - Webapp (Deprecated):
                   - projects/genai/health-hub/webapp/index.md
