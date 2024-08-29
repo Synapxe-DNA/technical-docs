@@ -59,9 +59,9 @@ The Summarisation component is only triggered when the Decision component output
 
 ## Notes
 
-### [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
+### [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)
 
-There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
+There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
 
 ### Implementing new Agents
 
