@@ -24,7 +24,7 @@ The table below reflects the data count for each remove types for HPB articles:
 |                                                       Service Directory                                                       |                     3                      |                    Annotated by HH and included in blacklist                    |
 |                                                          Infographic                                                          |                     14                     |                    Annotated by HH and included in blacklist                    |
 | LLM is unable to process content due to Azure's content filtering on hate, sexual, violence, and self-harm related categories |                     1                      |                             Annotated in blacklist                              |
-|                                                             TOTAL                                                             |                     76                     |  |
+|                                                             TOTAL                                                             |                     76                     |                                                                                 |
 
 ### Excluded content
 
