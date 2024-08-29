@@ -20,7 +20,7 @@ LangGraph agents compose of three key components -
 2. Nodes: Python functions that perform transformation on the current state and returns an updated state.
 3. Edges: Python functions that directs the execution of the Agentic Workflow along a sequence of nodes based on either conditional or fixed transitions.
 
-The Graph State must consist of Schema and Reducers. The Schema is typically stored in [`states/definitions.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/states/definitions.py>) within the `article-harmonisation` project.
+The Graph State must consist of Schema and Reducers. The Schema is typically stored in [`states/definitions.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/states/definitions.py) within the `article-harmonisation` project.
 The reducers are stored in the [`utils/formatters.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/utils/formatters.py).
 
 There are 3 key functions that we have created to run the LangGraph application. We have stored these functions in [`utils/graphs.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/utils/graphs.py). They are -
