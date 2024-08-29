@@ -39,8 +39,8 @@ A dictionary where keys are content categories and values are dictionaries mappi
 This uses the `columns_to_keep` parameter from [`parameters_data_processing.yml`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/parameters_data_processing.yml).
 
 Returns
-: **`all_contents_added`**: 
+: **`all_contents_added`**:
 Returns a set of parquet files corresponding to the content categories. These files are saved at `data/02_intermediate/all_contents_added`. Refer to the `all_contents_added` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
 
 Note
-: Some articles will be flagged from removal before extraction. Refer to the `flag_articles_to_remove_before_extraction` function in [`utils.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/src/content_optimization/pipelines/data_processing/utils.py) for more information.
+: Some articles will be flagged for removal before extraction. Refer to the `flag_articles_to_remove_before_extraction` function in [`utils.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/src/content_optimization/pipelines/data_processing/utils.py) for more information.

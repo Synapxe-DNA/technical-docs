@@ -44,10 +44,9 @@ This uses the `columns_to_keep` parameter from [`parameters_data_processing.yml`
 A list of default column names to rename the columns of the dataframes to. These are the column names of the standardized dataframes. All downstream applications will use these columns for further processing.
 This uses the `default_columns` parameter from [`parameters_data_processing.yml`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/parameters_data_processing.yml).
 
-
 Returns
 : **`all_contents_standardized`**:
-Returns a set of parquet files corresponding to the content categories. These files are saved at `data/02_intermediate/all_contents_standardized`. 
+Returns a set of parquet files corresponding to the content categories. These files are saved at `data/02_intermediate/all_contents_standardized`.
 Refer to the `all_contents_standardized` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml).
 
 Note
