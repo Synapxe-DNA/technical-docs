@@ -37,7 +37,7 @@ This typically occurs when there are only HTML tags present in the content body.
 
 ### Recipe Articles
 
-HealthHub Team has informed us to exclude recipe articles from Content Optimisation and Harmonisation as these recipes are usually different from one another. Moreover, the current structure is deemed suitable for reading. 
+HealthHub Team has informed us to exclude recipe articles from Content Optimisation and Harmonisation as these recipes are usually different from one another. Moreover, the current structure is deemed suitable for reading.
 
 We perform a keyword search to remove these articles. However, please note that it does not flag all recipe articles as we are using a heuristic.
 
@@ -59,5 +59,5 @@ Some articles have extraordinarily low word counts. We believe that these articl
 
 ### Blacklisted Articles
 
-These articles are either flagged during clustering or upon the HealthHub Team's request. Refer to this [link](https://docs.google.com/spreadsheets/d/1W5GuJ2beB7rICJyIOuEyCNmCTaVhC8I7/edit?gid=575939891#gid=575939891) for more information. 
+These articles are either flagged during clustering or upon the HealthHub Team's request. Refer to this [link](https://docs.google.com/spreadsheets/d/1W5GuJ2beB7rICJyIOuEyCNmCTaVhC8I7/edit?gid=575939891#gid=575939891) for more information.
 The blacklisted articles are stated as parameters under the `blacklist` key in the [`parameters_data_processing.yml`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/parameters_data_processing.yml) file.
