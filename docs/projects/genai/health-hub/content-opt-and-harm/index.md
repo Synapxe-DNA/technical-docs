@@ -29,6 +29,7 @@ For grouped articles, the user will annotate articles to harmonise in the User A
 ## Project Setup
 
 ### Setting up for Optimisation Checks
+
 1. Run the Data Processing Pipeline via Kedro. Refer to the [`README.md`](https://github.com/Synapxe-DNA/healthhub-content-optimization/tree/main/content-optimization) in `content-optimization` for more information.
 2. Fetch the `merged_data.parquet` file from the [`content-optimization/data/03_primary`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/data/03_primary) directory
 3. Generate the `ids_for_optimisaton.csv` files by referring to the [`exclude_articles.ipynb`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/notebooks/exclude_articles.ipynb) notebook.
