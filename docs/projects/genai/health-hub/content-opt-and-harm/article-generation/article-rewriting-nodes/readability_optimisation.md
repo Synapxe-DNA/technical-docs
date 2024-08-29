@@ -43,7 +43,8 @@ Apart from penalizing long sentences, the Hemingway Scoring system also penalize
 After completing all the readability optimisation steps, a new readability score will be calculated for the new readability optimised article and updated in the state.
 
 !!!Note
-Do note that the number of rewriting tries increases by 1 whenever the article content undergoes readability optimisation. The maximum number of tries for optimising the readability of the article is set to be 3. If the number of rewriting tries exceeds the limit, the graph state will not undergo readability optimisation and instead move on to the next optimisation node.
+
+    Do note that the number of rewriting tries increases by 1 whenever the article content undergoes readability optimisation. The maximum number of tries for optimising the readability of the article is set to be 3. If the number of rewriting tries exceeds the limit, the graph state will not undergo readability optimisation and instead move on to the next optimisation node.
 
 ## 4. Additional Resources for the Readability Optimisation Node
 
