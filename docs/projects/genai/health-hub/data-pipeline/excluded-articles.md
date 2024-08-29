@@ -42,7 +42,7 @@ The HH team conducted two rounds of annotation to assess the quality of the clus
 
 ### First Round of Annotation
 
-#### Annotation Process
+Annotation Process
 
 - The HH Team annotated the "User Annotation (To Combine)" tab within the `user_annotation` file.
 - Articles labelled as "Individual" under the "Action" tab, and those with remarks in "algorithm remarks" column, were shifted to "User Annotation (To Optimise)" tab. This includes:
@@ -50,17 +50,17 @@ The HH team conducted two rounds of annotation to assess the quality of the clus
   - 66 articles labelled as "Individual" by HH team
   - 212 articles under `final_pred_cluster`(in Google Drive under `LLM Exploration/Health Hub/Clustering/Final Clustering Result` folder) from the first iteration.
 
-#### Output
+Output
 
 - The result of this annotation round was saved as `user_annotation_25jul.xlsx`(in Google Drive under `LLM Exploration/Health Hub/User Annotation` folder)
 
 ### Second Round of Annotation
 
-#### Annotation Process
+Annotation Process
 
 - The HH team annotated the "User Annotation (To Optimise)" tab based on the first round's output
 - Articles marked with comments containing "exclude" under the "user_annotation [HH's team's comments]" were removed from optimisation
 
-#### Output
+Output
 
 - The result of this annotation was saved as `Stage 1 user annotation for HPB_HHcomments_20Aug24.xlsx`(in Google Drive under `LLM Exploration/Health Hub/User Annotation/Step 1 Harmonisation and Optimisation Checks` folder)
