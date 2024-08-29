@@ -6,11 +6,11 @@ authors:
 
 # Excluded Articles
 
-### Overview
+## Overview
 
 Certain articles were excluded from clustering due to various data issues flagged by the `data_processing` pipeline, such as duplicated content or being categorized as recipes. Additionally, some were excluded based on user annotations (see section: User Annotation (HH Team))
 
-### Remove Type Data Count
+## Remove Type Data Count
 
 The table below reflects the data count for each remove types for HPB articles:
 
@@ -24,7 +24,7 @@ The table below reflects the data count for each remove types for HPB articles:
 |                                                       Service Directory                                                       |                     3                      |                    Annotated by HH and included in blacklist                    |
 |                                                          Infographic                                                          |                     14                     |                    Annotated by HH and included in blacklist                    |
 | LLM is unable to process content due to Azure's content filtering on hate, sexual, violence, and self-harm related categories |                     1                      |                             Annotated in blacklist                              |
-|                                                             TOTAL                                                             |                     76                     |
+|                                                             TOTAL                                                             |                     76                     |  |
 
 ### Excluded content
 
