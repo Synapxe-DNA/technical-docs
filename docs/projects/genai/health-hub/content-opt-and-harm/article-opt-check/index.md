@@ -70,3 +70,5 @@ There are times when a selected article may be blocked from LLM generation as it
 3. Implement the new evaluation chain at `agents/models.py`
 4. Define your new state schema at `states/definitions.py`
 5. Integrate the new evaluations and their corresponding states into the LangGraph workflow at `checks.py`
+
+After making these changes, you can run the [`checks.py`](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/article-harmonisation/checks.py). Refer to this [`section`](../index.md#setting-up-for-optimisation-checks) to better understand how to setup the Optimisation Checks Workflow.
