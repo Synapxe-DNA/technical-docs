@@ -12,22 +12,34 @@ Users will then analyze the evaluation outputs on the User Annotation Excel File
 
 After user annotation, the article will undergo article optimisation. The flow of article optimisation is as follows:
 
-1. [**Researcher node**](./article-rewriting-nodes/researcher_node.md): This node is used to process the article content. It checks for irrelevant sentences in the article content and categorises them under a separate section. <br/>
+---
 
-2. [**Content guidelines optimisation**](./article-rewriting-nodes/content_guidelines_optimisation.md): Content guidelines optimisation is carried out when the user flags the article for content optimisation. Under article optimisation, only diseases-and-conditions articles will undergo content optimisation.
-   <br/><br/>
-   This process will strucure the article content into a specified structure and rewrite the content to fit the guidelines from the HealthHub content playbook.
+Step 1 [**Researcher node**](./article-rewriting-nodes/researcher_node.md): This node is used to process the article content. It checks for irrelevant sentences in the article content and categorises them under a separate section. <br/>
 
-3. **Writing optimisation**: Writing optimisation is carried out when the user flags the article for writing optimisation. The writing optimisation process aims to rewrite the article content to fit HealthHub's personality guidelines as well as improving the article's Hemingway readability score until it is less than 10.
-   <br/><br/>
-   Writing guidelines is a multi-node process, consisting of a feedback loop with the following nodes:
+---
 
-   1. [Writing guidelines optimisation](./article-rewriting-nodes/writing_guidelines_optimisation.md): This node is used to rewrite the article content to meet the voice and personality guidelines of HealthHub's voice and personality guidelines.
-   2. [Readability optimisaion node](./article-rewriting-nodes/readability_optimisation.md): This node is used to rewrite the article content to improve the article's readability score. The article's readability is scored using the Hemingway scoring system.
-   3. [Personality evaluation node](./article-rewriting-nodes/personality_evaluation.md): This node is used to evaluate if a readability optimised article still adheres to the HealthHub voice and personality guidelines. This evaluation will be used to determine if the article content requires another round of rewriting or to move on to subsequent optimisation nodes.
+Step 2 [**Content guidelines optimisation**](./article-rewriting-nodes/content_guidelines_optimisation.md): Content guidelines optimisation is carried out when the user flags the article for content optimisation. Under article optimisation, only diseases-and-conditions articles will undergo content optimisation.
 
-4. [**Title optimisation**](./article-rewriting-nodes/title_optimisation.md): The title optimisation process involves producing three optimised article titles from the article content. The titles will be optimised based on the HealthHub content playbook guidelines.
+This process will strucure the article content into a specified structure and rewrite the content to fit the guidelines from the HealthHub content playbook.
 
-5. [**Meta description optimisation**](./article-rewriting-nodes/meta_desc_optimisation.md): The meta description optimisation process involves producing three optimised meta description from the article content.
+---
+
+Step 3 **Writing optimisation**: Writing optimisation is carried out when the user flags the article for writing optimisation. The writing optimisation process aims to rewrite the article content to fit HealthHub's personality guidelines as well as improving the article's Hemingway readability score until it is less than 10.
+
+Writing guidelines is a multi-node process, consisting of a feedback loop with the following nodes:
+
+Step 3.1 [Writing guidelines optimisation](./article-rewriting-nodes/writing_guidelines_optimisation.md): This node is used to rewrite the article content to meet the voice and personality guidelines of HealthHub's voice and personality guidelines.
+
+Step 3.2 [Readability optimisaion node](./article-rewriting-nodes/readability_optimisation.md): This node is used to rewrite the article content to improve the article's readability score. The article's readability is scored using the Hemingway scoring system.
+
+Step 3.3 [Personality evaluation node](./article-rewriting-nodes/personality_evaluation.md): This node is used to evaluate if a readability optimised article still adheres to the HealthHub voice and personality guidelines. This evaluation will be used to determine if the article content requires another round of rewriting or to move on to subsequent optimisation nodes.
+
+---
+
+Step 4 [**Title optimisation**](./article-rewriting-nodes/title_optimisation.md): The title optimisation process involves producing three optimised article titles from the article content. The titles will be optimised based on the HealthHub content playbook guidelines.
+
+---
+
+Step 5 [**Meta description optimisation**](./article-rewriting-nodes/meta_desc_optimisation.md): The meta description optimisation process involves producing three optimised meta description from the article content.
 
 After the article optimisation process has been completed, the optimised output will be stored in the User Annotation Excel file for users to review.
