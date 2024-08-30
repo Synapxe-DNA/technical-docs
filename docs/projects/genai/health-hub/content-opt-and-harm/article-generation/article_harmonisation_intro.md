@@ -30,11 +30,11 @@ Step 4 **Writing optimisation**: Writing optimisation is carried out when the us
 
 Writing guidelines is a multi-node process, consisting of a feedback loop with the following nodes:
 
-Step 5.1 [**Writing guidelines optimisation**](./article-rewriting-nodes/writing_guidelines_optimisation.md): This node is used to rewrite the article content to meet the voice and personality guidelines of HealthHub's voice and personality guidelines.
+Step 4.1 [**Writing guidelines optimisation**](./article-rewriting-nodes/writing_guidelines_optimisation.md): This node is used to rewrite the article content to meet the voice and personality guidelines of HealthHub's voice and personality guidelines.
 
-Step 5.2 [**Readability optimisaion node**](./article-rewriting-nodes/readability_optimisation.md): This node is used to rewrite the article content to improve the article's readability score. The article's readability is scored using the Hemingway scoring system.
+Step 4.2 [**Readability optimisaion node**](./article-rewriting-nodes/readability_optimisation.md): This node is used to rewrite the article content to improve the article's readability score. The article's readability is scored using the Hemingway scoring system.
 
-Step 5.3 [**Personality evaluation node**](./article-rewriting-nodes/personality_evaluation.md): This node is used to evaluate if a readability optimised article still adheres to the HealthHub voice and personality guidelines. This evaluation will be used to determine if the article content requires another round of rewriting or to move on to subsequent optimisation nodes.
+Step 4.3 [**Personality evaluation node**](./article-rewriting-nodes/personality_evaluation.md): This node is used to evaluate if a readability optimised article still adheres to the HealthHub voice and personality guidelines. This evaluation will be used to determine if the article content requires another round of rewriting or to move on to subsequent optimisation nodes.
 
 ---
 
