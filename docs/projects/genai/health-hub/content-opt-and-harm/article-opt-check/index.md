@@ -73,7 +73,7 @@ After making these changes, you can run the [`checks.py`](https://github.com/Syn
 
 There are times when a selected article may be blocked from LLM generation as it is flagged by the Azure AI Content Filter. As a result, you would be unable to generate the evaluation. Refer to this [link](https://learn.microsoft.com/azure/ai-services/content-safety/concepts/harm-categories) to explore the harm categories which triggers the content filter.
 
-### [Rate Limits](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits#gpt-4o--gpt-4-turbo-rate-limits)
+### [Rate Limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#gpt-4o--gpt-4-turbo-rate-limits)
 
 There are times when the rate limits imposed on the Azure OpenAI Service Deployments impacts the article Optimisation Checks. This is usually either due to the quota limits (most likely) or the request limits placed on the Deployment.
 
