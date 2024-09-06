@@ -88,6 +88,11 @@ extra:
         role: Contributor
         avatar: https://avatars.githubusercontent.com/u/60807138?v=4
         url: https://github.com/sixiannn
+    - John-David Tan:
+        alias: John-David
+        role: Contributor
+        avatar: https://avatars.githubusercontent.com/u/124016762?v=4
+        url: https://github.com/John-David-Tan
 
 # Extensions
 markdown_extensions:
