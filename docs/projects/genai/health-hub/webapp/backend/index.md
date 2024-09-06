@@ -30,4 +30,4 @@ sequenceDiagram
 
 ```
 
-The diagram above is a very high level overview of how database interactions should be made -- by using the [DbConnector](db/db_connector.md) interface to build database connectors. This allows all database queries to be abstracted.
+The diagram above is a very high level overview of how database interactions should be made -- by using the [DbConnector](db/db-connector.md) interface to build database connectors. This allows all database queries to be abstracted.

@@ -4,7 +4,7 @@ authors:
   - Ong Tsien Jin
 ---
 
-# Introduction
+# Introduction (@label(deprecated))
 
 ## Purpose of Webapp
 
