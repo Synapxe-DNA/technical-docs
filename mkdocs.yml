@@ -303,8 +303,14 @@ nav:
 
           - Conversational Assistant:
               - Webapp:
+                  - projects/genai/conversational-assistant/webapp/index.md
                   - Frontend:
                       - projects/genai/conversational-assistant/webapp/frontend/index.md
+                      - Components:
+                          - projects/genai/conversational-assistant/webapp/frontend/components/index.md
+                          - projects/genai/conversational-assistant/webapp/frontend/components/navbar.md
+                          - projects/genai/conversational-assistant/webapp/frontend/components/text.md
+                          - projects/genai/conversational-assistant/webapp/frontend/components/voice.md
                       - Services:
                           - projects/genai/conversational-assistant/webapp/frontend/services/voice-activity-detection.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/chat-message.md
@@ -312,6 +318,8 @@ nav:
                           - projects/genai/conversational-assistant/webapp/frontend/services/endpoint.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/conversation-broker.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/preference.md
+                      - Utilities:
+                          - projects/genai/conversational-assistant/webapp/frontend/utilities/audiorecorder.md
                   - Backend:
                       - API:
                           - projects/genai/conversational-assistant/webapp/backend/api/endpoints.md

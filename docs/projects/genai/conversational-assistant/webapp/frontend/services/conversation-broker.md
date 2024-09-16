@@ -1,7 +1,8 @@
 ---
-updated: 4 Aug 2024
+updated: 11 Sep 2024
 authors:
   - Ong Tsien Jin
+  - John-David Tan
 ---
 
 # Conversation Broker Service
@@ -89,7 +90,7 @@ Description
 states related to voice chat. Side effects include audio player and chat message service.
 
 Parameters
-: `audio` (`Blob`): Blob of audio recording file.
+: `query` (`String`): String of transcribed user audio query.
 : `profile` (`Profile`): Profile used in the conversation
 
 #### @label(meth) Mic Button Click

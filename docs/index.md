@@ -8,6 +8,7 @@ authors:
   - Ho Si Xian
   - Issac J
   - Jin Chou
+  - John-David Tan
 ---
 
 # Welcome to Data Analytics & AI Documentation

@@ -1,7 +1,8 @@
 ---
-updated: 4 Aug 2024
+updated: 11 Sep 2024
 authors:
   - Ong Tsien Jin
+  - John-David Tan
 ---
 
 # Endpoint Service
@@ -48,16 +49,16 @@ Returns
 #### @label(meth) Send Voice
 
     async sendVoice(
-        recording: Blob,
+        query: string,
         profile: Profile,
         history: Message[]
     ): Promise<BehaviorSubject<VoiceResponse|null>>
 
 Description
-: Method to send voice recording to the backend.
+: Method to send query to the backend for a audio response.
 
 Parameters
-: `recording` (`Blob`): Binary of file recording.
+: `query` (`string`): String of user query.
 : `profile` (`Profile`): Active profile used in the conversation.
 : `history` (`Message[]`): Chat history in the conversation.
 
