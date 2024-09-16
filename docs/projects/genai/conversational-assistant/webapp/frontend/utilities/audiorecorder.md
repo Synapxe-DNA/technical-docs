@@ -5,11 +5,13 @@ authors:
 ---
 
 # Audio Recorder
+
 A class to handle audio recordings and processing.
 
 ## @label(class) AudioRecorder (Deprecated)
 
 ## @label(class) v2AudioRecorder
+
 Utilizes WebSockets to deliver PCM audio data to the server for transcription.
 
 ```mermaid
@@ -39,27 +41,35 @@ flowchart RL
 ### Attributes
 
 #### @label(attr) socket
+
 `WebSocket` object that contains interface for interacting with the server.
 
 #### @label(attr) audioContext
+
 `AudioContext` object that contains interface for interacting with the audio.
 
 #### @label(attr) processor
+
 `ScriptProcessorNode` object that contains interface for direct audio processing.
 
 #### @label(attr) pcmData
+
 `Int16Array[]` object that contains the transformed audio data.
 
 #### @label(attr) userMessageId
+
 `string` literal that is a local instance of the message ID in the index store.
 
 #### @label(attr) activeProfile
+
 `BehaviorSubject` observable that holds value of current user profile.
 
 #### @label(attr) finalText
+
 `string` literal that is a local instance of the transcribed audio.
 
 #### @label(attr) requestTime
+
 `number` literal that is a local instance of the request time.
 
 ### Methods

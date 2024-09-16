@@ -6,7 +6,7 @@ authors:
 
 # Navbar
 
-This component constitutes two folders under the component directory, `navbar` and `navbar-mobile`. 
+This component constitutes two folders under the component directory, `navbar` and `navbar-mobile`.
 
 ```mermaid
 flowchart RL
@@ -53,41 +53,41 @@ The `navbar-language` component is a dropdown menu that allows the user to chang
 
 Uses PrimeNG's `p-dropdown` component to render the dropdown menu.
 
-### Attributes
-
 #### @label(attr) `languageMap`
+
 Instantiated as @label(interface) `languageMap`.
 
 #### @label(attr) `chosenLanguage`
+
 Retrieved from the @label(service) `PreferenceService`.
 
-### Methods
-
 #### @label(meth) setLanguage
+
 Updates @label(service) `Preferences` local storage of `Language`.
 
 ## @label(class) Navbar-Line
+
 HTML element that renders line that seperates components.
 
 ## @labell(class) Navbar-Profile-Link
+
 List of @label(interface) `Profile` objects that is rendered sequentially
 
-### Attributes
-
 #### @label(attr) isActive
+
 Boolean value that determines if the profile is active, creating a gray shadow background for the active profile.
 
 #### @label(attr) gender
+
 String literal that determines the profile picture used for each profile.
 
 #### @label(attr) contextMenuItems
-A list of @label(interface) `MenuItem` options that is rendered when the user right clicks on the profile link.
 
-### Methods
+A list of @label(interface) `MenuItem` options that is rendered when the user right clicks on the profile link.
 
 #### @label(meth) getProfileDescription
 
-  getProfileDescription(): string
+getProfileDescription(): string
 
 Description
 : Returns a string literal that describes the profile.
@@ -95,9 +95,10 @@ Description
 Parameters
 : None
 
-
 ## @label(class) Navvbar-Profile-Create
+
 HTML element that redirects user to the profile creation page.
 
 ## @label(class) Navvbar-Logo-Group
+
 HTML element that dislpays tagline at bottom of sidebar.
