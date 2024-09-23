@@ -10,7 +10,7 @@ authors:
 
 LangGraph is a framework for developing LLM-powered Agentic Workflows. It is a library for building stateful, multi-actor applications with large language models (LLMs). It extends the LangChain framework to enable the creation of complex, stateful workflows involving multiple AI agents.
 
-## [Key Concepts](https://langchain-ai.github.io/langgraph/concepts/)
+## [Key Concepts](https://langchain-ai.github.io/langgraph/concepts/high_level/)
 
 ### [Graphs](https://langchain-ai.github.io/langgraph/concepts/low_level/)
 
