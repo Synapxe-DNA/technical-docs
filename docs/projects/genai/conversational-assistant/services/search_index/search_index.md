@@ -41,6 +41,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
 ## Key Fields in the Search Index
 
 - **id**: The primary key for each document.
+
   - `searchable: true`
   - `filterable: true`
   - `sortable: true`
@@ -48,6 +49,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `retrievable: true`
 
 - **title**: The title of the article.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
@@ -56,6 +58,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `analyzer_name: en.microsoft`
 
 - **cover_image_url**: URL pointing to the article’s cover image.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
@@ -63,6 +66,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `retrievable: true`
 
 - **full_url**: URL to the full article on HealthHub.
+
   - `searchable: false`
   - `filterable: false`
   - `sortable: false`
@@ -70,6 +74,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `retrievable: true`
 
 - **content_category**: The category of the article (e.g., 'programs').
+
   - `searchable: true`
   - `filterable: true`
   - `sortable: false`
@@ -78,6 +83,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `analyzer_name: en.microsoft`
 
 - **category_description**: Description of the category.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
@@ -86,6 +92,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `analyzer_name: en.microsoft`
 
 - **pr_name**: The name of the article provider.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
@@ -93,6 +100,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `retrievable: false`
 
 - **date_modified**: The last edited date of the article.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
@@ -100,6 +108,7 @@ Azure Cognitive Search fields are defined with attributes that determine how the
   - `retrievable: false`
 
 - **chunks**: The individual chunks of the article content created by the `SplitSkill`.
+
   - `searchable: true`
   - `filterable: false`
   - `sortable: false`
