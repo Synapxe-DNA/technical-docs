@@ -14,17 +14,18 @@ This documentation describes the process of ingesting HealthHub articles into th
 
 This project involves the ingestion of articles from HealthHub into an Azure Search Index to enable efficient and scalable search capabilities. The system leverages various Azure services such as Blob Storage, Azure Cognitive Search, and Azure OpenAI for embedding.
 
-- The high-level architecture includes:
+The high-level architecture includes:
 
-  - Uploading HealthHub articles (in JSON format) to Azure Blob Storage.
-  - Utilizing an Azure Cognitive Search pipeline to chunk the articles and generate embeddings using Azure OpenAI.
-  - Storing the chunks and embeddings in Azure Search Index for semantic and full-text search.
+- Uploading HealthHub articles (in JSON format) to Azure Blob Storage.
+- Utilizing an Azure Cognitive Search pipeline to chunk the articles and generate embeddings using Azure OpenAI.
+- Storing the chunks and embeddings in Azure Search Index for semantic and full-text search.
 
-- For more details, refer to:
-  - [JSON Data Preparation](https://synapxe-dna.github.io/technical-docs/projects/genai/health-hub/data-pipeline/azure_rag/)
-  - [Data Ingestion]
-  - [Search Index]
-  - [Skillset]
+For more details, refer to:
+
+- [JSON Data Preparation](https://synapxe-dna.github.io/technical-docs/projects/genai/health-hub/data-pipeline/azure_rag/)
+- [Data Ingestion](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/data_ingestion/)
+- [Search Index](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/search_index/)
+- [Skillset](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/skillset/)
 
 ---
 
