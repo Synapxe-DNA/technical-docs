@@ -8,7 +8,7 @@ authors:
 
 ## Introduction
 
-This documentation describes the process of ingesting HealthHub articles into the Azure Search Index using Azure Blob Storage, the azure_rag pipeline for chunking and embedding, and eventual data retrieval for your application. The articles are ingested in JSON format and go through several stages, including document upload, chunking, embedding, and retrieval.
+This documentation describes the process of ingesting HealthHub articles into the Azure Search Index using Azure Blob Storage, the `azure_rag` pipeline for chunking and embedding, and eventual data retrieval for your application. The articles are ingested in JSON format and go through several stages, including document upload, chunking, embedding, and retrieval.
 
 ## Overview
 

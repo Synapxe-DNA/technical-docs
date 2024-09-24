@@ -11,7 +11,7 @@ The skillset in Azure Cognitive Search handles the transformation of article con
 ## 1. SplitSkill (Chunking)
 
 - **Purpose**: Splits the content of each article into smaller chunks, making it easier to process for embedding and search.
-- **Mode**: Set to "pages" for dividing the content into pages.
+- **Mode**: Set to `pages` for dividing the content into pages.
 - **Configuration**:
 
   - `text_split_mode`: `pages` or `sentences`
