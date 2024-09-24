@@ -22,9 +22,9 @@ This project involves the ingestion of articles from HealthHub into an Azure Sea
 
 - For more details, refer to:
   - [JSON Data Preparation](https://synapxe-dna.github.io/technical-docs/projects/genai/health-hub/data-pipeline/azure_rag/)
-  - [Data Ingestion](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/data_ingestion.md)
-  - [Search Index](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/search_index.md)
-  - [Skillset](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/services/search_index/skillset.md)
+  - [Data Ingestion]
+  - [Search Index]
+  - [Skillset]
 
 ---
 
