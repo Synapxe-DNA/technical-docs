@@ -322,5 +322,12 @@ nav:
                   - Backend:
                       - API:
                           - projects/genai/conversational-assistant/webapp/backend/api/endpoints.md
+              - Services:
+                  - Search Index:
+                      - projects/genai/conversational-assistant/services/search_index/index.md
+                      - projects/genai/conversational-assistant/services/search_index/data_ingestion.md
+                      - projects/genai/conversational-assistant/services/search_index/skillset.md
+                      - projects/genai/conversational-assistant/services/search_index/search_index.md
+
   - Articles:
       - blog/index.md

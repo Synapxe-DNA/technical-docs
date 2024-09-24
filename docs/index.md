@@ -1,5 +1,5 @@
 ---
-updated: 27 Aug 2024
+updated: 24 September 2024
 authors:
   - Wilsven Leong
   - Joycelyn Woo
@@ -8,6 +8,7 @@ authors:
   - Ho Si Xian
   - Issac J
   - Jin Chou
+  - Richmond Sin
 ---
 
 # Welcome to Data Analytics & AI Documentation
