@@ -43,14 +43,22 @@ The diagram below shows a high level overview on how the services and components
 
 ---
 
+```mermaid
+flowchart TD
+    A[HealthHub JSON Files] --> B[Azure Blob Storage]
+    B --> C[Azure Cognitive Search Pipeline]
+    C --> D[Azure Search Index]
+    D --> E[Data Retrieval]
+```
+
 ## Version History
 
 The following versions detail the evolution of the ingestion process, addressing various issues:
 
 - **V1**: Ingestion in txt files.
-- **V2**: Ingestion in json files but with 2048 max page length and 20 page overlap (Resolve metadata issue).
-- **V3**: Ingestion of article content and table content (Resolve lack of table content).
-- **V4**: Ingestion in json files but with 5000 max page length and 20 page overlap (Resolve content cut-off issue).
-- **V5**: Ingestion in json files but with 5000 max page length and 200 page overlap (Resolve lack of understanding between chunks).
+- **V2**: Ingestion in json files but with 2048 max page length and 20 page overlap (Resolve metadata issue)
+- **V3**: Ingestion of article content and table content (Resolve lack of table content)
+- **V4**: Ingestion in json files but with 5000 max page length and 20 page overlap (Resolve content cut-off issue)
+- **V5**: Ingestion in json files but with 5000 max page length and 200 page overlap (Resolve lack of understanding between chunks)
 - **V6**: Additional article content extracted from programs and sub-program pages. (Resolve the lack of programs and sub-program pages content)
-- **V7**: Added 2 javascript articles to supplement the article content. (Resolve the lack of drop-down content)
+- **V7**: Added 2 javascript articles to supplement the article content. (Resolve the missing content from the javascript from the programs and sub-program pages articles)

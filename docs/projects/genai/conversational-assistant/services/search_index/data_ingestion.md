@@ -40,23 +40,17 @@ The ingestion process begins by uploading the JSON files containing article data
 
 ## Steps for Data Ingestion
 
-1. **Uploading to Blob Storage**:
+1. **Uploading to Blob Storage**: The JSON files are uploaded to Azure Blob Storage to persist and stage the data before indexing.
 
-   - The JSON files are uploaded to Azure Blob Storage to persist and stage the data before indexing.
+2. **Inserting Documents into the Azure Search Index**: Once uploaded, the documents are inserted into the Azure Search Index using the `SearchClient`. The document fields are mapped to the corresponding index fields, enabling full-text search, filtering, sorting, and faceting functionalities. The primary client types used in the process are:
 
-2. **Inserting Documents into the Azure Search Index**:
+   - **SearchClient**: Handles individual document operations such as adding or deleting documents from the search index.
+   - **SearchIndexClient**: Used for managing the index itself, including creating, updating, or deleting indexes.
+   - **SearchIndexerClient**: Manages automated indexing pipelines, integrating Blob Storage or databases as data sources.
 
-   - Once uploaded, the documents are inserted into the Azure Search Index using the SearchClient. The document fields are mapped to the corresponding index fields, enabling full-text search, filtering, sorting, and faceting functionalities.
-   - The primary client types used in the process are:
-     - **SearchClient**: Handles individual document operations such as adding or deleting documents from the search index.
-     - **SearchIndexClient**: Used for managing the index itself, including creating, updating, or deleting indexes.
-     - **SearchIndexerClient**: Manages automated indexing pipelines, integrating Blob Storage or databases as data sources.
+3. **Chunking and Embedding**: This pipeline handles the ingestion of articles into the search index. It consists of two major skills:
 
-3. **Chunking and Embedding**:
+   - **SplitSkill (Chunking)**: Splits the article content into manageable chunks.
+   - **Azure OpenAI EmbeddingSkill**: Generates embeddings for each chunk, using the model `text-embedding-3-small`.
 
-   - This pipeline handles the ingestion of articles into the search index. It consists of two major skills:
-     - **SplitSkill (Chunking)**: Splits the article content into manageable chunks.
-     - **Azure OpenAI EmbeddingSkill**: Generates embeddings for each chunk, using the model `text-embedding-3-small`.
-
-4. **Search Index Creation**:
-   - After chunking and embedding, the data is stored in the Azure Search Index for retrieval. The search index is configured to allow full-text and vector search.
+4. **Search Index Creation**: After chunking and embedding, the data is stored in the Azure Search Index for retrieval. The search index is configured to allow full-text and vector search.
