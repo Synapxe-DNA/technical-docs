@@ -188,6 +188,7 @@ nav:
                   - Data Processing:
                       - projects/genai/health-hub/data-pipeline/data_processing/index.md
                       - projects/genai/health-hub/data-pipeline/data_processing/articles_flagged_removal.md
+                      - projects/genai/health-hub/data-pipeline/data_processing/excluded-articles.md
                       - Nodes:
                           - projects/genai/health-hub/data-pipeline/data_processing/nodes/index.md
                           - projects/genai/health-hub/data-pipeline/data_processing/nodes/standardize_columns.md
