@@ -47,4 +47,4 @@ Returns a dictionary that will be split into individual JSON articles by Kedro P
 
 !!! Note
 
-    The data generated from this pipeline is not final, you will have to combine the JSON files generated from this pipeline and the [two Javascript articles]() to ingest into the search index.
+    The data generated from this pipeline is not final, you will have to combine the JSON files generated from this pipeline and the [`two Javascript articles`](https://synapxe-dna.github.io/technical-docs/projects/genai/health-hub/data-pipeline/azure_rag/js_articles/) to ingest into the search index.
