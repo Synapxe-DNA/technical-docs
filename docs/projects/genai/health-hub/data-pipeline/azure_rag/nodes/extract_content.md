@@ -44,3 +44,7 @@ Refer to the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-opt
 
 : **`json_data_rag`**:
 Returns a dictionary that will be split into individual JSON articles by Kedro PartitionDataset. The JSON files are saved at `data/03_primary/processed_articles`. Refer to the `json_data_rag` key in the [Data Catalog](https://github.com/Synapxe-DNA/healthhub-content-optimization/blob/main/content-optimization/conf/base/catalog.yml)
+
+!!! Note
+
+    The data generated from this pipeline is not final, you will have to combine the JSON files generated from this pipeline and the [two Javascript articles]() to ingest into the search index.

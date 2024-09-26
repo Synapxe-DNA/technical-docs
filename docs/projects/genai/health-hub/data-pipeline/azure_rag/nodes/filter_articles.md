@@ -10,17 +10,17 @@ authors:
 
 The `Filter Articles` node filter out the articles that have `No HTML Tags`, `No Extracted Content`, `NaN`, `Multilingual`, `Duplicated Content` from `remove_type` column. It also removes duplicated articles with specific 'id' values and articles that are too lengthy to be processed by the LLM.
 
-The link to the article `id` that are filtered for removal are in this file [`To remove excel sheet`](https://docs.google.com/spreadsheets/d/1PjRx_GkdlNZpV--Ui6sLd0Hvk-3LJ6qk/edit?gid=1214237528#gid=1214237528).
+The link to the article `id` that are filtered for removal are in this file: [`To remove excel sheet`](https://docs.google.com/spreadsheets/d/1PjRx_GkdlNZpV--Ui6sLd0Hvk-3LJ6qk/edit?gid=1214237528#gid=1214237528). The `id` values for the `duplicated_articles` refers to the `To_use_duplicated_URL_to_keep` tab and `duplicated_content` refers to the `duplicated_content_to_keep` tab in the excel.
 
 This function takes in the `merged_data` dataframe, the `duplicated_articles`, `duplicated_content`, and `lengthy_articles` parameters. It filters out the articles by performing the following steps:
 
-1. Remove articles with 'No HTML Tags' from the 'remove_type' column
-2. Remove the rows with 'No Extracted Content' from 'remove_type' column
-3. Remove the rows with 'NaN' from 'remove_type' column
-4. Remove 'Multilingual' from 'remove_type' column
-5. Remove the duplicated articles with specific 'id' values
-6. Remove 'Duplicated Content' from 'remove_type' column, except for specific 'id' values
-7. Remove the articles that are too lengthy
+1. Remove articles with 'No HTML Tags' from the 'remove_type' column.
+2. Remove the rows with 'No Extracted Content' from 'remove_type' column.
+3. Remove the rows with 'NaN' from 'remove_type' column.
+4. Remove 'Multilingual' from 'remove_type' column.
+5. Remove the duplicated articles with specific 'id' values.
+6. Remove 'Duplicated Content' from 'remove_type' column, except for specific 'id' values.
+7. Remove the articles that are too lengthy for the LLM to process.
 
 The function returns a dataframe for further processing.
 

@@ -218,6 +218,7 @@ nav:
                   - Azure RAG:
                       - projects/genai/health-hub/data-pipeline/azure_rag/index.md
                       - projects/genai/health-hub/data-pipeline/azure_rag/filtered_articles_for_removal.md
+                      - projects/genai/health-hub/data-pipeline/azure_rag/js_articles.md
                       - Nodes:
                           - projects/genai/health-hub/data-pipeline/azure_rag/nodes/filter_articles.md
                           - projects/genai/health-hub/data-pipeline/azure_rag/nodes/process_html_tables.md
