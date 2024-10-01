@@ -339,6 +339,11 @@ nav:
                           - Source:
                               - projects/genai/conversational-assistant/webapp/backend/schema/source/source.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk.md
+                          - Message:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source.md
+                          - Profile:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/profile/profile.md
 
               - Services:
                   - Search Index:

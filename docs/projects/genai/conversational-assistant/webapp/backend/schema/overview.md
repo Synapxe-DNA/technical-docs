@@ -32,3 +32,12 @@ authors: Lyndon Lim
 
 - [Source](/projects/genai/conversational-assistant/webapp/backend/schema/source/source)
 - [SourceWithChunk](/projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk)
+
+### Message
+
+- [ChatMessage](/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message)
+- [ChatMessageWithSource](/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source)
+
+### Profile
+
+- [Profile](/projects/genai/conversational-assistant/webapp/backend/schema/profile/profile)
