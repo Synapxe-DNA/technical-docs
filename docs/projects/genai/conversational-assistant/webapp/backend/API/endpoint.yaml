@@ -113,6 +113,7 @@ components:
           example: ["Straightforward answer"]
         feedback_remarks:
           type: string
+          default: ""
           example: "Good response [from swagger]"
         user_profile:
           type: object
@@ -130,6 +131,14 @@ components:
         - feedback_remarks
         - user_profile
         - chat_history
+
+    SpeechRequest:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Text to be converted to speech
+          example: "Hi, how are you?"
 
     ChatMessage:
       type: object
@@ -184,9 +193,9 @@ components:
         user_gender:
           type: string
           description: Gender of the user
-          default: Male
-          enum: ["Male", "Female"]
-          example: "Female"
+          default: male
+          enum: ["male", "female"]
+          example: "female"
         user_condition:
           type: string
           default: ""
@@ -298,9 +307,8 @@ paths:
         content:
           application/json:
             schema:
-              type: string
-              example:
-                text: How to sleep better
+              $ref: "#/components/schemas/SpeechRequest"
+
       responses:
         "200":
           description: Successful response

@@ -5,7 +5,7 @@ authors: Lyndon Lim
 
 # @label(type) TextChatResponseWithChunk
 
-TextChatResponseWithChunk datatype contains parameters that will be returned to the frontend.
+TextChatResponseWithChunk pydantic model contains parameters that will be returned to the frontend.
 
 Used for `/chat` endpoint.
 

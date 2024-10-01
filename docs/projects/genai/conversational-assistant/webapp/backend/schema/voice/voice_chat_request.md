@@ -3,16 +3,16 @@ updated: 1 October 2024
 authors: Lyndon Lim
 ---
 
-# @label(type) TextChatRequest
+# @label(type) VoiceChatRequest
 
-TextChatRequest pydantic model contains required parameters to be sent to the LLM for generating a response.
+VoiceChatRequest pydantic model contains required parameters to be sent to the LLM for generating a response.
 
-Used for both `/chat/stream` and `/chat` endpoint.
+Used for `/voice/stream`
 
 === "Python"
 
     ```python
-    class TextChatRequest(BaseModel):
+    class VoiceChatRequest(BaseModel):
         chat_history: Optional[List[ChatMessage]] = []
         profile: Profile
         query: ChatMessage
@@ -24,7 +24,7 @@ Used for both `/chat/stream` and `/chat` endpoint.
     The actual implementation of this class inheirits `Request`.
 
     ```python
-    class TextChatRequest(Request):
+    class VoiceChatRequest(Request):
         pass
     ```
 

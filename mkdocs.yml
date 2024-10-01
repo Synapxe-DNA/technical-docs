@@ -329,6 +329,16 @@ nav:
                               - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk.md
+                          - Voice:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response.md
+                          - Feedback:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request.md
+                          - Speech:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/speech/speech_request.md
+                          - Source:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/source/source.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk.md
 
               - Services:
                   - Search Index:

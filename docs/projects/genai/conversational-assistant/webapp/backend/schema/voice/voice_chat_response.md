@@ -1,11 +1,11 @@
 ---
-updated: 30 Septemeber 2024
+updated: 1 October 2024
 authors: Lyndon Lim
 ---
 
-# @label(type) TextChatResponse
+# @label(type) VoiceChatResponse
 
-TextChatResponse pydantic model contains parameters that will be returned to the frontend.
+VoiceChatResponse pydantic model contains parameters that will be returned to the frontend.
 It does not contain any text chunk as the frontend will not be displaying it.
 
 Used for `/chat/stream` endpoint.
@@ -13,8 +13,9 @@ Used for `/chat/stream` endpoint.
 === "Python"
 
     ```python
-    class TextChatResponse(BaseModel):
+    class VoiceChatResponse(BaseModel):
         response_message: str
+        audio_base64: str
         sources: List[Source]
     ```
 
@@ -23,6 +24,10 @@ Used for `/chat/stream` endpoint.
 ### @label(attr) response_message
 
 `string` The response message from the LLM.
+
+### @label(attr) audio_base64
+
+`string` The audio response from the LLM in base64 format.
 
 ### @label(attr) sources
 
