@@ -323,6 +323,12 @@ nav:
                           - projects/genai/conversational-assistant/webapp/frontend/services/preference.md
                   - Backend:
                       - projects/genai/conversational-assistant/webapp/backend/API/endpoint.md
+                      - Schema:
+                          - projects/genai/conversational-assistant/webapp/backend/schema/overview.md
+                          - Chat:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk.md
 
               - Services:
                   - Search Index:

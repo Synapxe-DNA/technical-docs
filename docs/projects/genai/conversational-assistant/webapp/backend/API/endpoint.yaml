@@ -28,7 +28,7 @@ components:
         language:
           type: string
           enum: ["english", "chinese", "malay", "tamil", "spoken"]
-          description: Language selected by user
+          description: Response language selected by user
           example: spoken
       required:
         - chat_history
