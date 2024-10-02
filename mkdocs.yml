@@ -322,8 +322,29 @@ nav:
                           - projects/genai/conversational-assistant/webapp/frontend/services/conversation-broker.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/preference.md
                   - Backend:
-                      - API:
-                          - projects/genai/conversational-assistant/webapp/backend/api/endpoints.md
+                      - projects/genai/conversational-assistant/webapp/backend/API/endpoint.md
+                      - Schema:
+                          - projects/genai/conversational-assistant/webapp/backend/schema/overview.md
+                          - Chat:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk.md
+                          - Voice:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response.md
+                          - Feedback:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request.md
+                          - Speech:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/speech/speech_request.md
+                          - Source:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/source/source.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk.md
+                          - Message:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message.md
+                              - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source.md
+                          - Profile:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/profile/profile.md
+
               - Services:
                   - Search Index:
                       - projects/genai/conversational-assistant/services/search_index/index.md
