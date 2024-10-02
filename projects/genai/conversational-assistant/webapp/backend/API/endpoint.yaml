@@ -1,0 +1,319 @@
+openapi: 3.0.0
+
+info:
+  title: Conversational Assistant Backend
+  version: 0.0.1
+
+servers:
+  - url: http://localhost:50505
+    description: Local server hosted on the default port.
+
+components:
+  schemas:
+    TextChatRequest:
+      type: object
+      properties:
+        chat_history:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChatMessage"
+          maxItems: 8
+          example: []
+        profile:
+          type: object
+          $ref: "#/components/schemas/Profile"
+        query:
+          type: object
+          $ref: "#/components/schemas/ChatMessage"
+        language:
+          type: string
+          enum: ["english", "chinese", "malay", "tamil", "spoken"]
+          description: Response language selected by user
+          example: spoken
+      required:
+        - chat_history
+        - query
+        - profile
+        - language
+
+    TextChatResponse:
+      type: object
+      properties:
+        response_message:
+          type: string
+          description: The message content
+        sources:
+          type: array
+          items:
+            $ref: "#/components/schemas/Source"
+          description: List of sources used for the response
+      required:
+        - response_message
+        - sources
+
+    VoiceChatRequest:
+      type: object
+      properties:
+        chat_history:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChatMessage"
+          maxItems: 8
+          example: []
+        profile:
+          type: object
+          $ref: "#/components/schemas/Profile"
+        query:
+          type: object
+          $ref: "#/components/schemas/ChatMessage"
+        language:
+          type: string
+          enum: ["english", "chinese", "malay", "tamil", "spoken"]
+          description: Language selected by user
+          example: spoken
+      required:
+        - chat_history
+        - query
+        - profile
+        - language
+
+    VoiceChatResponse:
+      type: object
+      properties:
+        response_message:
+          type: string
+          description: The message content
+        audio_base64:
+          type: string
+          description: Base64 encoded audio file of the response
+        sources:
+          type: array
+          items:
+            $ref: "#/components/schemas/Source"
+          description: List of sources used for the response
+      required:
+        - response_message
+        - sources
+        - audio_base64
+
+    FeedbackRequest:
+      type: object
+      properties:
+        date_time:
+          type: string
+          example: "31/12/9999, 00:00:00"
+        feedback_type:
+          type: string
+          enum: ["positive", "negative"]
+          example: positive
+        feedback_category:
+          type: array
+          items:
+            type: string
+          example: ["Straightforward answer"]
+        feedback_remarks:
+          type: string
+          default: ""
+          example: "Good response [from swagger]"
+        user_profile:
+          type: object
+          $ref: "#/components/schemas/Profile"
+        chat_history:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChatMessageWithSource"
+          maxItems: 8
+          example: []
+      required:
+        - date_time
+        - feedback_type
+        - feedback_category
+        - feedback_remarks
+        - user_profile
+        - chat_history
+
+    SpeechRequest:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Text to be converted to speech
+          example: "Hi, how are you?"
+
+    ChatMessage:
+      type: object
+      properties:
+        role:
+          type: string
+          description: Role of the message sender (user or assistant)
+          example: user
+        content:
+          type: string
+          description: Content of the message
+          example: How to sleep better
+      required:
+        - role
+        - content
+
+    ChatMessageWithSource:
+      type: object
+      properties:
+        role:
+          type: string
+          description: Role of the message sender (user or assistant)
+          example: user
+        content:
+          type: string
+          description: Content of the message
+          example: How to sleep better
+        sources:
+          type: array
+          items:
+            $ref: "#/components/schemas/Source"
+          description: List of sources used for the response
+          example: []
+      required:
+        - role
+        - content
+        - sources
+
+    Profile:
+      type: object
+      properties:
+        profile_type:
+          type: string
+          description: Type of profile
+          enum: ["myself", "others", "general"]
+          example: myself
+        user_age:
+          type: integer
+          default: -1
+          description: Age of the user
+          example: 30
+        user_gender:
+          type: string
+          description: Gender of the user
+          default: male
+          enum: ["male", "female"]
+          example: "female"
+        user_condition:
+          type: string
+          default: ""
+          description: Medical condition of the user [Empty if general profile]
+          example: "Diabetes and hypertension"
+      required:
+        - profile_type
+        - user_age
+        - user_gender
+        - user_condition
+
+    Source:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+        cover_image_url:
+          type: string
+        full_url:
+          type: string
+        content_category:
+          type: string
+        category_description:
+          type: string
+        pr_name:
+          type: string
+        date_modified:
+          type: string
+      required:
+        - ids
+        - title
+        - full_url
+        - content_category
+        - category_description
+        - pr_name
+
+paths:
+  /chat/stream:
+    post:
+      summary: Send chat message with streaming response
+      tags:
+        - Chat
+      requestBody:
+        description: Message to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TextChatRequest"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TextChatResponse"
+
+  /voice/stream:
+    post:
+      summary: Send voice message with streaming response
+      tags:
+        - Voice
+      requestBody:
+        description: Message to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VoiceChatRequest"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VoiceChatResponse"
+
+  /feedback:
+    post:
+      summary: Send feedback to cosmosDB
+      tags:
+        - Feedback
+      requestBody:
+        description: Message to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackRequest"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: string
+  /speech:
+    post:
+      summary: Send feedback to cosmosDB
+      tags:
+        - Speech
+      requestBody:
+        description: Message to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SpeechRequest"
+
+      responses:
+        "200":
+          description: Successful response
+          content:
+            audio/mp3:
+              schema:
+                type: string
+                format: binary
