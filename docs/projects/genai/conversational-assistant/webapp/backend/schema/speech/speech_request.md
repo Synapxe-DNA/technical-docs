@@ -5,7 +5,7 @@ authors: Lyndon Lim
 
 # @label(type) SpeechRequest
 
-SpeechRequest datatype contains required parameter to be sent to Azure Speech Service for text to speech conversion.
+SpeechRequest pydantic model contains required parameter to be sent to Azure Speech Service for text to speech conversion.
 
 Used for `/speech` endpoint
 
