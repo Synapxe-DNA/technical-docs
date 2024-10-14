@@ -14,7 +14,7 @@ updates:
       github-actions:
         patterns:
           - "*"
-      
+
   # Maintain dependencies for pip
   - package-ecosystem: "pip"
     # We only want to bump versions of packages in case of security updates, as
@@ -23,4 +23,3 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      
