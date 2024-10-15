@@ -46,7 +46,7 @@ def __colour_factory(label: str) -> str:
     if label in colour_pairs.keys():
         return colour_pairs[label]
     else:
-        print(label)
+        # print(label)
         return colour_pairs["default"]
 
 

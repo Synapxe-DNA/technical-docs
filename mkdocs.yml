@@ -306,7 +306,7 @@ nav:
                               - projects/genai/health-hub/webapp/backend/db/mongo/er-diagram.md
                               - projects/genai/health-hub/webapp/backend/db/mongo/mongo-connector.md
                               - projects/genai/health-hub/webapp/backend/db/mongo/beanie-documents.md
-                  - Misc:
+                  - Miscellaneous:
                       - projects/genai/health-hub/webapp/misc/populator.md
                       - projects/genai/health-hub/webapp/misc/mocker.md
 
