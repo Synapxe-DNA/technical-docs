@@ -322,6 +322,7 @@ nav:
                           - projects/genai/conversational-assistant/webapp/frontend/services/conversation-broker.md
                           - projects/genai/conversational-assistant/webapp/frontend/services/preference.md
                   - Backend:
+                      - projects/genai/conversational-assistant/webapp/backend/architecture.md
                       - projects/genai/conversational-assistant/webapp/backend/API/endpoint.md
                       - Schema:
                           - projects/genai/conversational-assistant/webapp/backend/schema/overview.md
@@ -342,6 +343,8 @@ nav:
                           - Message:
                               - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source.md
+                          - History:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/history/chat_history.md
                           - Profile:
                               - projects/genai/conversational-assistant/webapp/backend/schema/profile/profile.md
 

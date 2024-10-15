@@ -11,33 +11,37 @@ authors: Lyndon Lim
 
 ### Chat
 
-- [TextChatRequest](/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request)
-- [TextChatResponse](/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response)
-- [TextChatResponseWithChunk](/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk)
+- [TextChatRequest](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request)
+- [TextChatResponse](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response)
+- [TextChatResponseWithChunk](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk)
 
 ### Voice
 
-- [VoiceChatRequest](/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request)
-- [VoiceChatResponse](/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response)
+- [VoiceChatRequest](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request)
+- [VoiceChatResponse](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response)
 
 ### Feedback
 
-- [FeedbackRequest](/projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request)
+- [FeedbackRequest](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request)
 
 ### Speech
 
-- [SpeechRequest](/projects/genai/conversational-assistant/webapp/backend/schema/speech/speech_request)
+- [SpeechRequest](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/speech/speech_request)
 
 ### Source
 
-- [Source](/projects/genai/conversational-assistant/webapp/backend/schema/source/source)
-- [SourceWithChunk](/projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk)
+- [Source](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/source/source)
+- [SourceWithChunk](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk)
 
 ### Message
 
-- [ChatMessage](/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message)
-- [ChatMessageWithSource](/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source)
+- [ChatMessage](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message)
+- [ChatMessageWithSource](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source)
+
+### History
+
+- [ChatHistory](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/history/chat_history)
 
 ### Profile
 
-- [Profile](/projects/genai/conversational-assistant/webapp/backend/schema/profile/profile)
+- [Profile](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/profile/profile)
