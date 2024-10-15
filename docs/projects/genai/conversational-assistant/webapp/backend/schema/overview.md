@@ -38,6 +38,10 @@ authors: Lyndon Lim
 - [ChatMessage](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message)
 - [ChatMessageWithSource](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source)
 
+### History
+
+- [ChatHistory](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/history/chat_history)
+
 ### Profile
 
 - [Profile](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/profile/profile)

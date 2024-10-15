@@ -343,6 +343,8 @@ nav:
                           - Message:
                               - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source.md
+                          - History:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/history/chat_history.md
                           - Profile:
                               - projects/genai/conversational-assistant/webapp/backend/schema/profile/profile.md
 
