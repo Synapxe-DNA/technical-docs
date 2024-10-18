@@ -1,5 +1,5 @@
 ---
-updated: 4 Aug 2024
+updated: 18 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
@@ -35,6 +35,10 @@ functionality.
 
 `BehaviorSubject<MicState>` is the global controller for the mic state, used to control the UI state of the main mic button
 on the voice page.
+
+#### @label(attr) $sendTimeout
+
+`BehaviorSubject<boolean>` is a boolean flag used to signal if a timeout should be invoked.
 
 #### @label(attr) $isWaitingForVoiceApi
 
@@ -112,3 +116,16 @@ backend via the `EndpointService`.
 Parameters
 : `message` (`string`): User input message
 : `profile` (`Profile`): Active profile used in the conversation.
+
+### Feedback Related Methods
+
+#### @label(meth) Send Feedback
+
+    async sendFeedback(feedback: Feedback)
+
+Description
+: Method to send a feedback object. This will handle the persistence of messages into IndexedDB, and interacting with the
+backend via the `EndpointService`.
+
+Parameters
+: `feedback` (`feedback`): Feedback object
