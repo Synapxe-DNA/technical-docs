@@ -32,7 +32,7 @@ Description
 
 : This method will release all audio tracks and release the microphone resource.
 
-#### @label(async) @label(meth) Stop audio tracks
+#### @label(async) @label(meth) Merge Audio Streams
 
     async mergeAudioStreams(...streams: MediaStream[]): Promise<MediaStream>
 
