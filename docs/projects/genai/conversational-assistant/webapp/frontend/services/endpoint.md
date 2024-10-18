@@ -1,5 +1,5 @@
 ---
-updated: 4 Aug 2024
+updated: 18 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
@@ -29,6 +29,19 @@ Parameters
 
 Returns
 : `ApiChatHistory[]`
+
+#### @label(private) @label(meth) Message to Api Chat History with Sources
+
+    private messageToApiChatHistoryWithSources(message: Message[]): ApiChatHistorywithSources[]
+
+Description
+: Method to convert `Message` array into `ApiChatHistorywithSources` format for backend consumption.
+
+Parameters
+: `message` (`Message[]`): Array of messages to convert.
+
+Returns
+: `ApiChatHistorywithSources[]`
 
 #### @label(private) @label(meth) Profile to Api Profile
 
