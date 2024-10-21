@@ -1,7 +1,7 @@
 ---
-updated: 25 July 2024
+updated: 21 October 2024
 authors:
-  - Ong Tsien Jin
+  - Lyndon Lim
 ---
 
 # Endpoints
@@ -10,4 +10,4 @@ Endpoints are documented with [OpenAPI standards](https://swagger.io/specificati
 
 !!! NOTE "Plugin reference"
 
-    Documentation for the plugin used to render the OpenAPI documentation can be found [here](https://github.com/bharel/mkdocs-render-swagger-plugin).
+    Documentation for the plugin used to render the OpenAPI documentation can be found [here](https://github.com/blueswen/mkdocs-swagger-ui-tag).

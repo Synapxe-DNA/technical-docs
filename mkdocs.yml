@@ -59,7 +59,8 @@ plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - mkdocs-jupyter
-  - render_swagger
+  - swagger-ui-tag
+
 hooks:
   - pyscripts/authors/authors.py
   - pyscripts/doculabels/doculabels.py
@@ -331,7 +332,7 @@ nav:
 
                   - Backend:
                       - projects/genai/conversational-assistant/webapp/backend/architecture.md
-                      - projects/genai/conversational-assistant/webapp/backend/API/endpoint.md
+                      - projects/genai/conversational-assistant/webapp/backend/API/endpoints.md
                       - Schema:
                           - projects/genai/conversational-assistant/webapp/backend/schema/overview.md
                           - Chat:
