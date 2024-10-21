@@ -97,20 +97,14 @@
             "items": {
               "type": "string"
             },
-            "example": [
-              "Label A",
-              "Label B"
-            ]
+            "example": ["Label A", "Label B"]
           },
           "keywords": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "example": [
-              "Keyword A",
-              "Keyword B"
-            ]
+            "example": ["Keyword A", "Keyword B"]
           },
           "cover_image_url": {
             "type": "string",
@@ -137,9 +131,7 @@
   "paths": {
     "/check/health": {
       "get": {
-        "tags": [
-          "Health Check"
-        ],
+        "tags": ["Health Check"],
         "summary": "Checks if the server is running",
         "responses": {
           "200": {
@@ -163,9 +155,7 @@
     },
     "/groups": {
       "get": {
-        "tags": [
-          "Groups"
-        ],
+        "tags": ["Groups"],
         "summary": "Fetches all groups in the database",
         "responses": {
           "200": {
@@ -186,9 +176,7 @@
     },
     "/groups/{group_id}": {
       "get": {
-        "tags": [
-          "Groups"
-        ],
+        "tags": ["Groups"],
         "summary": "Fetches a specific group by ID",
         "parameters": [
           {
