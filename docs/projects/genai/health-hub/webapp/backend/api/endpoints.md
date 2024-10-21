@@ -13,4 +13,4 @@ The endpoints below are the endpoints that have been implemented.
 
 ---
 
-!!swagger endpoints.yaml!!
+<swagger-ui src="endpoints.json"/>

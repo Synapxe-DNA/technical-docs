@@ -16,4 +16,4 @@ authors: Lyndon Lim
   <figcaption>Endpoint diagram with buttons</figcaption>
 </figure>
 
-!!swagger endpoint.yaml!!
+<swagger-ui src="endpoints.json"/>
