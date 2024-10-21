@@ -61,7 +61,6 @@ plugins:
   - mkdocs-jupyter
   - swagger-ui-tag
 
-
 hooks:
   - pyscripts/authors/authors.py
   - pyscripts/doculabels/doculabels.py
