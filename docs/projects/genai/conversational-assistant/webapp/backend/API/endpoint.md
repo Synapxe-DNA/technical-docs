@@ -11,4 +11,9 @@ authors: Lyndon Lim
 
 ---
 
+<figure markdown="span">
+  ![quora](../assets/endpoint.drawio.png)
+  <figcaption>Endpoint diagram with buttons</figcaption>
+</figure>
+
 !!swagger endpoint.yaml!!

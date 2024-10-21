@@ -19,15 +19,6 @@ Used for both `/chat/stream` and `/chat` endpoint.
         language: str
     ```
 
-=== "Actual Implementation"
-
-    The actual implementation of this class inheirits `Request`.
-
-    ```python
-    class TextChatRequest(Request):
-        pass
-    ```
-
 ## Attributes
 
 ### @label(attr) chat_history

@@ -333,6 +333,8 @@ nav:
                           - Voice:
                               - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request.md
                               - projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response.md
+                          - Transcription:
+                              - projects/genai/conversational-assistant/webapp/backend/schema/transcription/transcription_response.md
                           - Feedback:
                               - projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request.md
                           - Speech:

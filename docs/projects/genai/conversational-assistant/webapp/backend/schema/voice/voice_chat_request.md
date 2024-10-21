@@ -7,7 +7,7 @@ authors: Lyndon Lim
 
 VoiceChatRequest pydantic model contains required parameters to be sent to the LLM for generating a response.
 
-Used for `/voice/stream`
+Used for `/voice/stream` endpoint.
 
 === "Python"
 
@@ -17,15 +17,6 @@ Used for `/voice/stream`
         profile: Profile
         query: ChatMessage
         language: str
-    ```
-
-=== "Actual Implementation"
-
-    The actual implementation of this class inheirits `Request`.
-
-    ```python
-    class VoiceChatRequest(Request):
-        pass
     ```
 
 ## Attributes

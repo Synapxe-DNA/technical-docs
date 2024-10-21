@@ -8,7 +8,7 @@ authors: Lyndon Lim
 VoiceChatResponse pydantic model contains parameters that will be returned to the frontend.
 It does not contain any text chunk as the frontend will not be displaying it.
 
-Used for `/chat/stream` endpoint.
+Used for `/voice/stream` endpoint.
 
 === "Python"
 
