@@ -7,7 +7,7 @@ authors: Lyndon Lim
 
 FeedbackRequest pydantic model contains required parameters to be sent to CosmosDB for storing feedback.
 
-Used for both `/chat/stream` and `/chat` endpoint.
+Used for `/feedback` endpoint.
 
 === "Python"
 

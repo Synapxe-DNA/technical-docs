@@ -177,6 +177,16 @@ components:
         - content
         - sources
 
+    TranscriptionResponse:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Transcribed text
+        is_final:
+          type: boolean
+          description: Whether the transcription is final
+
     Profile:
       type: object
       properties:
@@ -276,6 +286,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VoiceChatResponse"
+
+  /ws/transcribe:
+    post:
+      summary: Transcribe audio to text
+      tags:
+        - Transcribe
+      requestBody:
+        description: Audio to be transcribed
+        required: true
+        content:
+          audio/pcm:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TranscriptionResponse"
 
   /feedback:
     post:

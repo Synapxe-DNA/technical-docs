@@ -1,5 +1,5 @@
 ---
-updated: 1 October 2024
+updated: 21 October 2024
 authors: Lyndon Lim
 ---
 
@@ -19,6 +19,10 @@ authors: Lyndon Lim
 
 - [VoiceChatRequest](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request)
 - [VoiceChatResponse](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response)
+
+### Transcription
+
+- [TranscriptionResponse](https://synapxe-dna.github.io/technical-docs/projects/genai/conversational-assistant/webapp/backend/schema/transcription/transcription_response)
 
 ### Feedback
 
