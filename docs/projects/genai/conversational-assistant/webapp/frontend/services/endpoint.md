@@ -1,5 +1,5 @@
 ---
-updated: 18 Oct 2024
+updated: 22 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
@@ -16,6 +16,19 @@ only service that needs to be updated, _technically_.
 ## @label(service) EndpointService
 
 ### Utility Methods
+
+#### @label(meth) Text to Speech
+
+    async textToSpeech(text: string): Promise<BehaviorSubject<Blob | null>>
+
+Description
+: Method to send text to the backend for conversion to speech.
+
+Parameters
+: `text` (`string`): The text that needs to be converted to speech.
+
+Returns
+: `Promise<BehaviorSubject<Blob | null>>`
 
 #### @label(private) @label(meth) Message to Api Chat History
 

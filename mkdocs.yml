@@ -114,6 +114,11 @@ extra:
         role: Contributor
         avatar: https://avatars.githubusercontent.com/u/97416749?v=4
         url: https://github.com/Varstak
+    - Gowri Bhat:
+        alias: gowri
+        role: Contributor
+        avatar: https://avatars.githubusercontent.com/u/97337263?v=4
+        url: https://github.com/gowribhat
 
 # Extensions
 markdown_extensions:

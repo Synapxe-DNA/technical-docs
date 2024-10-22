@@ -1,5 +1,5 @@
 ---
-updated: 18 Oct 2024
+updated: 22 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
@@ -73,6 +73,20 @@ Description
 Description
 : Handle the stopping of recording, and post process the recorded audio. The recorded audio will be sent to the backend
 as a voice message.
+
+#### @label(private) @label(meth) Stop Audio Playback
+
+    private handleStopPlaying(): void
+
+Description
+: Method to stop the current audio playback and reset the mic state. Also unsubscribes from the voice stream to prevent further audio from playing.
+
+#### @label(private) @label(meth) Unsubscribe from Voice Stream
+
+    private unsubscribeVoiceStream(): void
+
+Description
+: Method to unsubscribe from the voice stream and reset any active voice subscriptions. This method ensures that any ongoing or pending voice stream is canceled properly to avoid memory leaks.
 
 #### @label(private) @label(meth) Play Base64 Encoded Audio
 
