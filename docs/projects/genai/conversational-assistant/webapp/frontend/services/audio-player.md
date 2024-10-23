@@ -1,5 +1,5 @@
 ---
-updated: 7 Aug 2024
+updated: 23 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
@@ -84,3 +84,17 @@ Parameters
 
 Description
 : This method clears the current queue, stops the audio from being played and updates local states.
+
+#### @label(meth) Play Start Voice Audio
+
+    playStartVoiceAudio(): void
+
+Description
+: This method plays a pre-defined audio file (`startvoice.mp3`) from the app's assets, used to signal the start of voice interaction.
+
+#### @label(meth) Play Stop Voice Audio
+
+    playStopVoiceAudio(): void
+
+Description
+: This method plays a pre-defined audio file (`stopvoice.mp3`) from the app's assets, used to signal the end of voice interaction.
