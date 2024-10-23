@@ -1,10 +1,10 @@
 ---
-updated: 4 Aug 2024
+updated: 23 Oct 2024
 authors:
   - Ong Tsien Jin
 ---
 
-# Voice Activity Detection
+# Voice Activity Detection @label(deprecated)
 
 This service is used to handle Voice Activity Detection (VAD).
 
