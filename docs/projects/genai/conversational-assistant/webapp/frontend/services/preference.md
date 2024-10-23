@@ -86,7 +86,7 @@ Parameters
 
 ---
 
-## Older Implementations @label(deprecated)
+### Older Implementations @label(deprecated)
 
 !!! WARNING "Not Currently Used"
 
