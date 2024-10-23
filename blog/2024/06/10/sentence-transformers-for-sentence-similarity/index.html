@@ -1,0 +1,2809 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../08/26/best-practices-in-retrieval-augmented-generation/" rel="next"/>
+<link href="../../../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
+<title>Sentence Transformers for Sentence Similarity - Data Analytics &amp; AI Documentation</title>
+<link href="../../../../../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="https://unpkg.com/katex@0/dist/katex.min.css" rel="stylesheet"/>
+<link href="../../../../../styles/mermaid.css" rel="stylesheet"/>
+<link href="../../../../../styles/author.css" rel="stylesheet"/>
+<link href="../../../../../styles/doculabels.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#sentence-transformers-for-sentence-similarity">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Data Analytics &amp; AI Documentation" class="md-header__button md-logo" data-md-component="logo" href="../../../../.." title="Data Analytics &amp; AI Documentation">
+<svg viewbox="0 0 89 89" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z"></path>
+<path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5"></path>
+<path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z"></path>
+<path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25"></path>
+</svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Data Analytics &amp; AI Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Sentence Transformers for Sentence Similarity
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to automatic mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to automatic mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../..">
+          
+  
+    
+  
+  Home
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../projects/computervision/waymo/data-processing/">
+          
+  
+    
+  
+  Projects
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../../">
+          
+  
+    
+  
+  Articles
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Data Analytics &amp; AI Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../../../../.." title="Data Analytics &amp; AI Documentation">
+<svg viewbox="0 0 89 89" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z"></path>
+<path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5"></path>
+<path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z"></path>
+<path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25"></path>
+</svg>
+</a>
+    Data Analytics &amp; AI Documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Contribution Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Contribution Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/contribution_guides/introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/contribution_guides/formatting/">
+<span class="md-ellipsis">
+    Formatting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/contribution_guides/endpoints/">
+<span class="md-ellipsis">
+    Endpoints
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/contribution_guides/classes_types_and_all/">
+<span class="md-ellipsis">
+    Classes, Types, and All
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Hooks
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+            Hooks
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/hooks/authors/">
+<span class="md-ellipsis">
+    Authors
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../home/hooks/doculabels/">
+<span class="md-ellipsis">
+    Doculabels
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Projects
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Computer Vision
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Computer Vision
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Waymo
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Waymo
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1_1_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/computervision/waymo/data-processing/">
+<span class="md-ellipsis">
+    Data Processing
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_1_1_1" id="__nav_2_1_1_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_1_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_1_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Data Processing
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/computervision/waymo/data-processing/introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Generative AI
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Generative AI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Content Optimization
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Content Optimization
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/">
+<span class="md-ellipsis">
+    Data &amp; Clustering Pipeline
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1" id="__nav_2_2_1_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Data &amp; Clustering Pipeline
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/">
+<span class="md-ellipsis">
+    Data Processing
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1_2" id="__nav_2_2_1_1_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Data Processing
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/articles_flagged_removal/">
+<span class="md-ellipsis">
+    Flagging Articles for Removal
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/excluded-articles/">
+<span class="md-ellipsis">
+    Excluded Articles
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/">
+<span class="md-ellipsis">
+    Nodes
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1_2_4" id="__nav_2_2_1_1_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_2_4_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+            Nodes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/standardize_columns/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> standardize_columns
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/add_data/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> add_data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/extract_data/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> extract_data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/map_data/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> map_data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/data_processing/nodes/merge_data/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> merge_data
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/feature-engineering/">
+<span class="md-ellipsis">
+    Feature Engineering
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/">
+<span class="md-ellipsis">
+    Clustering
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1_4" id="__nav_2_2_1_1_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_1_4">
+<span class="md-nav__icon md-icon"></span>
+            Clustering
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_1_4_2" id="__nav_2_2_1_1_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Experiments
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_4_2_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_1_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Experiments
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/experiments/embedding-techniques/embedding-techniques/">
+<span class="md-ellipsis">
+    Embedding Techniques
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/experiments/multi-feature/multi-feature-clustering-methodology/">
+<span class="md-ellipsis">
+    Multi-feature Clustering Methodology
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/experiments/feature-selection/feature-selection/">
+<span class="md-ellipsis">
+    Feature selection
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/experiments/subclustering/subclustering/">
+<span class="md-ellipsis">
+    Subclustering
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/">
+<span class="md-ellipsis">
+    Nodes
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1_4_3" id="__nav_2_2_1_1_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_4_3_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_1_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Nodes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/merge-ground-truth-to-data/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> merge_ground_truth_to_data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/generate-cluster/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> generate_clusters
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/generate-subcluster/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> generate_subclusters
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/update-edges-dataframe/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> update_edges_dataframe
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/cluster-visualization/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> cluster_viz
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_4_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_1_4_3_7" id="__nav_2_2_1_1_4_3_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Utilities
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_4_3_7_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_1_4_3_7">
+<span class="md-nav__icon md-icon"></span>
+            Utilities
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/utilities/utils_clusters/">
+<span class="md-ellipsis">
+    Clusters
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/utilities/utils_subclusters/">
+<span class="md-ellipsis">
+    Sub-clusters
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/clustering/nodes/parameters-clustering/">
+<span class="md-ellipsis">
+    Parameters
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/">
+<span class="md-ellipsis">
+    Azure RAG
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_1_5" id="__nav_2_2_1_1_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_5_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_1_5">
+<span class="md-nav__icon md-icon"></span>
+            Azure RAG
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/filtered_articles_for_removal/">
+<span class="md-ellipsis">
+    Filtered Articles for Removal
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/js_articles/">
+<span class="md-ellipsis">
+    Extract Article Content from the JavaScript Columns for Programs and Program-Sub-Pages
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_1_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_1_5_4" id="__nav_2_2_1_1_5_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Nodes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_1_5_4_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_1_5_4">
+<span class="md-nav__icon md-icon"></span>
+            Nodes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/nodes/filter_articles/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> filter_articles
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/nodes/process_html_tables/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> process_html_tables
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/data-pipeline/azure_rag/nodes/extract_content/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-function-color);'>func</code> extract_content
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/">
+<span class="md-ellipsis">
+    Optimization &amp; Generation
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_2" id="__nav_2_2_1_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Optimization &amp; Generation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/langchain/">
+<span class="md-ellipsis">
+    LangChain
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/langgraph/">
+<span class="md-ellipsis">
+    LangGraph
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/llm-observability/">
+<span class="md-ellipsis">
+    LLM Observability
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-opt-check/">
+<span class="md-ellipsis">
+    Article Optimization Checks
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_2_5" id="__nav_2_2_1_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_5_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_2_5">
+<span class="md-nav__icon md-icon"></span>
+            Article Optimization Checks
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/content/">
+<span class="md-ellipsis">
+    Content Evaluation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/meta-description/">
+<span class="md-ellipsis">
+    Meta Description Evaluation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-opt-check/nodes/title/">
+<span class="md-ellipsis">
+    Title Evaluation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6" id="__nav_2_2_1_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Article Generation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_2_6">
+<span class="md-nav__icon md-icon"></span>
+            Article Generation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_1" id="__nav_2_2_1_2_6_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Article Harmonisation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_1_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_1">
+<span class="md-nav__icon md-icon"></span>
+            Article Harmonisation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article_harmonisation_intro/">
+<span class="md-ellipsis">
+    Intro to Article Harmonisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_1_2" id="__nav_2_2_1_2_6_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Article Harmonisation Flow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_1_2_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Article Harmonisation Flow
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing/">
+<span class="md-ellipsis">
+    Article Content Preprocessing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node/">
+<span class="md-ellipsis">
+    Researcher Node
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/compiler_node/">
+<span class="md-ellipsis">
+    Compiler Node
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_harmonisation/">
+<span class="md-ellipsis">
+    Content Guidelines Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_1_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_1_2_5" id="__nav_2_2_1_2_6_1_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Writing Optimisation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_1_2_5_label" class="md-nav" data-md-level="8">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_1_2_5">
+<span class="md-nav__icon md-icon"></span>
+            Writing Optimisation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation/">
+<span class="md-ellipsis">
+    Writing Guidelines Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation/">
+<span class="md-ellipsis">
+    Readability Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation/">
+<span class="md-ellipsis">
+    Personality Evaluation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation/">
+<span class="md-ellipsis">
+    Title Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation/">
+<span class="md-ellipsis">
+    Meta Desc Optimisation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_2" id="__nav_2_2_1_2_6_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Article Optimisation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_2_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_2">
+<span class="md-nav__icon md-icon"></span>
+            Article Optimisation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article_optimisation_intro/">
+<span class="md-ellipsis">
+    Intro to Article Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_2_2" id="__nav_2_2_1_2_6_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Article Optimisation Flow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_2_2_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Article Optimisation Flow
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article_content_preprocessing/">
+<span class="md-ellipsis">
+    Article Content Preprocessing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/researcher_node/">
+<span class="md-ellipsis">
+    Researcher Node
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/content_guidelines_optimisation/">
+<span class="md-ellipsis">
+    Content Guidelines Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_2_6_2_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_2_6_2_2_4" id="__nav_2_2_1_2_6_2_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Writing Optimisation
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_2_6_2_2_4_label" class="md-nav" data-md-level="8">
+<label class="md-nav__title" for="__nav_2_2_1_2_6_2_2_4">
+<span class="md-nav__icon md-icon"></span>
+            Writing Optimisation
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/writing_guidelines_optimisation/">
+<span class="md-ellipsis">
+    Writing Guidelines Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/readability_optimisation/">
+<span class="md-ellipsis">
+    Readability Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/personality_evaluation/">
+<span class="md-ellipsis">
+    Personality Evaluation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/title_optimisation/">
+<span class="md-ellipsis">
+    Title Optimisation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/content-opt-and-harm/article-generation/article-rewriting-nodes/meta_desc_optimisation/">
+<span class="md-ellipsis">
+    Meta Desc Optimisation
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/">
+<span class="md-ellipsis">
+    Webapp (Deprecated)
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_3" id="__nav_2_2_1_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_1_3">
+<span class="md-nav__icon md-icon"></span>
+            Webapp (Deprecated)
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/">
+<span class="md-ellipsis">
+    Frontend
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_3_2" id="__nav_2_2_1_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/frontend-activity-diagram/">
+<span class="md-ellipsis">
+    Frontend activity diagram
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_2_3" id="__nav_2_2_1_3_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Services
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_2_3_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/services/cluster/">
+<span class="md-ellipsis">
+    Cluster
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/services/job/">
+<span class="md-ellipsis">
+    Job
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/services/colour/">
+<span class="md-ellipsis">
+    Colour
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_2_4" id="__nav_2_2_1_3_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Pipes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_2_4_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            Pipes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/pipes/date/">
+<span class="md-ellipsis">
+    Date
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_2_5" id="__nav_2_2_1_3_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Types
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_2_5_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/types/cluster/">
+<span class="md-ellipsis">
+    Cluster
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/types/article/">
+<span class="md-ellipsis">
+    Article
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/types/edge/">
+<span class="md-ellipsis">
+    Edge
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/types/sorter/">
+<span class="md-ellipsis">
+    Sorter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/types/groups/">
+<span class="md-ellipsis">
+    Groups
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_2_6" id="__nav_2_2_1_3_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Utilities
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_2_6_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            Utilities
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/frontend/utilities/group-manager/">
+<span class="md-ellipsis">
+    Group Manager
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/">
+<span class="md-ellipsis">
+    Backend
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1_3_3" id="__nav_2_2_1_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/system-architecture/">
+<span class="md-ellipsis">
+    System Architecture
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_3" id="__nav_2_2_1_3_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Types
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_3_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/overview/">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_3_2" id="__nav_2_2_1_3_3_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Articles
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_3_2_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Articles
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/articles/article/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Article
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/articles/article-meta/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Article Meta
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/articles/article-status/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Article Status
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/articles/generated-article/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Generated Article
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_3_3" id="__nav_2_2_1_3_3_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Relations
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_3_3_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Relations
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/relations/group/">
+<span class="md-ellipsis">
+    Group
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/relations/edge/">
+<span class="md-ellipsis">
+    Edge
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_3_4" id="__nav_2_2_1_3_3_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Jobs
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_3_4_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            Jobs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/jobs/job/">
+<span class="md-ellipsis">
+    Job
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/jobs/job-combine/">
+<span class="md-ellipsis">
+    Job Combine
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/jobs/job-ignore/">
+<span class="md-ellipsis">
+    Job Ignore
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/jobs/job-optimise/">
+<span class="md-ellipsis">
+    Job Optimise
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/types/jobs/job-remove/">
+<span class="md-ellipsis">
+    Job Remove
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_4" id="__nav_2_2_1_3_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    API
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_4_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/api/endpoints/">
+<span class="md-ellipsis">
+    Endpoints
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_5" id="__nav_2_2_1_3_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Database
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_5_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_5">
+<span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/db/db-connector/">
+<span class="md-ellipsis">
+    Database Connector
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_3_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_3_5_2" id="__nav_2_2_1_3_3_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Mongo
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_3_5_2_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_1_3_3_5_2">
+<span class="md-nav__icon md-icon"></span>
+            Mongo
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/db/mongo/er-diagram/">
+<span class="md-ellipsis">
+    ER Diagram
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/db/mongo/mongo-connector/">
+<span class="md-ellipsis">
+    Mongo Connector
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/backend/db/mongo/beanie-documents/">
+<span class="md-ellipsis">
+    Beanie Documents
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_1_3_4" id="__nav_2_2_1_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Miscellaneous
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_3_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_1_3_4">
+<span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/misc/populator/">
+<span class="md-ellipsis">
+    Populater
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/health-hub/webapp/misc/mocker/">
+<span class="md-ellipsis">
+    Mocker
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Conversational Assistant
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Conversational Assistant
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1" id="__nav_2_2_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Webapp
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Webapp
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/">
+<span class="md-ellipsis">
+    Frontend
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_1_1" id="__nav_2_2_2_1_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_1_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_1_2" id="__nav_2_2_2_1_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Services
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_1_2_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_2_1_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/voice-activity-detection/">
+<span class="md-ellipsis">
+    Voice Activity Detection <code class='doculabel' style='color: var(--md-code-fg-color);'>deprecated</code>
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/chat-message/">
+<span class="md-ellipsis">
+    Chat Message Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/audio-player/">
+<span class="md-ellipsis">
+    Audio Player Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/endpoint/">
+<span class="md-ellipsis">
+    Endpoint Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/conversation-broker/">
+<span class="md-ellipsis">
+    Conversation Broker Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/preference/">
+<span class="md-ellipsis">
+    Preference Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/audio-service/">
+<span class="md-ellipsis">
+    Audio Service
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/frontend/services/profile-service/">
+<span class="md-ellipsis">
+    Profile Service
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2" id="__nav_2_2_2_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Backend
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/architecture/">
+<span class="md-ellipsis">
+    Architecture
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/API/endpoints/">
+<span class="md-ellipsis">
+    Endpoints
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3" id="__nav_2_2_2_1_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Schema
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_label" class="md-nav" data-md-level="6">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3">
+<span class="md-nav__icon md-icon"></span>
+            Schema
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/overview/">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_2" id="__nav_2_2_2_1_2_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Chat
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_2_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Chat
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_request/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> TextChatRequest
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> TextChatResponse
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/chat/text_chat_response_with_chunk/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> TextChatResponseWithChunk
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_3" id="__nav_2_2_2_1_2_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Voice
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_3_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Voice
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_request/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> VoiceChatRequest
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/voice/voice_chat_response/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> VoiceChatResponse
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_4" id="__nav_2_2_2_1_2_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Transcription
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_4_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_4">
+<span class="md-nav__icon md-icon"></span>
+            Transcription
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/transcription/transcription_response/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> TranscriptionResponse
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_5" id="__nav_2_2_2_1_2_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Feedback
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_5_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_5">
+<span class="md-nav__icon md-icon"></span>
+            Feedback
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/feedback/feedback_request/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> FeedbackRequest
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_6" id="__nav_2_2_2_1_2_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Speech
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_6_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_6">
+<span class="md-nav__icon md-icon"></span>
+            Speech
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/speech/speech_request/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> SpeechRequest
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_7" id="__nav_2_2_2_1_2_3_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Source
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_7_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_7">
+<span class="md-nav__icon md-icon"></span>
+            Source
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/source/source/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Source
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/source/source_with_chunk/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> SourceWithChunk
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_8" id="__nav_2_2_2_1_2_3_8_label" tabindex="0">
+<span class="md-ellipsis">
+    Message
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_8_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_8">
+<span class="md-nav__icon md-icon"></span>
+            Message
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> ChatMessage
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/message/chat_message_with_source/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> ChatMessageWithSource
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_9" id="__nav_2_2_2_1_2_3_9_label" tabindex="0">
+<span class="md-ellipsis">
+    History
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_9_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_9">
+<span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/history/chat_history/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> ChatHistory
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_1_2_3_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_1_2_3_10" id="__nav_2_2_2_1_2_3_10_label" tabindex="0">
+<span class="md-ellipsis">
+    Profile
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_1_2_3_10_label" class="md-nav" data-md-level="7">
+<label class="md-nav__title" for="__nav_2_2_2_1_2_3_10">
+<span class="md-nav__icon md-icon"></span>
+            Profile
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/webapp/backend/schema/profile/profile/">
+<span class="md-ellipsis">
+    <code class='doculabel' style='color: var(--md-code-hl-special-color);'>type</code> Profile
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2_2_2" id="__nav_2_2_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Services
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/services/search_index/">
+<span class="md-ellipsis">
+    Search Index
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_2_1" id="__nav_2_2_2_2_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_2_1_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_2_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Search Index
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/services/search_index/data_ingestion/">
+<span class="md-ellipsis">
+    Data Ingestion
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/services/search_index/skillset/">
+<span class="md-ellipsis">
+    Skillset
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../projects/genai/conversational-assistant/services/search_index/search_index/">
+<span class="md-ellipsis">
+    Search Index
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../">
+<span class="md-ellipsis">
+    Articles
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Articles
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+<span class="md-ellipsis">
+    Archive
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../archive/2024/">
+<span class="md-ellipsis">
+    2024
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+<span class="md-ellipsis">
+    Categories
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../category/engineering/">
+<span class="md-ellipsis">
+    Engineering
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../category/guides/">
+<span class="md-ellipsis">
+    Guides
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recurrent-networks">
+<span class="md-ellipsis">
+      Recurrent Networks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transformer-networks">
+<span class="md-ellipsis">
+      Transformer Networks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bert-networks">
+<span class="md-ellipsis">
+      BERT Networks
+    </span>
+</a>
+<nav aria-label="BERT Networks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#phases">
+<span class="md-ellipsis">
+      Phases
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advantages-over-transformers">
+<span class="md-ellipsis">
+      Advantages over Transformers
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sentence-transformers">
+<span class="md-ellipsis">
+      Sentence Transformers
+    </span>
+</a>
+<nav aria-label="Sentence Transformers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-1-high-level-idea">
+<span class="md-ellipsis">
+      Pass 1: High Level Idea
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-2-sentence-transformers">
+<span class="md-ellipsis">
+      Pass 2: Sentence Transformers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-3-sentence-transformers-training">
+<span class="md-ellipsis">
+      Pass 3: Sentence Transformers Training
+    </span>
+</a>
+<nav aria-label="Pass 3: Sentence Transformers Training" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#natural-language-inference-nli">
+<span class="md-ellipsis">
+      Natural Language Inference (NLI)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sentence-text-similarity-sts">
+<span class="md-ellipsis">
+      Sentence Text Similarity (STS)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#triplet-dataset">
+<span class="md-ellipsis">
+      Triplet Dataset
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass-4-sentence-transformers-inference">
+<span class="md-ellipsis">
+      Pass 4: Sentence Transformers Inference
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+<nav aria-label="Summary" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recurrent-neural-networks">
+<span class="md-ellipsis">
+      Recurrent Neural Networks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transformers">
+<span class="md-ellipsis">
+      Transformers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bert">
+<span class="md-ellipsis">
+      BERT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sentence-bert">
+<span class="md-ellipsis">
+      Sentence BERT
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content md-content--post" data-md-component="content">
+<div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner md-post">
+<nav class="md-nav md-nav--primary">
+<div class="md-post__back">
+<div class="md-nav__title md-nav__container">
+<a class="md-nav__link" href="../../../../">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<span class="md-ellipsis">
+                    Back to index
+                  </span>
+</a>
+</div>
+</div>
+<div class="md-post__authors md-typeset">
+<div class="md-profile md-post__profile">
+<span class="md-author md-author--long">
+<img alt="Wilsven Leong" src="https://avatars.githubusercontent.com/u/64478824?v=4"/>
+</span>
+<span class="md-profile__description">
+<strong>
+<a href="https://github.com/Wilsven">Wilsven Leong</a>
+</strong>
+<br/>
+                      Creator
+                    </span>
+</div>
+</div>
+<ul class="md-post__meta md-nav__list">
+<li class="md-nav__item md-nav__item--section">
+<div class="md-post__title">
+<span class="md-ellipsis">
+                    Metadata
+                  </span>
+</div>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<div class="md-nav__link">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"></path></svg>
+<time class="md-ellipsis" datetime="2024-06-10 00:00:00">June 10, 2024</time>
+</div>
+</li>
+<li class="md-nav__item">
+<div class="md-nav__link">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
+<span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/engineering/">Engineering</a>, 
+                              <a href="../../../../category/guides/">Guides</a></span>
+</div>
+</li>
+<li class="md-nav__item">
+<div class="md-nav__link">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"></path></svg>
+<span class="md-ellipsis">
+                            
+                              11 min read
+                            
+                          </span>
+</div>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<article class="md-content__inner md-typeset">
+<h1 id="sentence-transformers-for-sentence-similarity">Sentence Transformers for Sentence Similarity<a class="headerlink" href="#sentence-transformers-for-sentence-similarity" title="Permanent link">¶</a></h1>
+<p>In this article, we will take a look at the history leading up to the creation of Sentence
+Transformers, the shortcomings of past architectures across various Natural Language Processing
+(NLP) tasks (mainly sentence similarity) and how Sentence Transformers tackle these problems.</p>
+<!-- more -->
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<figure>
+<img alt="sentence-transformers-history" src="../../../../../assets/images/sentence-transformers-history.png">
+<figcaption>Overview history of Sentence Transformer.</figcaption>
+</img></figure>
+<h2 id="recurrent-networks">Recurrent Networks<a class="headerlink" href="#recurrent-networks" title="Permanent link">¶</a></h2>
+<figure>
+<img alt="recurrent-networks" src="../../../../../assets/images/recurrent-networks.png"/>
+<figcaption><b>From left to right:</b> Vector-to-sequence, Sequence-to-vector and Sequence-to-sequence.</figcaption>
+</figure>
+<p>Clearly, Recurrent Neural Networks (RNNs) are versatile but for language problems, they have their
+disadvantages:</p>
+<p><strong>Disadvantages:</strong></p>
+<ol>
+<li><strong>Slow to train and slow at inference</strong></li>
+<li>This is because the input words are processed one at a time, sequentially. Therefore, longer
+     sentences just take a longer time.</li>
+<li><strong>Do not truly understand context</strong></li>
+<li>RNNs only learn about a word based on the words that came before it. In reality, the context of
+     a word depends on the sentence as a whole.</li>
+<li>Bidirectional Long Short-Term Memory (LSTMs) try to address this but even here, the left to
+     right and right to left context are learned separately and are concatenated so some of the true
+     context are lost.</li>
+</ol>
+<h2 id="transformer-networks">Transformer Networks<a class="headerlink" href="#transformer-networks" title="Permanent link">¶</a></h2>
+<figure>
+<img alt="transformer-networks" src="../../../../../assets/images/transformer-networks.png" width="500"/>
+<figcaption>The encoder-decoder structure of the Transformer architecture. Taken from <a href="https://arxiv.org/abs/1706.03762">“Attention Is All You Need“</a>.</figcaption>
+</figure>
+<figure>
+<img alt="transformer-networks-2" src="../../../../../assets/images/transformer-networks-2.png"/>
+<figcaption>A sentence passing through the Transformer generating an embedding vector for each word.</figcaption>
+</figure>
+<p>For English to French translation, we pass in the entire English sentence into the encoder
+simultaneously. Then, we get the corresponding word vectors simultaneously. These word vectors
+encode the meaning of the word and they are better than RNNs because they understand bidirectional
+context through attention units.</p>
+<p>Now we pass these vectors into the decoder along with the previously generated French words to
+generate the next French word in the sentence. We keep passing the French words that were generated
+into the decoder until we hit the end of sentence.</p>
+<p>Transformers work well for sequence to sequence problems but for the specific natural language
+problems like question answering and text summarization, even Transformers have drawbacks related to
+one fact — language is complicated.</p>
+<p><strong>Disadvantages:</strong></p>
+<ol>
+<li><strong>Need a lot of data</strong></li>
+<li><strong>Architecture may not be complex enough</strong></li>
+<li>Transformers may not be complex enough to understand patterns to solve these language problems.
+     After all, Transformers weren’t designed to be language models so the word representations
+     generated can still be improved.</li>
+</ol>
+<h2 id="bert-networks">BERT Networks<a class="headerlink" href="#bert-networks" title="Permanent link">¶</a></h2>
+<p>BERT was introduced to extend the capabilities of the Transformer. BERT was built with the ideology
+that different Natural Language Processing (NLP) problems all rely on the same fundamental
+understanding of language.</p>
+<figure>
+<img alt="bert-networks" src="../../../../../assets/images/bert-networks.png"/>
+<figcaption>Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architectures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize models for different down-stream tasks. During fine-tuning, all parameters are fine-tuned. [CLS] is a special symbol added in front of every input example, and [SEP] is a special separator token (e.g. separating questions/answers).</figcaption>
+</figure>
+<h3 id="phases">Phases<a class="headerlink" href="#phases" title="Permanent link">¶</a></h3>
+<p>BERT undergoes two phases of training:</p>
+<ol>
+<li><strong>Pre-Training: Understand Language</strong></li>
+<li><strong>Fine Tuning: Understand Language specific tasks</strong></li>
+</ol>
+<h3 id="advantages-over-transformers">Advantages over Transformers<a class="headerlink" href="#advantages-over-transformers" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong><del>Needing a lot of data</del></strong> → Fine tuning does not require obscene amounts of data</li>
+<li><strong><del>Architecture may not be complex enough</del></strong> → BERT is a stack of Transformer encoders and is
+   therefore known as <strong>B</strong>​idirectional <strong>E</strong>​ncoder <strong>R</strong>​epresentations from
+   <strong>T</strong>​ransformers.</li>
+<li><strong>Bidirectional:</strong> It is bidirectional since it understands the context of words looking both
+     ways via attention.</li>
+<li><strong>Encoder</strong> &amp; <strong>Transformers:</strong> Since BERT is essentially a stack of the encoder part of the
+     Transformer.</li>
+<li><strong>Representations:</strong> Since BERT is pre-trained to be a language model, it better understands
+     word representations. This means the output word vectors from BERT better encapsulates the
+     meaning of the words in sentences.</li>
+</ol>
+<figure>
+<img alt="nlp-tasks" src="../../../../../assets/images/nlp-tasks.png"/>
+<figcaption>Various NLP tasks.</figcaption>
+</figure>
+<p>The big takeaway here is that BERT can now solve a host of complex language specific problems except
+for one type.</p>
+<hr/>
+<p><a id="imagine"></a> !!! example "💭 Imagine"</p>
+<div class="language-text highlight"><pre><span></span><code>Imagine you’re a Data Scientist at Quora which is a question answer site and you want to design a system that find related questions to the one that is currently being asked. How would we solve this with BERT?
+
+&lt;figure markdown="span"&gt;
+  ![quora](../../assets/images/quora.png){ width=500 }
+  &lt;figcaption&gt;You're a Data Scientist trying to design a system that find related questions to the one that is currently being asked&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre></div>
+<p><strong>Goal:</strong> Determine questions similar to the one being asked. <a id="goal"></a></p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/bert.png"/>
+<figcaption>A simple schematic diagram illustrating the process of embedding the words across many sentences.</figcaption>
+</figure>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>First take the question that is being asked and another question that had been asked in the past,
+   pass both of these questions into BERT</li>
+<li>BERT generates word vectors</li>
+<li>Pipe these word vectors into some feed forward layer such that the output would be a single
+   neuron corresponding to the similarity score</li>
+<li>Repeat the steps for every question on the platform to compute the pairwise similarity</li>
+<li>Select the highest similarity scores and the corresponding questions will be the most similar and
+   relevant to the question that is being asked</li>
+</ol>
+<p><a id="warning"></a> !!! warning</p>
+<div class="language-text highlight"><pre><span></span><code>However, there is a big issue here. If there are 100 million questions on the platform, we’d have to run the forward pass of BERT 100 million times every single time a new question comes in. This is not viable!
+</code></pre></div>
+<p>So the next question so ask is: how do we make BERT work for the <a href="#goal">current goal</a>?</p>
+<h2 id="sentence-transformers">Sentence Transformers<a class="headerlink" href="#sentence-transformers" title="Permanent link">¶</a></h2>
+<h3 id="pass-1-high-level-idea">Pass 1: High Level Idea <a id="pass-1"></a><a class="headerlink" href="#pass-1-high-level-idea" title="Permanent link">¶</a></h3>
+<figure>
+<img alt="quora" src="../../../../../assets/images/embedding-space.png"/>
+<figcaption><b>Embedding space:</b> It contains vectors of the questions that represent meaning.</figcaption>
+</figure>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>We would want to pass the new question into BERT to get a single vector that represents the
+   meaning of the question.</li>
+<li>Compare the vector of the new question to the vectors of all other questions using a similarity
+   metric (i.e. cosine similarity).</li>
+<li>Return the nearest neighbours as the most related questions to the new question.</li>
+</ol>
+<p>Therefore, for every new question asked, we only require a single forward pass of the BERT model
+<a href="#warning">not 100 million times as mentioned before</a>. This is great because computing simple
+similarity metrics between vectors is much cheaper than passing in all questions on the platform
+through the complex model every time you need to make a decision.</p>
+<h3 id="pass-2-sentence-transformers">Pass 2: Sentence Transformers<a class="headerlink" href="#pass-2-sentence-transformers" title="Permanent link">¶</a></h3>
+<p>In the <a href="#pass-1">first pass</a>, a new question is passed into BERT to get a single vector that
+represents the question. However, BERT only gives us word vectors. Therefore, in order to get a
+single vector, you’ll need to somehow aggregate these word vectors by passing it through some unit.</p>
+<p>The most straightforward way of doing this is to take the average of these vectors. This is known as
+mean pooling. Another way is to take the maximum value across every dimension of the embedding. This
+is known as max pooling.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/sbert.png"/>
+<figcaption>BERT outputs vectors for each word so in order to get a vector for the question/sentence, we need to aggregate these word vectors. This is the simplest form of a Sentence Transformer.</figcaption>
+</figure>
+<p>The diagram above shows the simplest form of a Sentence Transformer but the output vector generated
+is extremely poor quality. Its quality is so poor that you might be better off simply taking the
+average of GloVe embeddings (and not even using BERT).</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/excerpt.png"/>
+<figcaption><b>Source:</b> Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks <a href="https://arxiv.org/pdf/1908.10084">https://arxiv.org/pdf/1908.10084</a></figcaption>
+</figure>
+<p><strong>How to get sentence vectors with meaning?</strong></p>
+<p>In order for BERT to create sentence vectors that actually have meaning, we need to further train it
+(fine-tune) on sentence level tasks (refer to <a href="#pass-3">next section</a> for more information).</p>
+<p>Once we train (fine-tune) BERT on one or all of these tasks, the sentence vector generated becomes a
+good representation of the sentence — that is, it encodes the meaning of the sentence very well.</p>
+<p>This is important since it means that closer the vectors are in terms of distance, the more similar
+is the meaning.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In our <a href="#imagine">Quora questioning setting</a>, we would pass every question through the sentence transformer once and store them somewhere for future use. Then when a new question comes in, we pass only that question through the sentence transformer to get the sentence vector representation and then determine the questions with the highest cosine similarity and surface them as related questions. We can find the nearest neighbours through some nearest neighbours techniques:</p>
+<ul>
+<li>ANNOY (Approximate Nearest Neighbours)</li>
+<li>KNN Elastic Search</li>
+</ul>
+</div>
+<h3 id="pass-3-sentence-transformers-training">Pass 3: Sentence Transformers Training <a id="pass-3"></a><a class="headerlink" href="#pass-3-sentence-transformers-training" title="Permanent link">¶</a></h3>
+<p>BERT is good at word representations but we want to make a Sentence Transformer that is good with
+sentence representations. To do this, we fine-tune BERT on any or all of the three sentence related
+tasks:</p>
+<ol>
+<li>Natural Language Inference (NLI)</li>
+<li>Sentence Text Similarity (STS)</li>
+<li>Triplet Dataset</li>
+</ol>
+<h4 id="natural-language-inference-nli">Natural Language Inference (NLI) <a id="nli"></a><a class="headerlink" href="#natural-language-inference-nli" title="Permanent link">¶</a></h4>
+<figure>
+<img alt="quora" src="../../../../../assets/images/nli.png"/>
+<figcaption><b>Natural Language Inference:</b> Does sentence 1 entails or contradicts sentence 2? If neither, the “neutral” category will should be predicted.</figcaption>
+</figure>
+<p>NLI is a task that takes in two sentences and determines if sentence 1 entails or contradicts
+sentence 2 or simply neither. See some examples below:</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>Entailment</strong></p>
+<ul>
+<li>Sentence 1: <em>“Say hello to me!”</em></li>
+<li>Sentence 2: <em>“Greet me!”</em></li>
+</ul>
+<hr/>
+<p><strong>Neutral</strong></p>
+<ul>
+<li>Sentence 1: <em>“Say hello to me!”</em></li>
+<li>Sentence 2: <em>“Two people greeting and playing together.”</em></li>
+</ul>
+<hr/>
+<p><strong>Contradiction</strong></p>
+<ul>
+<li>Sentence 1: <em>“Say hello to me!”</em></li>
+<li>Sentence 2: <em>“You’re ignoring me!”</em></li>
+</ul>
+</div>
+<p>This allows BERT to understand sentence meanings as a whole. For training NLI, a Siamese network is
+used. “Siamese” means twins so we have two of the exact same Sentence Transformer networks connected
+in this fashion.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/siamese-network.png"/>
+<figcaption>A Siamese Network.</figcaption>
+</figure>
+<p>If we want to compare two sentences, we pass them through the different BERT networks to get word
+representations. These word vectors are then combined to create a sentence vector and then
+concatenate the two sentence vectors and their difference. The output is a softmax classification
+which can be one of these three classes — entailment, contradiction or neutral.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/siamese-vectors.png"/>
+<figcaption>Concatenating the two sentence vectors and their difference.</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the mean pooling and concatenation look really arbitrary but they were chosen because they yielded the best results than any other strategy — like choosing max pooling or simply only considering the absolute difference between the vectors instead.</p>
+</div>
+<p>During inference time, we only need the Sentence Transformer piece where we get a question and then
+we get the corresponding sentence vector. This vector is the sentence representation that encodes
+the meaning of the sentence (very well, hopefully).</p>
+<h4 id="sentence-text-similarity-sts">Sentence Text Similarity (STS)<a class="headerlink" href="#sentence-text-similarity-sts" title="Permanent link">¶</a></h4>
+<p>Another task we can use to fine-tune BERT to understand sentences is using STS. Given two sentences,
+output the score of how similar they are.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/sts.png"/>
+<figcaption><b>Sentence Text Similarity:</b> How similar is sentence 1 to sentence 2?</figcaption>
+</figure>
+<p>Just like <a href="#nli">NLI</a>, this is also trained with a Siamese network. During training, we pass the two
+sentences to compare through different Sentence Transformers to get these sentence vectors and then
+compute the cosine similarity between these sentence vectors to get the a value between <span class="arithmatex">\(-1\)</span> and
+<span class="arithmatex">\(1\)</span>. These are then compared to an actual labelled similarity rating on a scale of <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(5\)</span> which
+is normalized to be comparable to the output score. We minimize the squared difference between the
+two so that the model can be trained.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/sts-vectors.png"/>
+<figcaption>Consine similarity between two sentences.</figcaption>
+</figure>
+<h4 id="triplet-dataset">Triplet Dataset<a class="headerlink" href="#triplet-dataset" title="Permanent link">¶</a></h4>
+<p>A third type of task that we can train Sentence Transformers is using a dataset that has triple of
+sentences. The main sentence is called the “anchor”, the next sentence is a sentence that is
+“related” and the last sentence being one that is “unrelated” to the “anchor”.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/triplet.png"/>
+<figcaption><b>Triplet Dataset:</b> One sentence is the anchor, another is a related sentence to the anchor and the other is unrelated.</figcaption>
+</figure>
+<p>We can quickly make this type of dataset by picking a Wikipedia page, then choosing a sentence to be
+the “anchor” and the next sentence in the same paragraph can be chosen as the “related” sentence and
+then choose a sentence from another paragraph as the “unrelated” sentence. See screenshot below for
+an example.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/wiki.png"/>
+<figcaption>Yellow sentence being the anchor. Blue sentence being the related sentence and pink sentence being the unrelated sentence.</figcaption>
+</figure>
+<p>The network is a triplet (not siamese, or twins) of the exact same Sentence Transformer
+architectures. During training, we pass each sentence through a Sentence Transformer to get three
+sentence vectors; <span class="arithmatex">\(S_{a}\)</span>, <span class="arithmatex">\(S_{+}\)</span> and <span class="arithmatex">\(S_{-}\)</span>.</p>
+<p>We want to make sure the distance between the anchor and the related sentence is small and the
+distance between the anchor and unrelated sentence is large. This is so that the meanings are
+learned.</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/loss.png"/>
+<figcaption>Loss to minimize in the Triplet dataset.</figcaption>
+</figure>
+<h4 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h4>
+<p>Regardless which of the tasks is chosen for training the Sentence Transformers, during inference
+time, we should be able to pass in some sentences and generate sentence representation vectors that
+encode the meaning of the sentences very well.</p>
+<h3 id="pass-4-sentence-transformers-inference">Pass 4: Sentence Transformers Inference<a class="headerlink" href="#pass-4-sentence-transformers-inference" title="Permanent link">¶</a></h3>
+<p>Going back to our <a href="#imagine">Data Science job at Quora</a>, how do we recommend similar questions?
+Before additional questions are asked, we want to pass in every single question/sentence through the
+fine-tuned Sentence Transformer to get the corresponding sentence vectors. These vectors are good
+sentence representations (if fine tuning did not go wrong). These vectors all live in a space also
+known as the embedding space <a href="#imagine">as previously seen above</a>.</p>
+<p>Next, when a new question comes in, we pass it through our Sentence Transformer to get the sentence
+representation or sentence embedding. Next, we determine the cosine similarity between the new
+question and every other candidate question. Finally, we will return the closest questions list as
+the related questions.</p>
+<p>For small datasets, we can determine the cosine similarity for a new question with every other
+question but it becomes increasingly harder to do when there are hundreds and millions of questions
+(very common especially on a platform like Quora).</p>
+<figure>
+<img alt="quora" src="../../../../../assets/images/questions.png"/>
+<figcaption>Quora Statistics 2024.</figcaption>
+</figure>
+<p>To solve this issue, there are a couple of algorithms we can use. Spotify uses an
+<a href="https://github.com/spotify/annoy">Approximate Nearest Neighbours algorithm called ANNOY</a> to
+recommend music to you. In this case, songs are embedded into vectors.</p>
+<p>Another way to quickly compute the nearest neighbours is through
+<a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/knn.html">AWS which has an extremely efficient implementation of the k-Nearest Neighbours algorithm</a>.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<h3 id="recurrent-neural-networks">Recurrent Neural Networks<a class="headerlink" href="#recurrent-neural-networks" title="Permanent link">¶</a></h3>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Able to deal with Sequence-to-Sequence problems</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Slow to train and during inference</li>
+<li>Do not truly understand context</li>
+</ul>
+<h3 id="transformers">Transformers<a class="headerlink" href="#transformers" title="Permanent link">¶</a></h3>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Replace Recurrent units with Attention units, addressing past concerns</li>
+<li>Solves Sequence-to-Sequence problems</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Not necessarily complex enough to understand language</li>
+</ul>
+<h3 id="bert">BERT<a class="headerlink" href="#bert" title="Permanent link">¶</a></h3>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Stack of Transformer encoders</li>
+<li>Complex enough to solve a host of NLP problems</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Not good with sentence similarity tasks</li>
+</ul>
+<h3 id="sentence-bert">Sentence BERT<a class="headerlink" href="#sentence-bert" title="Permanent link">¶</a></h3>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Fine tunes BERT on Sentence Similarity Tasks, addressing past concerns</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Next: Best Practices in Retrieval-Augmented Generation" class="md-footer__link md-footer__link--next" href="../../../08/26/best-practices-in-retrieval-augmented-generation/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Best Practices in Retrieval-Augmented Generation
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>
