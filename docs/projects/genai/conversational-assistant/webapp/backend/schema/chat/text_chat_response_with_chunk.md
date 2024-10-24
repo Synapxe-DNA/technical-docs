@@ -1,5 +1,5 @@
 ---
-updated: 30 Septemeber 2024
+updated: 30 September 2024
 authors: Lyndon Lim
 ---
 

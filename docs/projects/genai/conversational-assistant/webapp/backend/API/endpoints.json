@@ -109,10 +109,6 @@
       "FeedbackRequest": {
         "type": "object",
         "properties": {
-          "date_time": {
-            "type": "string",
-            "example": "31/12/9999, 00:00:00"
-          },
           "feedback_type": {
             "type": "string",
             "enum": ["positive", "negative"],
